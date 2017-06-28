@@ -13,6 +13,8 @@ import com.niedzwiecki.przemyslguide.injection.module.ApplicationModule;
 
 public class BoilerplateApplication extends Application  {
 
+    //Added googleServices.json
+
     ApplicationComponent mApplicationComponent;
 
     @Override
@@ -21,7 +23,7 @@ public class BoilerplateApplication extends Application  {
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
-//            Fabric.with(this, new Crashlytics()); renamed packages
+//            Fabric.with(this, new Crashlytics());
         }
     }
 
