@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1077235909227",
+    "firebase_url": "https://przemyslguide-cd452.firebaseio.com",
+    "project_id": "przemyslguide-cd452",
+    "storage_bucket": "przemyslguide-cd452.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077235909227:android:e67c37fd542ee9be",
+        "android_client_info": {
+          "package_name": "com.niedzwiecki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077235909227-a8im98l66toe407hjlvr77toj8t7vhp4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfFJo5ry2wAzqUFDOM_VqkkDL6Gf-W1Zg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
