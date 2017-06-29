@@ -2,6 +2,7 @@ package com.niedzwiecki.przemyslguide.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,7 @@ import butterknife.ButterKnife;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
+import com.niedzwiecki.przemyslguide.databinding.ActivityMainBinding;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.util.DialogFactory;
 
@@ -29,6 +31,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     @Inject RibotsAdapter mRibotsAdapter;
 
     @BindView(R.id.recycler_view) RecyclerView mRecyclerView;
+
+    ActivityMainBinding binding;
 
     /**
      * Return an Intent to start this Activity.
@@ -45,7 +49,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         ButterKnife.bind(this);
 
         mRecyclerView.setAdapter(mRibotsAdapter);
