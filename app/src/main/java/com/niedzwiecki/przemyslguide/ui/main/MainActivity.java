@@ -2,9 +2,8 @@ package com.niedzwiecki.przemyslguide.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
@@ -12,19 +11,13 @@ import com.niedzwiecki.przemyslguide.databinding.ActivityMainBinding;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
 
-import javax.inject.Inject;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainActivity extends BaseActivity {
 
     private static final String EXTRA_TRIGGER_SYNC_FLAG =
             "uk.co.ribot.androidboilerplate.ui.main.MainActivity.EXTRA_TRIGGER_SYNC_FLAG";
 
-/*    @Inject
-    MainViewModel mMainPresenter;
-    @Inject RibotsAdapter mRibotsAdapter;*/
+    //    @Inject RibotsAdapter mRibotsAdapter;*/
+    MainViewModel mainViewModel;
 
     /**
      * Return an Intent to start this Activity.
@@ -35,6 +28,17 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(EXTRA_TRIGGER_SYNC_FLAG, triggerDataSyncOnCreate);
         return intent;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ActivityMainBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mainViewModel = new MainViewModel();
+        binding.setViewModel(mainViewModel);
+        mainViewModel.attachNavigator(this);
     }
 
     @Override
@@ -49,19 +53,10 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void afterViews(Bundle savedInstanceState) {
-        super.afterViews(savedInstanceState);
-    }
-
-    @Override
     public void afterViews() {
         super.afterViews();
-/*        mRecyclerView.setAdapter(mRibotsAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));*/
-//        mMainPresenter.attachView(this);
-//        mMainPresenter.loadRibots();
         setViewModel(createViewModel());
-        getViewModel().showTimber();
+
         if (getIntent().getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
             startService(SyncService.getStartIntent(this));
         }
@@ -82,5 +77,13 @@ public class MainActivity extends BaseActivity {
     public ActivityMainBinding getViewDataBinding() {
         return (ActivityMainBinding) super.getViewDataBinding();
 
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (viewModel != null) {
+            viewModel.attachNavigator(this);
+        }
     }
 }

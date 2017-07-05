@@ -2,6 +2,7 @@ package com.niedzwiecki.przemyslguide.ui.base;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -163,7 +164,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     @Override
     public void startActivity(Class<? extends Activity> activityClass) {
-
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 
     @Override
@@ -178,7 +180,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     @Override
     public void startActivity(Class<? extends Activity> activityClass, Bundle bundle) {
-
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 
     @Override
