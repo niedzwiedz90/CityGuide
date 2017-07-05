@@ -5,7 +5,7 @@ package com.niedzwiecki.przemyslguide.ui.base;
  * attachView() and detachView(). It also handles keeping a reference to the mvpView that
  * can be accessed from the children classes by calling getMvpView().
  */
-public class BasePresenter<T extends MvpView> implements Presenter<T> {
+public class BasePresenter<T extends ViewModel> implements Presenter<T> {
 
     private T mMvpView;
 
@@ -33,7 +33,7 @@ public class BasePresenter<T extends MvpView> implements Presenter<T> {
 
     public static class MvpViewNotAttachedException extends RuntimeException {
         public MvpViewNotAttachedException() {
-            super("Please call Presenter.attachView(MvpView) before" +
+            super("Please call Presenter.attachView(ViewModel) before" +
                     " requesting data to the Presenter");
         }
     }
