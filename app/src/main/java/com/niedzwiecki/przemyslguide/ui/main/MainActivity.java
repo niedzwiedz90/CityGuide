@@ -26,8 +26,6 @@ public class MainActivity extends BaseActivity {
     MainViewModel mMainPresenter;
     @Inject RibotsAdapter mRibotsAdapter;*/
 
-    @BindView(R.id.recycler_view) RecyclerView mRecyclerView;
-
     /**
      * Return an Intent to start this Activity.
      * triggerDataSyncOnCreate allows disabling the background sync service onCreate. Should
@@ -37,13 +35,6 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(EXTRA_TRIGGER_SYNC_FLAG, triggerDataSyncOnCreate);
         return intent;
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        activityComponent().inject(this);
-        ButterKnife.bind(this);
     }
 
     @Override
@@ -70,7 +61,7 @@ public class MainActivity extends BaseActivity {
 //        mMainPresenter.attachView(this);
 //        mMainPresenter.loadRibots();
         setViewModel(createViewModel());
-
+        getViewModel().showTimber();
         if (getIntent().getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
             startService(SyncService.getStartIntent(this));
         }

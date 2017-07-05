@@ -26,19 +26,6 @@ public class MainViewModel extends BaseViewModel {
     public MainViewModel() {
         mDataManager = null;
     }
-/*
-
-    @Override
-    public void attachView(MainMvpView mvpView) {
-        super.attachView(mvpView);
-    }
-
-    @Override
-    public void detachView() {
-        super.detachView();
-        if (mSubscription != null) mSubscription.unsubscribe();
-    }
-*/
 
     public void loadRibots() {
 //        checkViewAttached();
@@ -67,4 +54,6 @@ public class MainViewModel extends BaseViewModel {
                     }
                 });
     }
+
+
 }
