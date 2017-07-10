@@ -45,7 +45,7 @@ public interface Navigator {
     void startActivityForResult(Class<? extends Activity> activityClass, Bundle bundle, int requestCode);
 
     enum Options {
-        SHOW_KEYBOARD
+        SHOW_RIBOTS, SHOW_KEYBOARD
     }
 
 }
