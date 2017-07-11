@@ -3,11 +3,13 @@ package com.niedzwiecki.przemyslguide.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.location.places.Place;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
@@ -52,7 +54,7 @@ public class MainActivity extends BaseActivity {
      * triggerDataSyncOnCreate allows disabling the background sync service onCreate. Should
      * only be set to false during testing.
      */
-    public static Intent getStartIntent(Context context, boolean triggerDataSyncOnCreate) {
+    public static Intent getStartIntentRibot(Context context, boolean triggerDataSyncOnCreate) {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(EXTRA_TRIGGER_SYNC_FLAG, triggerDataSyncOnCreate);
         return intent;
