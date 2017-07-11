@@ -3,13 +3,13 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
-
-import butterknife.BindView;
 
 import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.RIBOT_KEY;
 
@@ -18,10 +18,10 @@ import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.RIBOT_KEY;
  */
 
 public class PlaceDetailsActivity extends BaseActivity {
-
+    /*
     @BindView(R.id.textOfRibot)
     TextView textView;
-
+*/
 
     private Ribot ribot;
 
@@ -35,9 +35,18 @@ public class PlaceDetailsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_place_details);
 
-        if(getIntent().hasExtra(RIBOT_KEY)) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      /*  setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+*/
+        if (getIntent().hasExtra(RIBOT_KEY)) {
             ribot = (Ribot) getIntent().getSerializableExtra(RIBOT_KEY);
 
             /*textView.setText(String.format("%s %s",
