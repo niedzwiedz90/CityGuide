@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
+
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 
@@ -44,6 +47,7 @@ public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewH
         holder.nameTextView.setText(String.format("%s %s",
                 ribot.profile().name().first(), ribot.profile().name().last()));
         holder.emailTextView.setText(ribot.profile().email());
+        holder.setIsRecyclable(true);
     }
 
     @Override
@@ -51,7 +55,11 @@ public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewH
         return mRibots.size();
     }
 
-    class RibotViewHolder extends RecyclerView.ViewHolder {
+    public Ribot getRibot(int position) {
+        return mRibots.get(position);
+    }
+
+    class RibotViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener{
 
         @BindView(R.id.view_hex_color) View hexColorView;
         @BindView(R.id.text_name) TextView nameTextView;
@@ -60,6 +68,11 @@ public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewH
         public RibotViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
         }
     }
 }
