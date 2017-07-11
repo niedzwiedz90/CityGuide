@@ -2,6 +2,7 @@ package com.niedzwiecki.przemyslguide.ui.base;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -11,9 +12,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.niedzwiecki.przemyslguide.BoilerplateApplication;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.injection.component.ActivityComponent;
 import com.niedzwiecki.przemyslguide.injection.component.ConfigPersistentComponent;
+import com.niedzwiecki.przemyslguide.injection.component.DaggerConfigPersistentComponent;
+import com.niedzwiecki.przemyslguide.injection.module.ActivityModule;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -54,7 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
         // Create the ActivityComponent and reuses cached ConfigPersistentComponent if this is
         // being called after a configuration change.
-        /*mActivityId = savedInstanceState != null ?
+        mActivityId = savedInstanceState != null ?
                 savedInstanceState.getLong(KEY_ACTIVITY_ID) : NEXT_ID.getAndIncrement();
         ConfigPersistentComponent configPersistentComponent;
         if (!sComponentsMap.containsKey(mActivityId)) {
@@ -69,13 +73,11 @@ public abstract class BaseActivity extends AppCompatActivity implements
         }
         mActivityComponent = configPersistentComponent.activityComponent(new ActivityModule(this));
 
-        */
-
         beforeViews();
         if (contentId() != 0 && !dataBindingEnabled) {
             setContentView(contentId());
         } else if (contentId() != 0 && dataBindingEnabled) {
-            viewDataBinding = DataBindingUtil.setContentView(this, contentId());
+//            viewDataBinding = DataBindingUtil.setContentView(this, contentId());
         } else {
             Timber.d("You didn't setup content layout at: %s", getClass().getName());
         }
@@ -163,7 +165,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     @Override
     public void startActivity(Class<? extends Activity> activityClass) {
-
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 
     @Override
@@ -178,7 +181,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     @Override
     public void startActivity(Class<? extends Activity> activityClass, Bundle bundle) {
-
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 
     @Override

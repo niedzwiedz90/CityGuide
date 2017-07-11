@@ -37,12 +37,12 @@ public class MainViewModelTest {
     @Before
     public void setUp() {
         mMainPresenter = new MainViewModel(mMockDataManager);
-        mMainPresenter.attachView(mMockMainMvpView);
+//        mMainPresenter.attachView(mMockMainMvpView);
     }
 
     @After
     public void tearDown() {
-        mMainPresenter.detachView();
+//        mMainPresenter.detachView();
     }
 
     @Test

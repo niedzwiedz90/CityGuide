@@ -11,7 +11,7 @@ import java.io.Serializable;
  * Created by niedzwiedz on 29.06.17.
  */
 
-interface Navigator {
+public interface Navigator {
 
     void moveForward(Options options, Object... data);
     void finish();
@@ -45,7 +45,7 @@ interface Navigator {
     void startActivityForResult(Class<? extends Activity> activityClass, Bundle bundle, int requestCode);
 
     enum Options {
-        SHOW_KEYBOARD
+        SHOW_RIBOTS, SHOW_KEYBOARD
     }
 
 }

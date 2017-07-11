@@ -1,9 +1,12 @@
 package com.niedzwiecki.przemyslguide.ui.main;
 
+import android.view.View;
+
 import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
-import com.niedzwiecki.przemyslguide.injection.ConfigPersistent;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
+import com.niedzwiecki.przemyslguide.ui.base.Navigator;
+import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 import com.niedzwiecki.przemyslguide.util.RxUtil;
 
 import java.util.List;
@@ -16,15 +19,14 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
-@ConfigPersistent
 public class MainViewModel extends BaseViewModel {
 
     private final DataManager mDataManager;
     private Subscription mSubscription;
 
     @Inject
-    public MainViewModel() {
-        mDataManager = null;
+    public MainViewModel(DataManager dataManager) {
+        mDataManager = dataManager;
     }
 
     public void loadRibots() {
@@ -46,14 +48,19 @@ public class MainViewModel extends BaseViewModel {
 
                     @Override
                     public void onNext(List<Ribot> ribots) {
-                        if (ribots.isEmpty()) {
-//                            getMvpView().showRibotsEmpty();
+                        if (!ribots.isEmpty()) {
+                            getNavigator().moveForward(Navigator.Options.SHOW_RIBOTS, ribots);
+                            Timber.d("SHOWING RIBOTS !!!");
                         } else {
-//                            getMvpView().showRibots(ribots);
+                            Timber.d("NOT SHOWING");
                         }
                     }
                 });
     }
 
+    public void onMapClick(@SuppressWarnings("unused") View view) {
+        getNavigator().startActivity(MapsActivity.class);
+        Timber.d("ONCLICK  NA MAPBUTTON");
+    }
 
 }
