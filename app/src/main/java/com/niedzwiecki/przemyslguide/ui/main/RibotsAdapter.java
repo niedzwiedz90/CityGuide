@@ -1,6 +1,7 @@
 package com.niedzwiecki.przemyslguide.ui.main;
 
 import android.graphics.Color;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,8 @@ public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewH
     class RibotViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener{
 
         @BindView(R.id.view_hex_color) View hexColorView;
+
+        @Nullable
         @BindView(R.id.text_name) TextView nameTextView;
         @BindView(R.id.text_email) TextView emailTextView;
 

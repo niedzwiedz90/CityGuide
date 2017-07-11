@@ -52,10 +52,8 @@
 
         <activity
             android:name="com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
         </activity>
-
-
     </application>
 
 </manifest>
