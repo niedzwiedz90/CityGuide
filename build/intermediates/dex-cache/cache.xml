@@ -30,6 +30,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/a53adadb73478d7d742645d7280d92b99b022f59/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6c70d6584718e62dcca7c893a7444f8fa14c2c2d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/niedzwiedz/.android/build-cache/0957c0784976a89684a4de724c3b9a92aee8a3bd/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -277,7 +286,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="0f03256d2fddba938e59981a8f50e669240fc8bf">
+        sha1="3896689547db63bd0b4cedc8ea79bbfc998a13c5">
         <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a34fc950bb05544a44648ae9e81e39eb5a021d66/classes.dex" />
     </item>
     <item
