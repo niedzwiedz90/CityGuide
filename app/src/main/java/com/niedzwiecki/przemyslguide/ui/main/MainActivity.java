@@ -91,9 +91,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void openDetail(Ribot ribot) {
-        Intent placeDetailActivity = new Intent(this, PlaceDetailsActivity.class);
-        placeDetailActivity.putExtra(RIBOT_KEY, ribot);
-        startActivity(placeDetailActivity);
+        startActivity(PlaceDetailsActivity.getStartIntent(this, ribot));
     }
 
     @Override

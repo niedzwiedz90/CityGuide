@@ -174,6 +174,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_4e5977b5538fa61f8f8c5f40d34f8508999bfdab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/niedzwiedz/.android/build-cache/6546d6d457d95d99617fb0af289eb92de918c8f9/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"

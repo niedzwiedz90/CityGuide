@@ -170,5 +170,7 @@ dependencies {
     annotationProcessor 'com.squareup:javapoet:1.7.0'
     provided 'org.glassfish:javax.annotation:10.0-b28'
 
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
 }
 
