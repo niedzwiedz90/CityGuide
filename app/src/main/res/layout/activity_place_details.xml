@@ -81,7 +81,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/primary_dark"
-        android:src="@drawable/ic_audiotrack"
         app:elevation="6dp"
         app:layout_anchor="@id/appBarLayout"
         app:layout_anchorGravity="bottom|right|end"
