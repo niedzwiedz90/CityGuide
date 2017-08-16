@@ -1,3 +1,4 @@
+
 apply plugin: 'com.android.application'
 apply from: '../config/quality/quality.gradle'
 apply plugin: 'com.github.triplet.play'
@@ -23,6 +24,7 @@ android {
         // You must set up an environment var before release signing
         // Run: export APP_KEY={password}
         // TODO Add your release keystore in /keystore folder
+
         release {
             storeFile file('keystore/release.keystore')
             keyAlias 'alias'
@@ -73,6 +75,7 @@ android {
     dataBinding {
         enabled = true
     }
+
 
 }
 
@@ -168,11 +171,4 @@ dependencies {
     testCompile "org.hamcrest:hamcrest-integration:$HAMCREST_VERSION"
     testCompile 'org.robolectric:robolectric:3.1'
 }
-
-// Log out test results to console
-tasks.matching { it instanceof Test }.all {
-    testLogging.events = ["failed", "passed", "skipped"]
-}
-
-apply plugin: 'com.google.gms.google-services'
 

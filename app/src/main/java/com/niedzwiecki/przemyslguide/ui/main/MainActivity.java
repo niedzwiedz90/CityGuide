@@ -3,13 +3,11 @@ package com.niedzwiecki.przemyslguide.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.location.places.Place;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
@@ -75,18 +73,17 @@ public class MainActivity extends BaseActivity {
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, mRecyclerView,
                 new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Ribot ribot = mRibotsAdapter.getRibot(position);
-//                onRibotClicked.sendRibot(ribot);
-                openDetail(ribot);
-            }
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Ribot ribot = mRibotsAdapter.getRibot(position);
+                        openDetail(ribot);
+                    }
 
-            @Override
-            public void onLongItemClick(View view, int position) {
+                    @Override
+                    public void onLongItemClick(View view, int position) {
 
-            }
-        }));
+                    }
+                }));
 
         mainViewModel.attachNavigator(this);
         mainViewModel.loadRibots();

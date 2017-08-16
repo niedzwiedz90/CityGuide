@@ -9,6 +9,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:backgroundTint="@color/accent">
+    android:background="@color/primary_dark">
 
 </LinearLayout>
