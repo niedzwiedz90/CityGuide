@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
@@ -15,7 +15,7 @@ import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 
-import timber.log.Timber;
+import butterknife.BindView;
 
 import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.RIBOT_KEY;
 
@@ -25,17 +25,10 @@ import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.RIBOT_KEY;
 
 public class PlaceDetailsActivity extends BaseActivity {
 
-    /*
-    @BindView(R.id.textOfRibot)
+    @BindView(R.id.textOfRibot2)
     TextView textView;
-*/
-    private Ribot ribot;
 
-    public static Intent getStartIntentRibot(Context context, Ribot event) {
-        Intent intent = new Intent(context, PlaceDetailsActivity.class);
-        intent.putExtra(RIBOT_KEY, event);
-        return intent;
-    }
+    private Ribot ribot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +42,6 @@ public class PlaceDetailsActivity extends BaseActivity {
 
         if (getIntent().hasExtra(RIBOT_KEY)) {
             ribot = (Ribot) getIntent().getSerializableExtra(RIBOT_KEY);
-
             FloatingActionButton fabButton = (FloatingActionButton) findViewById(R.id.fabButton);
             fabButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -59,8 +51,11 @@ public class PlaceDetailsActivity extends BaseActivity {
                 }
             });
 
-            /*textView.setText(String.format("%s %s",
-                    ribot.profile().name().first(), ribot.profile().name().last()));*/
+            if (ribot != null) {
+                textView.setText(String.format("%s %s",
+                        ribot.profile().name().first(), ribot.profile().name().last()));
+            }
+
         }
 
     }

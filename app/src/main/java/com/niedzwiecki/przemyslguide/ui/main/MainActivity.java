@@ -76,7 +76,6 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         Ribot ribot = mRibotsAdapter.getRibot(position);
-//                onRibotClicked.sendRibot(ribot);
                         openDetail(ribot);
                     }
 
