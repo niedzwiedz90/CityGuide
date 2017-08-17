@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.niedzwiecki.przemyslguide.R;
+import com.niedzwiecki.przemyslguide.data.model.Ribot;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +19,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import timber.log.Timber;
-
-import com.niedzwiecki.przemyslguide.R;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
 
 public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewHolder> {
 
@@ -60,13 +59,16 @@ public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewH
         return mRibots.get(position);
     }
 
-    class RibotViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener{
+    class RibotViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
 
-        @BindView(R.id.view_hex_color) View hexColorView;
+        @BindView(R.id.view_hex_color)
+        View hexColorView;
 
         @Nullable
-        @BindView(R.id.text_name) TextView nameTextView;
-        @BindView(R.id.text_email) TextView emailTextView;
+        @BindView(R.id.text_name)
+        TextView nameTextView;
+        @BindView(R.id.text_email)
+        TextView emailTextView;
 
         public RibotViewHolder(View itemView) {
             super(itemView);

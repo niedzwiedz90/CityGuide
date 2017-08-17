@@ -1,12 +1,9 @@
 package com.niedzwiecki.przemyslguide.ui.main;
 
-import android.view.View;
-
 import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
-import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 import com.niedzwiecki.przemyslguide.util.RxUtil;
 
 import java.util.List;
@@ -57,10 +54,4 @@ public class MainViewModel extends BaseViewModel {
                     }
                 });
     }
-
-    public void onMapClick(@SuppressWarnings("unused") View view) {
-        getNavigator().startActivity(MapsActivity.class);
-        Timber.d("ONCLICK  NA MAPBUTTON");
-    }
-
 }

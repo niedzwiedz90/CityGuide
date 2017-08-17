@@ -42,6 +42,9 @@ public class PlaceDetailsActivity extends BaseActivity {
     @BindView(R.id.coverImage)
     AppCompatImageView coverImage;
 
+    @BindView(R.id.mailTextView)
+    TextView mailTextView;
+
     private Ribot ribot;
 
     public static Intent getStartIntent(Context context, Ribot ribot) {
@@ -90,6 +93,12 @@ public class PlaceDetailsActivity extends BaseActivity {
             descriptionTextView.setVisibility(View.GONE);
         } else {
             descriptionTextView.setText(ribot.profile().bio());
+        }
+
+        if (Utils.isEmpty(ribot.profile().email())) {
+            mailTextView.setVisibility(View.GONE);
+        } else {
+            mailTextView.setText(ribot.profile().email());
         }
 
         if (!Utils.isEmpty(ribot.profile().avatar())) {
