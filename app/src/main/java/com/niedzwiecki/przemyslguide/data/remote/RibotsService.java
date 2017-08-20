@@ -35,5 +35,11 @@ public interface RibotsService {
                     .build();
             return retrofit.create(RibotsService.class);
         }
+
+        public static GsonBuilder provideGson() {
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+            return gsonBuilder;
+        }
     }
 }

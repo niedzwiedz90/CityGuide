@@ -3,8 +3,12 @@ package com.niedzwiecki.przemyslguide.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -14,10 +18,13 @@ import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.databinding.ActivityMainBinding;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
+import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 import com.niedzwiecki.przemyslguide.util.DialogFactory;
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
 
@@ -43,6 +50,12 @@ public class MainActivity extends BaseActivity {
     @Inject
     MainViewModel mainViewModel;
 
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
+
+    @BindView(R.id.drawerLayout)
+    DrawerLayout drawerLayout;
+
     ActivityMainBinding binding;
 
     OnRibotClicked onRibotClicked;
@@ -62,13 +75,14 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
      /*   binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(mainViewModel);
 */
+
+        ButterKnife.bind(this);
+
         mRecyclerView.setAdapter(mRibotsAdapter);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, mRecyclerView,
@@ -88,6 +102,30 @@ public class MainActivity extends BaseActivity {
         mainViewModel.attachNavigator(this);
         mainViewModel.loadRibots();
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.isChecked()) {
+                    item.setChecked(false);
+                } else {
+                    item.setChecked(true);
+                }
+
+                drawerLayout.closeDrawers();
+
+                switch (item.getItemId()) {
+
+                    case R.id.navMap:
+                        startActivity(MapsActivity.class);
+                        return true;
+                    case R.id.nav_share:
+                        Toast.makeText(getApplicationContext(), "Stared Selected", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default:
+                        return true;
+                }
+            }
+        });
     }
 
     private void openDetail(Ribot ribot) {
@@ -109,6 +147,7 @@ public class MainActivity extends BaseActivity {
     public void afterViews() {
         super.afterViews();
         setViewModel(createViewModel());
+
 
         if (getIntent().getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
             startService(SyncService.getStartIntent(this));
@@ -150,6 +189,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    //MVP
     public void showRibots(List<Ribot> ribots) {
         mRibotsAdapter.setRibots(ribots);
         mRibotsAdapter.notifyDataSetChanged();
@@ -168,6 +208,24 @@ public class MainActivity extends BaseActivity {
 
     public interface OnRibotClicked {
         void sendRibot(Ribot ribot);
+
     }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getBaseContext().getAssets().open("InterestPlace.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
 
 }

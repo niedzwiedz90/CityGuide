@@ -57,10 +57,15 @@ public class PlaceDetailsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+    }
+
+    @Override
+    public void afterViews() {
+        super.afterViews();
+
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_place_details);
         ButterKnife.bind(this);
 
         getSupportActionBar().hide();
@@ -72,7 +77,6 @@ public class PlaceDetailsActivity extends BaseActivity {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(PlaceDetailsActivity.this, "FAB CLICK", Toast.LENGTH_SHORT).show();
-                    startActivity(MapsActivity.class);
                 }
             });
 
@@ -118,6 +122,6 @@ public class PlaceDetailsActivity extends BaseActivity {
 
     @Override
     public int contentId() {
-        return 0;
+        return R.layout.activity_place_details;
     }
 }

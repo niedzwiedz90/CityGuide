@@ -3,8 +3,8 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:title="Import" />
+            android:id="@+id/navMap"
+            android:title="@string/showMap" />
     </group>
 
     <item android:title="Communicate">
