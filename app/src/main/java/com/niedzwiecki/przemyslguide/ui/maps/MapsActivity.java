@@ -15,7 +15,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.util.RequestPermissionHelper;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
+        GoogleMap.OnCameraMoveListener {
 
     private GoogleMap mMap;
     private GoogleApiClient apiClient;
@@ -34,7 +35,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-//        setupApiClient();
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(50.0614300, 19.9365800);
@@ -73,5 +73,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void updateLocation(double latitude, double longitude) {
         LatLng location = new LatLng(latitude, longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+    }
+
+    @Override
+    public void onCameraMove() {
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(50.0614300, 19.9365800),
+                15f));
     }
 }

@@ -77,7 +77,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
         if (contentId() != 0 && !dataBindingEnabled) {
             setContentView(contentId());
         } else if (contentId() != 0 && dataBindingEnabled) {
-//            viewDataBinding = DataBindingUtil.setContentView(this, contentId());
+            viewDataBinding = DataBindingUtil.setContentView(this, contentId());
         } else {
             Timber.d("You didn't setup content layout at: %s", getClass().getName());
         }
