@@ -3,84 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.3.0_4208f706c05058335ac04b625fb4907391ae5c1b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/416766812b1156a0685bd653d4a78f73390c1e10/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="0c46a5a897439810b6c437ce188bd07d9d8dffb0">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2fbb0dd5e29d52ab28e4ef938ce5ca6de80620c8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_35593f1da27af42021a11ac3ca015e2f6e86ddc4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/0957c0784976a89684a4de724c3b9a92aee8a3bd/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="e176fd06c2ad5b50a2f5cb4de6000a83a7cb48f5">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2a91c10833334840a022870f8f5b2b167c5823e9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_35593f1da27af42021a11ac3ca015e2f6e86ddc4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/3bb8fbbfe804d0340a8ff68f1ac3e15944cb1042/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="eae43a93e0fdd57199326ce3c038172b132065a5">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2fb1dcaf12a4e532ac5eb7bd7ea6416658866e7a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.4.0_37560aa6ef97cb6a1bd7cd03a1f4e397feac7c05/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/c2dc12df5ffad1488bd9882356368de192e7422e/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_abd73ebcf058f6a0ca25588ffb1052abc5f85a7d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/16e6703ec53913d5d326be37d4508d82ae871063/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="2d8334c5cb1948de5dde77f8b72c82991af32f8a">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bc2076800e3097000816616f98ccde02c7a571ba/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -102,21 +30,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/6bd7a9455683997d8165c0f7eb00e6fb6473e570/output/jars/classes.jar"
+        jar="/home/niedzwiedz/.android/build-cache/9c63a2e21e79295358cff30808a8244c5208cd35/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_022d00c546fe15d84d46038c1266589514238847/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/ef1aec96ee501f70ea068bd89fd08a90360591e6/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9935891f23923f39d002087085d9696568a9f657">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dcca58bf269d8283473fce08727b54019553952b/classes.dex" />
+        revision="26.0.0"
+        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dd2bac351c1785ff2c1f36a9df5e52e026f2df31/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -138,12 +57,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/8bcf863ed80ebb50be68aae66b40ed429dbbe973/output/jars/classes.jar"
+        jar="/home/niedzwiedz/.android/build-cache/6ed7451649f0b83fb50de63c712cbf75a3572a5d/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_91ee61d3e2bb5c17213e393364a7cb79fb77c4f0/classes.dex" />
+        revision="26.0.0"
+        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0bb8e60263a776089a9156340dc36026de229d51/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -174,6 +93,348 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/be55d231662515c0b37f0dd2465d0228f66d92cf/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3b787027207395c9b30a9caf31ffa57239386b00/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/0e8b93e8465b96fa55bdb82e4c4189aba650d95c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_89917c3460a12e624412c64ec950a24f093462b3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/134a262a9a88381a7d06a4eaf6b4ca704525de7b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1fdff6adf07fdda50b2311ad21d3923106d4643a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/72aa99ae34ce1817fdbf55398d05f42e3e44647c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3575e73a22dce98f0bdbcdb475ef55a84606a9a6">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ccbd132ff994b01e5c33eceb34cd3f64ca2dec63/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava/2.1.0/693eddc23e87ab13f9cf5001707ce8e7e1d1ff01/adapter-rxjava-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/adapter-rxjava-2.1.0_5913c79f784a401afd8de0d67e7b1f50d89fecd0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/408196823949cbaeb30af20ec5e737dc121c45e9/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a06db76ca02e8550acfa0b6400107e5310364e5b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/83d87820281773decd70e4ffd328339fc55679b2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7f2f348b830f292429db987f74ba3e67c6752322">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b25e900dec3ecd5c83b5bf8c637d9a3492b7eb1a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.8.0_2fffd898e291553528911134e2eff73d662d07b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/1df08703c29d2c9c14f35400647176f731c65932/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7a8b9da6204d18af4133e00854d6901e58593b46/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f1a8c87649d02e45467391f42b9b26405d3eb03d">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a34fc950bb05544a44648ae9e81e39eb5a021d66/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/78113514eeb129798bc38329fa18a916e5c07c3a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2f9a9b21b70965cde70f6eb8f2ee68794fb482e6">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_486aaf2423b235cf92f64f388721a96c8546fe9a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/ad365ba7181d54315a7f54fa59856f8d922722e4/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d9584194a3b5853d645b098582f490ba9e9f90d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/9d511260d020eaead0f8cb07c9f49c611bf0fcef/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8865e8c9e423a8864d61f39297ccdbff01da597c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/8e222db8e952115c0b90e4bdc59fe858d6bc09a2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9e0be7175e5e03fd7cfd2bdeba74c04c10ab101f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/fd56f100dc628e818d071ae675fc06a5e49545ee/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2ed5a202cff1826c6247755bce35fe9ef2084a08/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/f55048b26de03b351f2bcacd89602f352c7ae05e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_862d218fcd8ad0687c07056013097d233ffae927/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.5/571f4e0451db64a7b41dbeb5f2503986fe5acdb4/dagger-2.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="571f4e0451db64a7b41dbeb5f2503986fe5acdb4">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/dagger-2.5_8ac619883b4bac3ddbcfc0c0be2ecce93d9eeb5a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/237e69a493c666c42718df0d8813e96839e001af/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0149515d64857335efd750292a889a21c45c6f17/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_480cac0192cf3c9ea1584af1fcdc07e917324ff0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.3.0_4208f706c05058335ac04b625fb4907391ae5c1b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/416766812b1156a0685bd653d4a78f73390c1e10/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="0c46a5a897439810b6c437ce188bd07d9d8dffb0">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2fbb0dd5e29d52ab28e4ef938ce5ca6de80620c8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/9a66641406d6024313c574ef375dada6e2c71e0e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_23ee606ac592bb67716ee3d2e2fae740a348952d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/dbd8880bd06b1bc971fb72fabd8a84321e8da886/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cf7e53ca7dff29b0f601f4751504ab609244559d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/0957c0784976a89684a4de724c3b9a92aee8a3bd/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="e176fd06c2ad5b50a2f5cb4de6000a83a7cb48f5">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2a91c10833334840a022870f8f5b2b167c5823e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_35593f1da27af42021a11ac3ca015e2f6e86ddc4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/a0e00f437c9a8f381145c86cf27cc58bb65b237f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_acb58d4be0527c9561faa5f8c73cfb614226c975/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/3bb8fbbfe804d0340a8ff68f1ac3e15944cb1042/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="eae43a93e0fdd57199326ce3c038172b132065a5">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2fb1dcaf12a4e532ac5eb7bd7ea6416658866e7a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.4.0_37560aa6ef97cb6a1bd7cd03a1f4e397feac7c05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/697fa9edd149c4047573b1d067c6d6655dce7758/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c0846fa6088f7a467634aa8e0b4a825dedbfe17f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/c2dc12df5ffad1488bd9882356368de192e7422e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_abd73ebcf058f6a0ca25588ffb1052abc5f85a7d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/16e6703ec53913d5d326be37d4508d82ae871063/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2d8334c5cb1948de5dde77f8b72c82991af32f8a">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bc2076800e3097000816616f98ccde02c7a571ba/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/27a15ed6daf769c11b1336c27134d0ea68d0caa8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1b1a3d09ad3207aa729ec0bffb8825aed5a8fc40/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/6bd7a9455683997d8165c0f7eb00e6fb6473e570/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_022d00c546fe15d84d46038c1266589514238847/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/ef1aec96ee501f70ea068bd89fd08a90360591e6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dcca58bf269d8283473fce08727b54019553952b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/cbc7bb6315c5bffe360343ca71a12e9d37a00900/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ef5fdd19e72b3b4d6bdc95221aaa21b2364b446c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/8bcf863ed80ebb50be68aae66b40ed429dbbe973/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_91ee61d3e2bb5c17213e393364a7cb79fb77c4f0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/cab4c443df2e74e2cbf56dcc9714251bb9db04f3/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f3d0f889b14e423867784de89396719278350177/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/niedzwiedz/.android/build-cache/78bb0538cdd08e4ca8ece3277d4227e302a71d35/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a504d756287e5a4d1cb364edb62e46c985848f1f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="true"
         optimize="true"
@@ -201,15 +462,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/72aa99ae34ce1817fdbf55398d05f42e3e44647c/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="3575e73a22dce98f0bdbcdb475ef55a84606a9a6">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ccbd132ff994b01e5c33eceb34cd3f64ca2dec63/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
         jumboMode="true"
         optimize="true"
@@ -219,39 +471,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava/2.1.0/693eddc23e87ab13f9cf5001707ce8e7e1d1ff01/adapter-rxjava-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/adapter-rxjava-2.1.0_5913c79f784a401afd8de0d67e7b1f50d89fecd0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
         sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
         <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-gson-2.1.0_154e21c38da2a168f7558059c7b43d24edb5b836/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/83d87820281773decd70e4ffd328339fc55679b2/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="7f2f348b830f292429db987f74ba3e67c6752322">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b25e900dec3ecd5c83b5bf8c637d9a3492b7eb1a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.8.0_2fffd898e291553528911134e2eff73d662d07b1/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -286,7 +511,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="4d546d2df2d241bd3ade0194daf2b26c38703179">
+        sha1="5494b61727173583dc71c11c78331378e783aa48">
         <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a34fc950bb05544a44648ae9e81e39eb5a021d66/classes.dex" />
     </item>
     <item
@@ -300,21 +525,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f1a8c87649d02e45467391f42b9b26405d3eb03d">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a34fc950bb05544a44648ae9e81e39eb5a021d66/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/78113514eeb129798bc38329fa18a916e5c07c3a/output/jars/classes.jar"
+        jar="/home/niedzwiedz/.android/build-cache/708cfcf980ca9417d06730ea9e77b5889f9b674d/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="2f9a9b21b70965cde70f6eb8f2ee68794fb482e6">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_486aaf2423b235cf92f64f388721a96c8546fe9a/classes.dex" />
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_303288ea89e719c6bc3c4a50b75f2ae51f002761/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -327,21 +543,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/8e222db8e952115c0b90e4bdc59fe858d6bc09a2/output/jars/classes.jar"
+        jar="/home/niedzwiedz/.android/build-cache/6edac66ad611f2150f765bad5b9b645346bc990c/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9e0be7175e5e03fd7cfd2bdeba74c04c10ab101f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/niedzwiedz/.android/build-cache/f55048b26de03b351f2bcacd89602f352c7ae05e/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_862d218fcd8ad0687c07056013097d233ffae927/classes.dex" />
+        revision="26.0.0"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_266fbe9aa83a182067639f7ba65a228c690cc5c0/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -354,21 +561,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.5/571f4e0451db64a7b41dbeb5f2503986fe5acdb4/dagger-2.5.jar"
+        jar="/home/niedzwiedz/.android/build-cache/5c999bd7c64300e99b4a1903218bdcbc96f363c2/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="571f4e0451db64a7b41dbeb5f2503986fe5acdb4">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/dagger-2.5_8ac619883b4bac3ddbcfc0c0be2ecce93d9eeb5a/classes.dex" />
+        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9bf32a83de80640e6b7faf688641a5f6759a7968/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/niedzwiedz/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jar="/home/niedzwiedz/.android/build-cache/d65c378f932caf56ce348cd889ad52c36b20a304/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="023ee503b631f69511e335a061ea008f8da60f40">
-        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_480cac0192cf3c9ea1584af1fcdc07e917324ff0/classes.dex" />
+        revision="26.0.0"
+        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
+        <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_09ea4ff69a2fc60a41718ceabe351e8a0beadadb/classes.dex" />
     </item>
     <item
         is-multidex="true"
