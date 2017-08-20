@@ -80,7 +80,6 @@ public class MainActivity extends BaseActivity {
                 DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(mainViewModel);
 */
-
         ButterKnife.bind(this);
 
         mRecyclerView.setAdapter(mRibotsAdapter);

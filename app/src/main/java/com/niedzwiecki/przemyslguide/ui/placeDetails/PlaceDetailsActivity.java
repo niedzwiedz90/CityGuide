@@ -68,8 +68,6 @@ public class PlaceDetailsActivity extends BaseActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
 
-        getSupportActionBar().hide();
-
         ribot = getIntent().getExtras().getParcelable(RIBOT_KEY);
         if (ribot != null) {
             FloatingActionButton fabButton = (FloatingActionButton) findViewById(R.id.fabButton);
