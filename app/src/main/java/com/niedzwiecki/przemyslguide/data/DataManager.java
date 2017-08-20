@@ -1,5 +1,10 @@
 package com.niedzwiecki.przemyslguide.data;
 
+import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
+import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
+import com.niedzwiecki.przemyslguide.data.model.Ribot;
+import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,10 +12,6 @@ import javax.inject.Singleton;
 
 import rx.Observable;
 import rx.functions.Func1;
-import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
-import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
-import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
 
 @Singleton
 public class DataManager {

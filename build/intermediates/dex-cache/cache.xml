@@ -286,7 +286,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="63d757414dcb12e4494430a7075daddaf7a0a814">
+        sha1="4d546d2df2d241bd3ade0194daf2b26c38703179">
         <dex dex="/home/niedzwiedz/git/przemyslguide/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a34fc950bb05544a44648ae9e81e39eb5a021d66/classes.dex" />
     </item>
     <item
