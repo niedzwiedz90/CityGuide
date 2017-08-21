@@ -23,15 +23,15 @@ public class DataManager {
     private final RibotsService mRibotsService;
     private final DatabaseHelper mDatabaseHelper;
     private final PreferencesHelper mPreferencesHelper;
-//    private final StringManager stringManager;
+    private final StringManager stringManager;
 
     @Inject
     public DataManager(RibotsService ribotsService, PreferencesHelper preferencesHelper,
-                       DatabaseHelper databaseHelper) {
+                       DatabaseHelper databaseHelper, StringManager stringManager) {
         mRibotsService = ribotsService;
         mPreferencesHelper = preferencesHelper;
         mDatabaseHelper = databaseHelper;
-
+        this.stringManager = stringManager;
     }
 
     public PreferencesHelper getPreferencesHelper() {
@@ -53,8 +53,7 @@ public class DataManager {
     }
 
     public String getString(int stringId) {
-//        return stringManager.getStringFromStringResource(stringId);
-        return "";
+        return stringManager.getStringFromStringResource(stringId);
     }
 
     public boolean contains(PreferencesKeys key) {

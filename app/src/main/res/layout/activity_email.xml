@@ -88,6 +88,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="@dimen/marginSmall"
                 android:onClick="@{viewModel.startPasswordActivity}"
+                android:visibility="@{viewModel.nextButtonVisibility}"
                 android:text="@string/nextButton"
                 android:textColor="@android:color/white"
                 android:textColorHighlight="@color/primary_light"

@@ -19,9 +19,6 @@ import javax.inject.Inject;
 
 public class EmailViewModel extends BaseViewModel {
 
-    public static final int START_EMAIL_ACTIVITY = 0;
-    public static final int START_MAIN_ACTIVITY = 2;
-
     DataManager dataManager;
 
     public ObservableField<String> emailAddressFromEditText;
@@ -70,12 +67,10 @@ public class EmailViewModel extends BaseViewModel {
         if (Utils.isEmpty(email)) {
             showValidationErrorMessage(dataManager.
                     getString(StringManager.ERROR_EMPTY_EMAIL_ADDRESS_VALIDATION));
-            nextButtonVisibility.set(View.INVISIBLE);
         } else if (!Utils.isValidEmail(email)) {
             showValidationErrorMessage(dataManager.
                     getString(StringManager.ERROR_INVALID_EMAIL_ADDRESS));
-            nextButtonVisibility.set(View.INVISIBLE);
-        } else {
+        } else if (Utils.isValidEmail(email)) {
             nextButtonVisibility.set(View.VISIBLE);
             errorVisibility.set(View.INVISIBLE);
         }

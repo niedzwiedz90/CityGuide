@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.niedzwiecki.przemyslguide.R;
@@ -64,7 +63,7 @@ public class PasswordActivity extends BaseActivity implements Navigator {
         super.moveForward(options, data);
         switch (options) {
             case START_MAIN_ACTIVITY:
-                startActivity(MainActivity.class);
+                MainActivity.start(this, (String) data[0]);
                 break;
         }
 

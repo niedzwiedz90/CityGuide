@@ -42,7 +42,7 @@ public class DataManagerTest {
     @Before
     public void setUp() {
         mDataManager = new DataManager(mMockRibotsService, mMockPreferencesHelper,
-                mMockDatabaseHelper);
+                mMockDatabaseHelper, stringManager);
     }
 
     @Test

@@ -29,6 +29,6 @@ public interface ApplicationComponent {
     DatabaseHelper databaseHelper();
     DataManager dataManager();
     RxEventBus eventBus();
-//    StringManager stringManager();
+    StringManager stringManager();
 
 }
