@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.niedzwiecki.przemyslguide.ui.login.email.EmailViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_light"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/mailLoginLabelsArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:padding="@dimen/paddingSmall">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputUserNameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginSmall"
+                android:minWidth="@dimen/minimumEditTextWidth"
+                android:textColorHint="@color/accent">
+
+                <EditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:hint="@string/enterMailDescription"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:minWidth="@dimen/minimumEditTextWidth"
+                    android:onClick="@{viewModel.onClickEmailAddress}"
+                    app:addTextChangedListener="@{viewModel.getEmailAddressTextWatcher}"
+                    android:textColorHint="@color/accent"
+                    android:textSize="@dimen/textSizeBig"
+                    tool:text="TOOLS" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/addressMailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/marginSmall"
+                android:layout_marginTop="@dimen/marginBigger"
+                android:layout_toRightOf="@id/inputUserNameEditText"
+                android:clickable="true"
+                android:text="@string/mailHint"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSizeBig" />
+
+            <TextView
+                android:id="@+id/emailErrorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inputUserNameEditText"
+                android:gravity="center"
+                android:text="@{viewModel.validationEmailAddressError}"
+                android:textColor="@android:color/holo_red_dark" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true">
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="@dimen/minimumNextButtonWidth"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/marginSmall"
+                android:onClick="@{viewModel.startPasswordActivity}"
+                android:text="@string/nextButton"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="@color/primary_light"
+                android:textColorHint="@color/primary" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>
+
+

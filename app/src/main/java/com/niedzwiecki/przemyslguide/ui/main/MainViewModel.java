@@ -1,6 +1,7 @@
 package com.niedzwiecki.przemyslguide.ui.main;
 
 import com.niedzwiecki.przemyslguide.data.DataManager;
+import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
@@ -18,18 +19,18 @@ import timber.log.Timber;
 
 public class MainViewModel extends BaseViewModel {
 
-    private final DataManager mDataManager;
+    private final DataManager dataManager;
     private Subscription mSubscription;
 
     @Inject
     public MainViewModel(DataManager dataManager) {
-        mDataManager = dataManager;
+        this.dataManager = dataManager;
     }
 
     public void loadRibots() {
 //        checkViewAttached();
         RxUtil.unsubscribe(mSubscription);
-        mSubscription = mDataManager.getRibots()
+        mSubscription = dataManager.getRibots()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<List<Ribot>>() {
@@ -53,6 +54,12 @@ public class MainViewModel extends BaseViewModel {
                         }
                     }
                 });
+    }
+
+    public void logout() {
+        dataManager.getPreferencesHelper().clearAuthenticationHeader(PreferencesKeys.LOGION_HEADER);
+        getNavigator().moveForward(Navigator.Options.START_EMAIL_ACTIVITY);
+        getNavigator().finish();
     }
 
 }

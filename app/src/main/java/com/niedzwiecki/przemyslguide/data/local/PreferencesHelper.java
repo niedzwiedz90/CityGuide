@@ -24,4 +24,20 @@ public class PreferencesHelper {
         mPref.edit().clear().apply();
     }
 
+    public boolean contains(PreferencesKeys key) {
+        return mPref.contains(key.name());
+    }
+
+    public String getAuthenticationHeader(PreferencesKeys key) {
+        return mPref.getString(key.name(), null);
+    }
+
+    public void setAuthenticationHeader(PreferencesKeys key, String loginHeader) {
+        mPref.edit().putString(key.name(), loginHeader).apply();
+    }
+
+    public void clearAuthenticationHeader(PreferencesKeys key) {
+        mPref.edit().remove(key.name()).apply();
+    }
+
 }

@@ -7,9 +7,10 @@ import android.os.Bundle;
  * Created by niedzwiedz on 29.06.17.
  */
 
-public class BaseViewModel extends BaseObservable implements ViewModel {
+public class BaseViewModel<T extends Navigator> extends BaseObservable implements ViewModel {
 
     Navigator navigator;
+    private T context;
 
     @Override
     public void attachNavigator(Navigator navigator) {
@@ -45,6 +46,12 @@ public class BaseViewModel extends BaseObservable implements ViewModel {
     public void restoreInstanceState(Bundle bundle) {
 
     }
+
+    @Override
+    public void attachContext(Navigator context) {
+        this.context = (T) context;
+    }
+
 
     public boolean isNavigatorAttached() {
         return navigator != null;

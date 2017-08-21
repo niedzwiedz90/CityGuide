@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import rx.Observable;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
+import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
 import com.niedzwiecki.przemyslguide.util.MyGsonTypeAdapterFactory;
 
 public interface RibotsService {
@@ -19,6 +20,8 @@ public interface RibotsService {
 
     @GET("ribots")
     Observable<List<Ribot>> getRibots();
+
+    Observable<SuppliesModel> getSupplies(String format);
 
     /******** Helper class that sets up a new services *******/
     class Creator {

@@ -9,9 +9,42 @@
 
     <string name="empty_ribots">There aren\'t any ribots</string>
     <string name="error_loading_ribots">There was a problem loading the ribots</string>
+
     <string name="loremIpsum">Czym jest Lorem Ipsum?
-Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker</string>
+        Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.
+        Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki.
+        Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym.
+        Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum,
+        a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych,
+        jak Aldus PageMaker</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_details">Details</string>
     <string name="showMap">Show map</string>
+
+    <string name="action_logout">Logout</string>
+
+    <!--activity_email-->
+    <string name="enterMailDescription">Your name</string>
+    <string name="mailHint">\@gmail.com</string>
+    <string name="mailLoginDescription">This is the addres that you use for the team site.</string>
+    <string name="nextButton">Next</string>
+
+    <!--Validation Error-->
+    <string name="emptyEmailAddressValidation">email address can not be empty</string>
+    <string name="invalidEmailAddress">invalid email address</string>
+    <string name="emptyPasswordValidation">empty password</string>
+    <string name="passwordDescription">Enter your password</string>
+    <string name="notEnoughPasswordChars">password must be at least 4 chars long</string>
+
+    <!--Navigation Drawer-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Buttons-->
+    <string name="logout">Logout</string>
+
+    <!--Errors-->
+    <string name="emptyListDescription">The list is empty.</string>
+    <string name="noInternetError">No internet connection.</string>
+
 </resources>

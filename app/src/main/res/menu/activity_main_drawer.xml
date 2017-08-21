@@ -7,11 +7,11 @@
             android:title="@string/showMap" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Options">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:title="Share" />
+                android:id="@+id/navLogout"
+                android:title="@string/logout" />
         </menu>
     </item>
 
