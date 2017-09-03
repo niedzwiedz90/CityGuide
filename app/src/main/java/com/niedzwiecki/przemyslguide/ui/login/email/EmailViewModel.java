@@ -72,6 +72,7 @@ public class EmailViewModel extends BaseViewModel {
                     getString(StringManager.ERROR_INVALID_EMAIL_ADDRESS));
         } else if (Utils.isValidEmail(email)) {
             nextButtonVisibility.set(View.VISIBLE);
+            validationEmailAddressError.set("");
             errorVisibility.set(View.INVISIBLE);
         }
     }
