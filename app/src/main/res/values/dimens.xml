@@ -43,4 +43,46 @@
     <dimen name="huge_padding">36dp</dimen>
     <dimen name="xxhuge_padding">60dp</dimen>
 
+    <!--paddingSizes-->
+    <dimen name="paddingHuge">34sp</dimen>
+    <dimen name="paddingBiggest">24dp</dimen>
+    <dimen name="paddingBigger">20dp</dimen>
+    <dimen name="paddingBig">18dp</dimen>
+    <dimen name="paddingGreater">16dp</dimen>
+    <dimen name="paddingNormal">14sp</dimen>
+    <dimen name="paddingLower">12dp</dimen>
+    <dimen name="paddingSmall">8dp</dimen>
+    <dimen name="paddingSmaller">6dp</dimen>
+    <dimen name="paddingSmallest">4dp</dimen>
+    <dimen name="paddingTiny">2dp</dimen>
+
+    <!--marginSizes-->
+    <dimen name="marginHuge">34sp</dimen>
+    <dimen name="marginBiggest">26dp</dimen>
+    <dimen name="marginBigger">20dp</dimen>
+    <dimen name="marginBig">18dp</dimen>
+    <dimen name="marginGreater">16dp</dimen>
+    <dimen name="marginNormal">14sp</dimen>
+    <dimen name="marginLower">12dp</dimen>
+    <dimen name="marginSmall">10dp</dimen>
+    <dimen name="marginSmaller">8dp</dimen>
+    <dimen name="marginSmallest">6dp</dimen>
+    <dimen name="marginTiny">4dp</dimen>
+
+    <!--fieldsDimens-->
+    <dimen name="minimumEditTextWidth">165dp</dimen>
+    <dimen name="minimumNextButtonWidth">180dp</dimen>
+    <dimen name="minimumPasswordViewHeight">200dp</dimen>
+    <dimen name="minimumPasswordEditTextWidth">205dp</dimen>
+
+    <!--toolBarDimen-->
+    <dimen name="toolBarHeight">50dp</dimen>
+
+    <!--text-->
+    <dimen name="textSizeSmall">12sp</dimen>
+    <dimen name="textSizeMedium">14sp</dimen>
+    <dimen name="textSizeRegular">16sp</dimen>
+    <dimen name="textSizeBig">20sp</dimen>
+    <dimen name="textSizeBigger">34sp</dimen>
+
 </resources>

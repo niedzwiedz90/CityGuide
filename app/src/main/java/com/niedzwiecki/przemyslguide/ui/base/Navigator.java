@@ -45,7 +45,11 @@ public interface Navigator {
     void startActivityForResult(Class<? extends Activity> activityClass, Bundle bundle, int requestCode);
 
     enum Options {
-        SHOW_RIBOTS, SHOW_KEYBOARD
+        SHOW_RIBOTS,
+        SHOW_KEYBOARD,
+        START_PASSWORD_ACTIVITY,
+        START_EMAIL_ACTIVITY,
+        START_MAIN_ACTIVITY
     }
 
 }

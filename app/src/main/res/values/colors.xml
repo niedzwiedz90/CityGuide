@@ -5,4 +5,6 @@
     <color name="primary_light">#5e91f2</color>
     <color name="accent">#FFFFFF</color>
     <color name="gray">#ffdfdfdf</color>
+    <color name="royalBlueColor">#624CAB</color>
+
 </resources>

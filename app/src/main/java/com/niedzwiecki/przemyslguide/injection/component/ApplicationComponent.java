@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import com.niedzwiecki.przemyslguide.data.DataManager;
+import com.niedzwiecki.przemyslguide.data.StringManager;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
@@ -28,5 +29,6 @@ public interface ApplicationComponent {
     DatabaseHelper databaseHelper();
     DataManager dataManager();
     RxEventBus eventBus();
+    StringManager stringManager();
 
 }

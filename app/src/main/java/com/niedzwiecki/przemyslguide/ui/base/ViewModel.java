@@ -24,5 +24,6 @@ public interface ViewModel {
 
     void restoreInstanceState(Bundle bundle);
 
+    void attachContext(Navigator context);
 
 }

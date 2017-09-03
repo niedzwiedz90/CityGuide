@@ -1,5 +1,6 @@
 package com.niedzwiecki.przemyslguide.ui.main;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +11,15 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
-import com.niedzwiecki.przemyslguide.databinding.ActivityMainBinding;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
+import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity;
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 import com.niedzwiecki.przemyslguide.util.DialogFactory;
@@ -32,6 +34,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KEY;
 
 public class MainActivity extends BaseActivity {
 
@@ -56,9 +60,9 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
 
-    ActivityMainBinding binding;
-
     OnRibotClicked onRibotClicked;
+
+    private String email;
 
     /**
      * Return an Intent to start this Activity.
@@ -69,6 +73,13 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(EXTRA_TRIGGER_SYNC_FLAG, triggerDataSyncOnCreate);
         return intent;
+    }
+
+    public static void start(Activity context, String email) {
+        Intent starter = new Intent(context, MainActivity.class);
+        starter.putExtra(EMAIL_KEY, email);
+        context.startActivity(starter);
+        context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override
@@ -82,6 +93,17 @@ public class MainActivity extends BaseActivity {
 */
         ButterKnife.bind(this);
 
+        if (getIntent().hasExtra(EMAIL_KEY)) {
+            email = getIntent().getStringExtra(EMAIL_KEY);
+            View header = navigationView.getHeaderView(0);
+            TextView name = (TextView) header.findViewById(R.id.emailInfo);
+            name.setText(email);
+        }
+
+        init();
+    }
+
+    private void init() {
         mRecyclerView.setAdapter(mRibotsAdapter);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, mRecyclerView,
@@ -113,12 +135,11 @@ public class MainActivity extends BaseActivity {
                 drawerLayout.closeDrawers();
 
                 switch (item.getItemId()) {
-
                     case R.id.navMap:
                         startActivity(MapsActivity.class);
                         return true;
-                    case R.id.nav_share:
-                        Toast.makeText(getApplicationContext(), "Stared Selected", Toast.LENGTH_SHORT).show();
+                    case R.id.navLogout:
+                        mainViewModel.logout();
                         return true;
                     default:
                         return true;
@@ -146,8 +167,6 @@ public class MainActivity extends BaseActivity {
     public void afterViews() {
         super.afterViews();
         setViewModel(createViewModel());
-
-
         if (getIntent().getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
             startService(SyncService.getStartIntent(this));
         }
@@ -161,13 +180,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public MainViewModel getViewModel() {
         return (MainViewModel) super.getViewModel();
-
-    }
-
-    @Override
-    public ActivityMainBinding getViewDataBinding() {
-        return (ActivityMainBinding) super.getViewDataBinding();
-
     }
 
     @Override
@@ -184,7 +196,20 @@ public class MainActivity extends BaseActivity {
         switch (options) {
             case SHOW_RIBOTS:
                 List<Ribot> ribots = (List<Ribot>) data[0];
+                ribots.add(ribots.get(5));
+                ribots.add(ribots.get(1));
+                ribots.add(ribots.get(2));
+                ribots.add(ribots.get(3));
+                ribots.add(ribots.get(4));
+                ribots.add(ribots.get(5));
+                ribots.add(ribots.get(1));
+                ribots.add(ribots.get(2));
+                ribots.add(ribots.get(3));
                 showRibots(ribots);
+                break;
+            case START_EMAIL_ACTIVITY:
+                EmailActivity.start(this);
+                break;
         }
     }
 
@@ -225,6 +250,5 @@ public class MainActivity extends BaseActivity {
         }
         return json;
     }
-
 
 }
