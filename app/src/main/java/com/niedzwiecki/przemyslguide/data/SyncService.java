@@ -50,7 +50,7 @@ public class SyncService extends Service {
         }
 
         RxUtil.unsubscribe(mSubscription);
-        mSubscription = mDataManager.syncRibots()
+       /* mSubscription = mDataManager.syncRibots()
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Observer<Ribot>() {
                     @Override
@@ -69,7 +69,7 @@ public class SyncService extends Service {
                     @Override
                     public void onNext(Ribot ribot) {
                     }
-                });
+                });*/
 
         return START_STICKY;
     }
