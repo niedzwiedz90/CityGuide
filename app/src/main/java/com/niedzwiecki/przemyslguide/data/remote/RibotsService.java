@@ -26,7 +26,7 @@ public interface RibotsService {
 /*    @GET("ribots")
     Observable<List<Ribot>> getRibots();*/
 
-    @GET("v2/59ae38041300006d03035607")
+    @GET("v2/59ae474d130000f203035657")
     Observable<PlacesResponse> getRibots();
 
     Observable<SuppliesModel> getSupplies(String format);

@@ -79,6 +79,7 @@ public class PlaceDetailsActivity extends BaseActivity {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(PlaceDetailsActivity.this, "FAB CLICK", Toast.LENGTH_SHORT).show();
+                    startActivity(MapsActivity.getStartIntent(getBaseContext(), ribot));
                 }
             });
 
@@ -108,12 +109,13 @@ public class PlaceDetailsActivity extends BaseActivity {
             AnimationSet animation = new AnimationSet(true);
             animation.addAnimation(fadeIn);
             coverImage.setAnimation(animation);
-//            coverImage.setBackgroundColor(Color.parseColor(ribot.profile().hexColor()));
             Picasso.with(this)
                     .load(ribot.image)
                     .resize(700, 700)
                     .centerCrop()
                     .into(coverImage);
+        } else {
+            coverImage.setVisibility(View.GONE);
         }
 
         adapter = new PlaceDetailViewPager();

@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
@@ -27,9 +26,6 @@ import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 import com.niedzwiecki.przemyslguide.util.DialogFactory;
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -62,7 +58,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
 
-    OnRibotClicked onRibotClicked;
+    OnRibotClicked onRibotClickedJUST;
 
     private String email;
 
