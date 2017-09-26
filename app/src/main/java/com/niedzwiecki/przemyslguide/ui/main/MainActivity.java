@@ -12,10 +12,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
+import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
@@ -25,9 +26,6 @@ import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 import com.niedzwiecki.przemyslguide.util.DialogFactory;
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -60,7 +58,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
 
-    OnRibotClicked onRibotClicked;
+    OnRibotClicked onRibotClickedJUST;
 
     private String email;
 
@@ -110,7 +108,7 @@ public class MainActivity extends BaseActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Ribot ribot = mRibotsAdapter.getRibot(position);
+                        InterestPlace ribot = mRibotsAdapter.getRibot(position);
                         openDetail(ribot);
                     }
 
@@ -148,7 +146,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void openDetail(Ribot ribot) {
+    private void openDetail(InterestPlace ribot) {
         startActivity(PlaceDetailsActivity.getStartIntent(this, ribot));
     }
 
@@ -195,17 +193,26 @@ public class MainActivity extends BaseActivity {
         super.moveForward(options, data);
         switch (options) {
             case SHOW_RIBOTS:
-                List<Ribot> ribots = (List<Ribot>) data[0];
-                ribots.add(ribots.get(5));
-                ribots.add(ribots.get(1));
-                ribots.add(ribots.get(2));
-                ribots.add(ribots.get(3));
-                ribots.add(ribots.get(4));
-                ribots.add(ribots.get(5));
-                ribots.add(ribots.get(1));
-                ribots.add(ribots.get(2));
-                ribots.add(ribots.get(3));
-                showRibots(ribots);
+                PlacesResponse placesResponse = (PlacesResponse) data[0];
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(1));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(3));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(1));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(3));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(1));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(3));
+                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
+                showRibots(placesResponse.interestPlaces);
                 break;
             case START_EMAIL_ACTIVITY:
                 EmailActivity.start(this);
@@ -214,7 +221,7 @@ public class MainActivity extends BaseActivity {
     }
 
     //MVP
-    public void showRibots(List<Ribot> ribots) {
+    public void showRibots(List<InterestPlace> ribots) {
         mRibotsAdapter.setRibots(ribots);
         mRibotsAdapter.notifyDataSetChanged();
     }
@@ -225,30 +232,14 @@ public class MainActivity extends BaseActivity {
     }
 
     public void showRibotsEmpty() {
-        mRibotsAdapter.setRibots(Collections.<Ribot>emptyList());
+        /*mRibotsAdapter.setRibots(Collections.<Ribot>emptyList());
         mRibotsAdapter.notifyDataSetChanged();
-        Toast.makeText(this, R.string.empty_ribots, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.empty_ribots, Toast.LENGTH_LONG).show();*/
     }
 
     public interface OnRibotClicked {
         void sendRibot(Ribot ribot);
 
-    }
-
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getBaseContext().getAssets().open("InterestPlace.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
     }
 
 }
