@@ -2,7 +2,8 @@ package com.niedzwiecki.przemyslguide.ui.main;
 
 import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
+import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.util.RxUtil;
@@ -26,6 +27,7 @@ public class MainViewModel extends BaseViewModel {
     public MainViewModel(DataManager dataManager) {
         this.dataManager = dataManager;
     }
+/*
 
     public void loadRibots() {
 //        checkViewAttached();
@@ -54,6 +56,33 @@ public class MainViewModel extends BaseViewModel {
                         }
                     }
                 });
+    }
+*/
+
+    public void loadRibots() {
+//        checkViewAttached();
+        RxUtil.unsubscribe(mSubscription);
+        mSubscription = dataManager.getRibots()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+               .subscribe(new Subscriber<PlacesResponse>() {
+                   @Override
+                   public void onCompleted() {
+
+                   }
+
+                   @Override
+                   public void onError(Throwable e) {
+                       Timber.d("ERROR RESPONSE --->" + e);
+
+                   }
+
+                   @Override
+                   public void onNext(PlacesResponse placesResponse) {
+                        Timber.d("PLACES RESPONSE --->" + placesResponse);
+                       getNavigator().moveForward(Navigator.Options.SHOW_RIBOTS, placesResponse);
+                   }
+               });
     }
 
     public void logout() {

@@ -3,6 +3,8 @@ package com.niedzwiecki.przemyslguide.data;
 import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
+import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
 import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
@@ -38,7 +40,7 @@ public class DataManager {
         return mPreferencesHelper;
     }
 
-    public Observable<Ribot> syncRibots() {
+  /*  public Observable<Ribot> syncRibots() {
         return mRibotsService.getRibots()
                 .concatMap(new Func1<List<Ribot>, Observable<Ribot>>() {
                     @Override
@@ -46,11 +48,18 @@ public class DataManager {
                         return mDatabaseHelper.setRibots(ribots);
                     }
                 });
-    }
+    }*/
 
+/*
     public Observable<List<Ribot>> getRibots() {
         return mDatabaseHelper.getRibots().distinct();
     }
+*/
+
+    public Observable<PlacesResponse> getRibots() {
+        return mRibotsService.getRibots();
+    }
+
 
     public String getString(int stringId) {
         return stringManager.getStringFromStringResource(stringId);

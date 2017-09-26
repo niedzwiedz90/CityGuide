@@ -46,5 +46,6 @@
     <!--Errors-->
     <string name="emptyListDescription">The list is empty.</string>
     <string name="noInternetError">No internet connection.</string>
+    <string name="try_again">try again</string>
 
 </resources>
