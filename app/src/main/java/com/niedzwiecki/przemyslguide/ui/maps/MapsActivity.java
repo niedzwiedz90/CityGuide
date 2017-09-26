@@ -1,7 +1,9 @@
 package com.niedzwiecki.przemyslguide.ui.maps;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -12,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -156,6 +159,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(getIntent().hasExtra(RIBOT_KEY)) {
+            Intent intent = new Intent(this, MapsActivity.class);
+            intent.putExtra(RIBOT_KEY, ribot);
+            setResult(Activity.RESULT_OK, intent);
+        }
+
+        super.onBackPressed();
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;

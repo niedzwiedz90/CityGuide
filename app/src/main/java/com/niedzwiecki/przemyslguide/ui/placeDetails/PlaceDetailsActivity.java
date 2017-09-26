@@ -2,7 +2,6 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.ui.PlaceDetailViewPager;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
@@ -50,7 +48,7 @@ public class PlaceDetailsActivity extends BaseActivity {
     @BindView(R.id.viewPager)
     ViewPager viewPager;
 
-    private InterestPlace ribot;
+    private InterestPlace interestPlace;
     private PlaceDetailViewPager adapter;
 
     public static Intent getStartIntent(Context context, InterestPlace ribot) {
@@ -72,14 +70,15 @@ public class PlaceDetailsActivity extends BaseActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
 
-        ribot = (InterestPlace) getIntent().getExtras().getSerializable(RIBOT_KEY);
-        if (ribot != null) {
+        interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(RIBOT_KEY);
+        if (interestPlace != null) {
             FloatingActionButton fabButton = (FloatingActionButton) findViewById(R.id.fabButton);
             fabButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(PlaceDetailsActivity.this, "FAB CLICK", Toast.LENGTH_SHORT).show();
-                    startActivity(MapsActivity.getStartIntent(getBaseContext(), ribot));
+                    Intent intent = new Intent(MapsActivity.getStartIntent(getBaseContext(), interestPlace));
+                    startActivityForResult(intent, 100);
                 }
             });
 
@@ -87,30 +86,59 @@ public class PlaceDetailsActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void afterViews(Bundle savedInstanceState) {
+        super.afterViews(savedInstanceState);
+        interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(RIBOT_KEY);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        ButterKnife.bind(this);
+        if (interestPlace != null) {
+            FloatingActionButton fabButton = (FloatingActionButton) findViewById(R.id.fabButton);
+            fabButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(PlaceDetailsActivity.this, "FAB CLICK", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MapsActivity.getStartIntent(getBaseContext(), interestPlace));
+                    startActivityForResult(intent, 100);
+                }
+            });
+
+            setData();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && data != null) {
+            afterViews(data.getBundleExtra(RIBOT_KEY));
+        }
+    }
+
     private void setData() {
-        if (Utils.isEmpty(ribot.name)) {
+        if (Utils.isEmpty(interestPlace.name)) {
             nameTextView.setVisibility(View.GONE);
         } else {
-            nameTextView.setText(String.format("%s",
-                    ribot.name));
+            nameTextView.setText(interestPlace.name);
         }
 
-        if (Utils.isEmpty(ribot.address)) {
+        if (Utils.isEmpty(interestPlace.address)) {
             descriptionTextView.setVisibility(View.GONE);
         } else {
-            descriptionTextView.setText(ribot.address);
+            descriptionTextView.setText(interestPlace.address);
         }
 
-            mailTextView.setVisibility(View.GONE);
+        mailTextView.setVisibility(View.GONE);
 
-        if (!Utils.isEmpty(ribot.image)) {
+        if (!Utils.isEmpty(interestPlace.image)) {
             Animation fadeIn = new AlphaAnimation(0, 1);
             fadeIn.setDuration(3000);
             AnimationSet animation = new AnimationSet(true);
             animation.addAnimation(fadeIn);
             coverImage.setAnimation(animation);
             Picasso.with(this)
-                    .load(ribot.image)
+                    .load(interestPlace.image)
                     .resize(700, 700)
                     .centerCrop()
                     .into(coverImage);
