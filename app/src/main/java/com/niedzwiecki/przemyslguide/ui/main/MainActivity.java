@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
     private static final String EXTRA_TRIGGER_SYNC_FLAG =
             "uk.co.ribot.androidboilerplate.ui.main.MainActivity.EXTRA_TRIGGER_SYNC_FLAG";
 
-    public static final String RIBOT_KEY =
+    public static final String INTEREST_PLACE_KEY =
             "com.niedzwiecki.przemyslGuide.PlaceDetailActivity.key";
 
     @Inject

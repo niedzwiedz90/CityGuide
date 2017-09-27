@@ -1,9 +1,7 @@
 package com.niedzwiecki.przemyslguide.ui.maps;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -14,7 +12,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -34,7 +31,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
 
-import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.RIBOT_KEY;
+import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.INTEREST_PLACE_KEY;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -49,9 +46,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private InterestPlace ribot;
 
-    public static Intent getStartIntent(Context context, InterestPlace ribot) {
+    public static Intent getStartIntent(Context context, InterestPlace interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
-        intent.putExtra(RIBOT_KEY, ribot);
+        intent.putExtra(INTEREST_PLACE_KEY, interestPlace);
         return intent;
     }
 
@@ -64,8 +61,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             checkLocationPermission();
         }
 
-        if(getIntent().hasExtra(RIBOT_KEY)) {
-            ribot = (InterestPlace) getIntent().getExtras().getSerializable(RIBOT_KEY);
+        if(getIntent().hasExtra(INTEREST_PLACE_KEY)) {
+            ribot = (InterestPlace) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -159,17 +156,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
 
-    }
-
-    @Override
-    public void onBackPressed() {
-        if(getIntent().hasExtra(RIBOT_KEY)) {
-            Intent intent = new Intent(this, MapsActivity.class);
-            intent.putExtra(RIBOT_KEY, ribot);
-            setResult(Activity.RESULT_OK, intent);
-        }
-
-        super.onBackPressed();
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;

@@ -36,18 +36,12 @@ public abstract class BaseActivity extends AppCompatActivity implements
     private static final String KEY_ACTIVITY_ID = "KEY_ACTIVITY_ID";
     private static final AtomicLong NEXT_ID = new AtomicLong(0);
     private static final Map<Long, ConfigPersistentComponent> sComponentsMap = new HashMap<>();
-    private static final String VERSION_PREFS_UPDATE_NEEDED = "UpdateNeeded";
-    private static final String VERSION_PREFS_LAST_VERSION_TO_UPDATE = "LastVersionToUpdate";
 
     private ActivityComponent mActivityComponent;
     private long mActivityId;
     private ViewDataBinding viewDataBinding;
     private boolean dataBindingEnabled;
     public ViewModel viewModel;
-/*
-    @Nullable
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -255,14 +249,6 @@ public abstract class BaseActivity extends AppCompatActivity implements
             viewModel.detachNavigator();
         }
     }
-
-    /*private void clearPrefs() {
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.remove(VERSION_PREFS_LAST_VERSION_TO_UPDATE);
-        editor.remove(VERSION_PREFS_UPDATE_NEEDED);
-        editor.commit();
-    }
-*/
 
     public ViewModel getViewModel() {
         return viewModel;

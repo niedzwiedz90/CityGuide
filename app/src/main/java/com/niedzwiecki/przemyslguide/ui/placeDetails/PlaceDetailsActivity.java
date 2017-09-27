@@ -3,7 +3,6 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
@@ -18,20 +17,22 @@ import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
 import com.niedzwiecki.przemyslguide.ui.PlaceDetailViewPager;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
+import com.niedzwiecki.przemyslguide.ui.main.MainActivity;
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 import com.niedzwiecki.przemyslguide.util.Utils;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.RIBOT_KEY;
+import butterknife.OnClick;
 
 /**
  * Created by niedzwiedz on 10.07.17.
  */
 
 public class PlaceDetailsActivity extends BaseActivity {
+
+    private static final String INTEREST_PLACE_KEY = "interestPlaceKey";
 
     @BindView(R.id.nameOfRibot)
     TextView nameTextView;
@@ -53,67 +54,50 @@ public class PlaceDetailsActivity extends BaseActivity {
 
     public static Intent getStartIntent(Context context, InterestPlace ribot) {
         Intent intent = new Intent(context, PlaceDetailsActivity.class);
-        intent.putExtra(RIBOT_KEY, ribot);
+        intent.putExtra(MainActivity.INTEREST_PLACE_KEY, ribot);
         return intent;
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void beforeViews() {
+        super.beforeViews();
         activityComponent().inject(this);
     }
 
     @Override
     public void afterViews() {
         super.afterViews();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
+        setScreenFlags();
+        fetchData();
+        setData();
+    }
 
-        interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(RIBOT_KEY);
-        if (interestPlace != null) {
-            FloatingActionButton fabButton = (FloatingActionButton) findViewById(R.id.fabButton);
-            fabButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(PlaceDetailsActivity.this, "FAB CLICK", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MapsActivity.getStartIntent(getBaseContext(), interestPlace));
-                    startActivityForResult(intent, 100);
-                }
-            });
-
-            setData();
+    private void fetchData() {
+        if (getIntent().hasExtra(MainActivity.INTEREST_PLACE_KEY)) {
+            interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(MainActivity.INTEREST_PLACE_KEY);
         }
     }
 
     @Override
     protected void afterViews(Bundle savedInstanceState) {
         super.afterViews(savedInstanceState);
-        interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(RIBOT_KEY);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
-        if (interestPlace != null) {
-            FloatingActionButton fabButton = (FloatingActionButton) findViewById(R.id.fabButton);
-            fabButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(PlaceDetailsActivity.this, "FAB CLICK", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MapsActivity.getStartIntent(getBaseContext(), interestPlace));
-                    startActivityForResult(intent, 100);
-                }
-            });
-
-            setData();
+        setScreenFlags();
+        fetchData();
+        setData();
+        if (savedInstanceState != null) {
+            restoreData(savedInstanceState);
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && data != null) {
-            afterViews(data.getBundleExtra(RIBOT_KEY));
-        }
+    private void restoreData(Bundle savedInstanceState) {
+        interestPlace = (InterestPlace) savedInstanceState.getSerializable(INTEREST_PLACE_KEY);
+    }
+
+    private void setScreenFlags() {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     private void setData() {
@@ -153,5 +137,17 @@ public class PlaceDetailsActivity extends BaseActivity {
     @Override
     public int contentId() {
         return R.layout.activity_place_details;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(INTEREST_PLACE_KEY, interestPlace);
+    }
+
+    @OnClick(R.id.fabButton)
+    public void onFabButtonClick() {
+        Intent intent = new Intent(MapsActivity.getStartIntent(getBaseContext(), interestPlace));
+        startActivity(intent);
     }
 }
