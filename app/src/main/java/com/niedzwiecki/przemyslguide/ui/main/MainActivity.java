@@ -17,13 +17,11 @@ import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
 import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity;
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
-import com.niedzwiecki.przemyslguide.util.DialogFactory;
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener;
 
 import java.util.List;
@@ -58,8 +56,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
 
-    OnRibotClicked onRibotClickedJUST;
-
     private String email;
 
     /**
@@ -84,11 +80,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
-
-     /*   binding =
-                DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setViewModel(mainViewModel);
-*/
         ButterKnife.bind(this);
 
         if (getIntent().hasExtra(EMAIL_KEY)) {
@@ -146,8 +137,8 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void openDetail(InterestPlace ribot) {
-        startActivity(PlaceDetailsActivity.getStartIntent(this, ribot));
+    private void openDetail(InterestPlace interestPlace) {
+        startActivity(PlaceDetailsActivity.getStartIntent(this, interestPlace));
     }
 
     @Override
@@ -224,22 +215,6 @@ public class MainActivity extends BaseActivity {
     public void showRibots(List<InterestPlace> ribots) {
         mRibotsAdapter.setRibots(ribots);
         mRibotsAdapter.notifyDataSetChanged();
-    }
-
-    public void showError() {
-        DialogFactory.createGenericErrorDialog(this, getString(R.string.error_loading_ribots))
-                .show();
-    }
-
-    public void showRibotsEmpty() {
-        /*mRibotsAdapter.setRibots(Collections.<Ribot>emptyList());
-        mRibotsAdapter.notifyDataSetChanged();
-        Toast.makeText(this, R.string.empty_ribots, Toast.LENGTH_LONG).show();*/
-    }
-
-    public interface OnRibotClicked {
-        void sendRibot(Ribot ribot);
-
     }
 
 }
