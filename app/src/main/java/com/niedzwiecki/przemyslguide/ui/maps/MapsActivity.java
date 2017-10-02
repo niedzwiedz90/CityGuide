@@ -30,6 +30,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 
 import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.INTEREST_PLACE_KEY;
 
@@ -38,17 +39,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
-    private GoogleMap mMap;
+    private static final String ALL_PLACES_KEY = "AllPlacesKey";
+    private static final String PLACES_LIST = "PlacesList";
+
+    private GoogleMap map;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     private Location mLastLocation;
     private Marker mCurrLocationMarker;
 
-    private InterestPlace ribot;
+    private InterestPlace interestPlace;
+    private PlacesResponse placesResponse;
 
     public static Intent getStartIntent(Context context, InterestPlace interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
         intent.putExtra(INTEREST_PLACE_KEY, interestPlace);
+        return intent;
+    }
+
+    public static Intent getStartIntent(Context context, PlacesResponse placesResponse, boolean isAllPlaceMap) {
+        Intent intent = new Intent(context, MapsActivity.class);
+        intent.putExtra(PLACES_LIST, placesResponse);
+        intent.putExtra(ALL_PLACES_KEY, isAllPlaceMap);
         return intent;
     }
 
@@ -61,31 +73,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             checkLocationPermission();
         }
 
-        if(getIntent().hasExtra(INTEREST_PLACE_KEY)) {
-            ribot = (InterestPlace) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
+        if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
+            interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
+        } else if (getIntent().hasExtra(PLACES_LIST)) {
+            placesResponse = (PlacesResponse) getIntent().getExtras().getSerializable(PLACES_LIST);
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
 
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        map = googleMap;
+        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
-                mMap.setMyLocationEnabled(true);
+                map.setMyLocationEnabled(true);
             }
         } else {
             buildGoogleApiClient();
-            mMap.setMyLocationEnabled(true);
+            map.setMyLocationEnabled(true);
         }
     }
 
@@ -129,30 +143,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mCurrLocationMarker.remove();
         }
 
-        if (ribot != null) {
-            LatLng latLng = new LatLng(ribot.latLocation, ribot.longLocation);
+        if (placesResponse != null) {
+            setPlacesMarkers(placesResponse);
+        } else if (interestPlace != null) {
+            LatLng latLng = new LatLng(interestPlace.latLocation, interestPlace.longLocation);
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(latLng);
-            markerOptions.title(String.format("lat: %s, long: %s", ribot.latLocation, ribot.longLocation));
+            markerOptions.title(String.format("lat: %s, long: %s", interestPlace.latLocation, interestPlace.longLocation));
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-            mCurrLocationMarker = mMap.addMarker(markerOptions);
+            mCurrLocationMarker = map.addMarker(markerOptions);
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15f);
-            mMap.animateCamera(cameraUpdate);
-        } else {
-            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.position(latLng);
-            markerOptions.title("Current Position");
-            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-            mCurrLocationMarker = mMap.addMarker(markerOptions);
-
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+            map.animateCamera(cameraUpdate);
         }
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
         //stop location updates
-        if (mGoogleApiClient != null) {
+        if (mGoogleApiClient != null)
+
+        {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
 
@@ -209,7 +216,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         if (mGoogleApiClient == null) {
                             buildGoogleApiClient();
                         }
-                        mMap.setMyLocationEnabled(true);
+                        map.setMyLocationEnabled(true);
                     }
 
                 } else {
@@ -223,4 +230,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void setPlacesMarkers(PlacesResponse placesMarkers) {
+        for (InterestPlace placesResponse : placesMarkers.interestPlaces) {
+            if (map != null && placesResponse != null) {
+                LatLng latLng = new LatLng(placesResponse.latLocation, placesResponse.longLocation);
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(latLng);
+                markerOptions.title(String.format("lat: %s, long: %s", placesResponse.latLocation, placesResponse.longLocation));
+                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+                mCurrLocationMarker = map.addMarker(markerOptions);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15f);
+                map.animateCamera(cameraUpdate);
+            }
+        }
+    }
 }
