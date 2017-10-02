@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
             "com.niedzwiecki.przemyslGuide.PlaceDetailActivity.key";
 
     @Inject
-    RibotsAdapter mRibotsAdapter;
+    PlacesAdapter placesAdapter;
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -93,14 +93,14 @@ public class MainActivity extends BaseActivity {
     }
 
     private void init() {
-        mRecyclerView.setAdapter(mRibotsAdapter);
+        mRecyclerView.setAdapter(placesAdapter);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, mRecyclerView,
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        InterestPlace ribot = mRibotsAdapter.getRibot(position);
-                        openDetail(ribot);
+                        InterestPlace places = placesAdapter.getPlace(position);
+                        openDetail(places);
                     }
 
                     @Override
@@ -110,7 +110,7 @@ public class MainActivity extends BaseActivity {
                 }));
 
         mainViewModel.attachNavigator(this);
-        mainViewModel.loadRibots();
+        mainViewModel.loadPlaces();
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -183,27 +183,9 @@ public class MainActivity extends BaseActivity {
     public void moveForward(Options options, Object... data) {
         super.moveForward(options, data);
         switch (options) {
-            case SHOW_RIBOTS:
+            case SHOW_PLACES:
                 PlacesResponse placesResponse = (PlacesResponse) data[0];
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(1));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(3));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(1));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(3));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(1));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(0));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(3));
-                placesResponse.interestPlaces.add(placesResponse.interestPlaces.get(2));
-                showRibots(placesResponse.interestPlaces);
+                showPlaces(placesResponse.interestPlaces);
                 break;
             case START_EMAIL_ACTIVITY:
                 EmailActivity.start(this);
@@ -212,9 +194,9 @@ public class MainActivity extends BaseActivity {
     }
 
     //MVP
-    public void showRibots(List<InterestPlace> ribots) {
-        mRibotsAdapter.setRibots(ribots);
-        mRibotsAdapter.notifyDataSetChanged();
+    public void showPlaces(List<InterestPlace> interestPlaces) {
+        placesAdapter.setPlaces(interestPlaces);
+        placesAdapter.notifyDataSetChanged();
     }
 
 }

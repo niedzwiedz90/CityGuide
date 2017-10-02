@@ -51,7 +51,7 @@ public class MainViewModelTest {
         when(mMockDataManager.getRibots())
                 .thenReturn(Observable.just(ribots));
 
-        mMainPresenter.loadRibots();
+        mMainPresenter.loadPlaces();
         verify(mMockMainMvpView).showRibots(ribots);
         verify(mMockMainMvpView, never()).showRibotsEmpty();
         verify(mMockMainMvpView, never()).showError();
@@ -62,7 +62,7 @@ public class MainViewModelTest {
         when(mMockDataManager.getRibots())
                 .thenReturn(Observable.just(Collections.<Ribot>emptyList()));
 
-        mMainPresenter.loadRibots();
+        mMainPresenter.loadPlaces();
         verify(mMockMainMvpView).showRibotsEmpty();
         verify(mMockMainMvpView, never()).showRibots(ArgumentMatchers.<Ribot>anyList());
         verify(mMockMainMvpView, never()).showError();
@@ -73,7 +73,7 @@ public class MainViewModelTest {
         when(mMockDataManager.getRibots())
                 .thenReturn(Observable.<List<Ribot>>error(new RuntimeException()));
 
-        mMainPresenter.loadRibots();
+        mMainPresenter.loadPlaces();
         verify(mMockMainMvpView).showError();
         verify(mMockMainMvpView, never()).showRibotsEmpty();
         verify(mMockMainMvpView, never()).showRibots(ArgumentMatchers.<Ribot>anyList());

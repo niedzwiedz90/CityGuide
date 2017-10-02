@@ -44,7 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location mLastLocation;
     private Marker mCurrLocationMarker;
 
-    private InterestPlace ribot;
+    private InterestPlace interestPlace;
 
     public static Intent getStartIntent(Context context, InterestPlace interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
@@ -62,7 +62,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         if(getIntent().hasExtra(INTEREST_PLACE_KEY)) {
-            ribot = (InterestPlace) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
+            interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -129,11 +129,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mCurrLocationMarker.remove();
         }
 
-        if (ribot != null) {
-            LatLng latLng = new LatLng(ribot.latLocation, ribot.longLocation);
+        if (interestPlace != null) {
+            LatLng latLng = new LatLng(interestPlace.latLocation, interestPlace.longLocation);
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(latLng);
-            markerOptions.title(String.format("lat: %s, long: %s", ribot.latLocation, ribot.longLocation));
+            markerOptions.title(String.format("lat: %s, long: %s", interestPlace.latLocation, interestPlace.longLocation));
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
             mCurrLocationMarker = mMap.addMarker(markerOptions);
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15f);
