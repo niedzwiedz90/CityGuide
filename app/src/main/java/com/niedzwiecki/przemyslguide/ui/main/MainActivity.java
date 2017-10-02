@@ -57,6 +57,7 @@ public class MainActivity extends BaseActivity {
     DrawerLayout drawerLayout;
 
     private String email;
+    private PlacesResponse placesResponse;
 
     /**
      * Return an Intent to start this Activity.
@@ -112,29 +113,33 @@ public class MainActivity extends BaseActivity {
         mainViewModel.attachNavigator(this);
         mainViewModel.loadPlaces();
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.isChecked()) {
-                    item.setChecked(false);
-                } else {
-                    item.setChecked(true);
-                }
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        if (item.isChecked()) {
+                            item.setChecked(false);
+                        } else {
+                            item.setChecked(true);
+                        }
 
-                drawerLayout.closeDrawers();
+                        drawerLayout.closeDrawers();
 
-                switch (item.getItemId()) {
-                    case R.id.navMap:
-                        startActivity(MapsActivity.class);
-                        return true;
-                    case R.id.navLogout:
-                        mainViewModel.logout();
-                        return true;
-                    default:
-                        return true;
-                }
-            }
-        });
+                        switch (item.getItemId()) {
+                            case R.id.navMap:
+                                if (placesResponse != null) {
+                                    startActivity(MapsActivity.getStartIntent(MainActivity.this,
+                                            placesResponse, true));
+                                }
+                                return true;
+                            case R.id.navLogout:
+                                mainViewModel.logout();
+                                return true;
+                            default:
+                                return true;
+                        }
+                    }
+                });
     }
 
     private void openDetail(InterestPlace interestPlace) {
@@ -184,7 +189,8 @@ public class MainActivity extends BaseActivity {
         super.moveForward(options, data);
         switch (options) {
             case SHOW_PLACES:
-                PlacesResponse placesResponse = (PlacesResponse) data[0];
+                placesResponse = (PlacesResponse) data[0];
+                placesResponse.interestPlaces.remove(3);
                 showPlaces(placesResponse.interestPlaces);
                 break;
             case START_EMAIL_ACTIVITY:
