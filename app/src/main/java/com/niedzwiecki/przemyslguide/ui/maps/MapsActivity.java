@@ -28,8 +28,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.clustering.ClusterManager;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.MyItem;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 
 import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.INTEREST_PLACE_KEY;
@@ -50,6 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private InterestPlace interestPlace;
     private PlacesResponse placesResponse;
+
+    private ClusterManager<MyItem> clusterManager;
 
     public static Intent getStartIntent(Context context, InterestPlace interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
@@ -81,14 +85,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
 
+        mapFragment.getMapAsync(this);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
-        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
@@ -96,6 +100,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
                 map.setMyLocationEnabled(true);
+                setUpCluster();
             }
         } else {
             buildGoogleApiClient();
@@ -135,7 +140,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-
     @Override
     public void onLocationChanged(Location location) {
         mLastLocation = location;
@@ -144,7 +148,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         if (placesResponse != null) {
-            setPlacesMarkers(placesResponse);
+//            setPlacesMarkers(placesResponse);
         } else if (interestPlace != null) {
             LatLng latLng = new LatLng(interestPlace.latLocation, interestPlace.longLocation);
             MarkerOptions markerOptions = new MarkerOptions();
@@ -157,9 +161,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         //stop location updates
-        if (mGoogleApiClient != null)
-
-        {
+        if (mGoogleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
 
@@ -239,8 +241,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 markerOptions.title(String.format("lat: %s, long: %s", placesResponse.latLocation, placesResponse.longLocation));
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = map.addMarker(markerOptions);
-                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15f);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 12f);
                 map.animateCamera(cameraUpdate);
+            }
+        }
+    }
+
+    private void setUpCluster() {
+        if (placesResponse != null) {
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(placesResponse.interestPlaces.get(0)
+                    .latLocation, placesResponse.interestPlaces.get(0).longLocation), 9f));
+            clusterManager = new ClusterManager<MyItem>(this, map);
+            map.setOnCameraIdleListener(clusterManager);
+            map.setOnMarkerClickListener(clusterManager);
+            addItems(placesResponse);
+        }
+    }
+
+    private void addItems(PlacesResponse placesResponse) {
+        for (InterestPlace interestPlace : placesResponse.interestPlaces) {
+            if (map != null) {
+                MyItem offsetItem = new MyItem(interestPlace.latLocation, interestPlace.longLocation);
+                clusterManager.addItem(offsetItem);
             }
         }
     }

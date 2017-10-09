@@ -20,13 +20,9 @@ import com.niedzwiecki.przemyslguide.util.MyGsonTypeAdapterFactory;
 
 public interface RibotsService {
 
-    String ENDPOINT1 = "https://api.ribot.io/";
     String ENDPOINT = "http://www.mocky.io/";
 
-/*    @GET("ribots")
-    Observable<List<Ribot>> getRibots();*/
-
-    @GET("v2/59ae474d130000f203035657")
+    @GET("v2/59dbdd231000005e01ccd1d8")
     Observable<PlacesResponse> getRibots();
 
     Observable<SuppliesModel> getSupplies(String format);
