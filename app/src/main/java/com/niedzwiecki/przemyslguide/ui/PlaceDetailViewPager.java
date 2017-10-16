@@ -19,7 +19,7 @@ public class PlaceDetailViewPager extends PagerAdapter {
     }
 /*
     final ArrayList views = new ArrayList();
-
+/
     @Override
     public int getCount() {
         return POSITION_NONE;
