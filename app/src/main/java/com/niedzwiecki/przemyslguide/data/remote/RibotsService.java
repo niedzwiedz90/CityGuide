@@ -22,7 +22,7 @@ public interface RibotsService {
 
     String ENDPOINT = "http://www.mocky.io/";
 
-    @GET("v2/59dbdd231000005e01ccd1d8")
+    @GET("v2/59e58509110000b00bec68ff")
     Observable<PlacesResponse> getRibots();
 
     Observable<SuppliesModel> getSupplies(String format);

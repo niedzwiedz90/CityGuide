@@ -24,6 +24,7 @@ import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -134,6 +135,20 @@ public class MainActivity extends BaseActivity {
                                 return true;
                             case R.id.navLogout:
                                 mainViewModel.logout();
+                                return true;
+                            case R.id.navMapWithHotels:
+                                if (placesResponse != null) {
+                                    PlacesResponse tempList = new PlacesResponse();
+                                    tempList.interestPlaces = new ArrayList<InterestPlace>();
+                                    for (InterestPlace interestPlace : placesResponse.interestPlaces) {
+                                        if (interestPlace != null && interestPlace.isHotel) {
+                                            tempList.interestPlaces.add(interestPlace);
+                                        }
+                                    }
+
+                                    startActivity(MapsActivity.getStartIntent(MainActivity.this,
+                                            tempList, true));
+                                }
                                 return true;
                             default:
                                 return true;
