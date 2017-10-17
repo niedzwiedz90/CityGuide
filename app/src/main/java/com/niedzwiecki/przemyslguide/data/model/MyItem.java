@@ -10,17 +10,26 @@ import com.google.maps.android.clustering.ClusterItem;
 public class MyItem implements ClusterItem {
 
     private final LatLng mPosition;
-    private String mTitle;
-    private String mSnippet;
+    private String imagePlace;
+
+    public int id;
+    public String image;
+
+    public String namePlace;
+    public String addressPlace;
+
+    InterestPlace interestPlace;
 
     public MyItem(double lat, double lng) {
         mPosition = new LatLng(lat, lng);
     }
 
-    public MyItem(double lat, double lng, String title, String snippet) {
+    public MyItem(double lat, double lng, String name, String address, String image) {
         mPosition = new LatLng(lat, lng);
-        mTitle = title;
-        mSnippet = snippet;
+        namePlace = name;
+        addressPlace = address;
+        imagePlace = image;
+        interestPlace = new InterestPlace(0, image, name, address, lng, lat);
     }
 
     @Override
@@ -30,11 +39,15 @@ public class MyItem implements ClusterItem {
 
     @Override
     public String getTitle() {
-        return mTitle;
+        return namePlace;
     }
 
     @Override
     public String getSnippet() {
-        return mSnippet;
+        return addressPlace;
+    }
+
+    public InterestPlace getInterestPlace() {
+        return interestPlace;
     }
 }

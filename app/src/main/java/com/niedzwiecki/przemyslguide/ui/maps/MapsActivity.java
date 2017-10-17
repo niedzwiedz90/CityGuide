@@ -19,6 +19,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.Place;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -33,6 +34,7 @@ import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
 import com.niedzwiecki.przemyslguide.data.model.MyItem;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
+import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 
 import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.INTEREST_PLACE_KEY;
 
@@ -251,17 +253,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (placesResponse != null) {
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(placesResponse.interestPlaces.get(0)
                     .latLocation, placesResponse.interestPlaces.get(0).longLocation), 9f));
-            clusterManager = new ClusterManager<MyItem>(this, map);
+            clusterManager = new ClusterManager<>(this, map);
             map.setOnCameraIdleListener(clusterManager);
             map.setOnMarkerClickListener(clusterManager);
             addItems(placesResponse);
+            clusterManager.setOnClusterItemClickListener(new ClusterManager.OnClusterItemClickListener<MyItem>() {
+                @Override
+                public boolean onClusterItemClick(MyItem myItem) {
+                    startActivity(PlaceDetailsActivity.getStartIntent(getApplicationContext(), myItem.getInterestPlace()));
+                    finish();
+                    return false;
+                }
+            });
         }
     }
 
     private void addItems(PlacesResponse placesResponse) {
         for (InterestPlace interestPlace : placesResponse.interestPlaces) {
             if (map != null) {
-                MyItem offsetItem = new MyItem(interestPlace.latLocation, interestPlace.longLocation);
+                MyItem offsetItem = new MyItem(
+                        interestPlace.latLocation,
+                        interestPlace.longLocation,
+                        interestPlace.name,
+                        interestPlace.address,
+                        interestPlace.image);
+
                 clusterManager.addItem(offsetItem);
             }
         }
