@@ -5,6 +5,9 @@
         <item
             android:id="@+id/navMap"
             android:title="@string/showMap" />
+        <item
+            android:id="@+id/navMapWithHotels"
+            android:title="@string/showHotels" />
     </group>
 
     <item android:title="Options">

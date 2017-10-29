@@ -13,6 +13,15 @@ public class InterestPlace implements Serializable {
     public String address;
     public double longLocation;
     public double latLocation;
+    public boolean isHotel;
+
+    public boolean isHotel() {
+        return isHotel;
+    }
+
+    public void setHotel(boolean hotel) {
+        isHotel = hotel;
+    }
 
     public InterestPlace(int id, String image, String name, String address, double longLocation, double latLocation) {
         this.id = id;
