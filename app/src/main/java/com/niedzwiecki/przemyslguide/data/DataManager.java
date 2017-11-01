@@ -4,6 +4,8 @@ import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.Place;
+import com.niedzwiecki.przemyslguide.data.model.Places;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
@@ -55,8 +57,14 @@ public class DataManager {
         return mDatabaseHelper.getRibots().distinct();
     }
 */
+/*
 
     public Observable<PlacesResponse> getRibots() {
+        return mRibotsService.getRibots();
+    }
+*/
+
+    public Observable<List<Place>> getRibots() {
         return mRibotsService.getRibots();
     }
 

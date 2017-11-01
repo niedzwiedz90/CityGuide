@@ -2,10 +2,14 @@ package com.niedzwiecki.przemyslguide.ui.main;
 
 import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
+import com.niedzwiecki.przemyslguide.data.model.Place;
+import com.niedzwiecki.przemyslguide.data.model.Places;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.util.RxUtil;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -26,7 +30,7 @@ public class MainViewModel extends BaseViewModel {
     }
 
     public void loadPlaces() {
-        RxUtil.unsubscribe(mSubscription);
+        RxUtil.unsubscribe(mSubscription);/*
         mSubscription = dataManager.getRibots()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -46,7 +50,27 @@ public class MainViewModel extends BaseViewModel {
                         Timber.d("PLACES RESPONSE --->", placesResponse);
                        getNavigator().moveForward(Navigator.Options.SHOW_PLACES, placesResponse);
                    }
-               });
+               });*/
+
+        mSubscription = dataManager.getRibots()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<List<Place>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                Timber.e(throwable ,"<---ERROR RESPONSE");
+            }
+
+            @Override
+            public void onNext(List<Place> places) {
+                Timber.d("PLACES RESPONSE --->", places.get(0));
+            }
+        });
     }
 
     public void logout() {
