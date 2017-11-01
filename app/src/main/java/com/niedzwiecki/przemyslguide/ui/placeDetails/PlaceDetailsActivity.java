@@ -11,10 +11,9 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
-import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.Place;
 import com.niedzwiecki.przemyslguide.ui.PlaceDetailViewPager;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity;
@@ -49,10 +48,10 @@ public class PlaceDetailsActivity extends BaseActivity {
     @BindView(R.id.viewPager)
     ViewPager viewPager;
 
-    private InterestPlace interestPlace;
+    private Place place;
     private PlaceDetailViewPager adapter;
 
-    public static Intent getStartIntent(Context context, InterestPlace ribot) {
+    public static Intent getStartIntent(Context context, Place ribot) {
         Intent intent = new Intent(context, PlaceDetailsActivity.class);
         intent.putExtra(MainActivity.INTEREST_PLACE_KEY, ribot);
         return intent;
@@ -75,7 +74,7 @@ public class PlaceDetailsActivity extends BaseActivity {
 
     private void fetchData() {
         if (getIntent().hasExtra(MainActivity.INTEREST_PLACE_KEY)) {
-            interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(MainActivity.INTEREST_PLACE_KEY);
+            place = (Place) getIntent().getExtras().getSerializable(MainActivity.INTEREST_PLACE_KEY);
         }
     }
 
@@ -92,7 +91,7 @@ public class PlaceDetailsActivity extends BaseActivity {
     }
 
     private void restoreData(Bundle savedInstanceState) {
-        interestPlace = (InterestPlace) savedInstanceState.getSerializable(INTEREST_PLACE_KEY);
+        place = (Place) savedInstanceState.getSerializable(INTEREST_PLACE_KEY);
     }
 
     private void setScreenFlags() {
@@ -101,28 +100,31 @@ public class PlaceDetailsActivity extends BaseActivity {
     }
 
     private void setData() {
-        if (Utils.isEmpty(interestPlace.name)) {
+        if (Utils.isEmpty(place.name)) {
             nameTextView.setVisibility(View.GONE);
         } else {
-            nameTextView.setText(interestPlace.name);
+            nameTextView.setText(place.name);
         }
 
-        if (Utils.isEmpty(interestPlace.address)) {
+        if (Utils.isEmpty(place.descritpion)) {
             descriptionTextView.setVisibility(View.GONE);
         } else {
-            descriptionTextView.setText(interestPlace.address);
+            descriptionTextView.setText(place.descritpion);
         }
 
         mailTextView.setVisibility(View.GONE);
 
-        if (!Utils.isEmpty(interestPlace.image)) {
+        if (!Utils.isEmpty(place.image)) {
             Animation fadeIn = new AlphaAnimation(0, 1);
             fadeIn.setDuration(3000);
             AnimationSet animation = new AnimationSet(true);
             animation.addAnimation(fadeIn);
             coverImage.setAnimation(animation);
+            if (Utils.isEmpty(place.image)) {
+                return;
+            }
             Picasso.with(this)
-                    .load(interestPlace.image)
+                    .load(place.image)
                     .resize(700, 700)
                     .centerCrop()
                     .into(coverImage);
@@ -142,12 +144,12 @@ public class PlaceDetailsActivity extends BaseActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable(INTEREST_PLACE_KEY, interestPlace);
+        outState.putSerializable(INTEREST_PLACE_KEY, place);
     }
 
     @OnClick(R.id.fabButton)
     public void onFabButtonClick() {
-        Intent intent = new Intent(MapsActivity.getStartIntent(getBaseContext(), interestPlace));
+        Intent intent = new Intent(MapsActivity.getStartIntent(getBaseContext(), place));
         startActivity(intent);
     }
 }

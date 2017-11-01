@@ -1,10 +1,12 @@
 package com.niedzwiecki.przemyslguide.data.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Niedzwiecki on 11/1/2017.
  */
 
-public class Place {
+public class Place implements Serializable {
 
     public long id;
     public String url;
@@ -16,4 +18,7 @@ public class Place {
     public String image;
     public String email;
     public String telephone;
+
+    public Place(int id, String image, String name, double lng, double lat) {
+    }
 }

@@ -52,12 +52,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location mLastLocation;
     private Marker mCurrLocationMarker;
 
-    private InterestPlace interestPlace;
     private PlacesResponse placesResponse;
+    private com.niedzwiecki.przemyslguide.data.model.Place place;
 
     private ClusterManager<MyItem> clusterManager;
 
-    public static Intent getStartIntent(Context context, InterestPlace interestPlace) {
+    public static Intent getStartIntent(Context context, com.niedzwiecki.przemyslguide.data.model.Place interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
         intent.putExtra(INTEREST_PLACE_KEY, interestPlace);
         return intent;
@@ -80,7 +80,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
-            interestPlace = (InterestPlace) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
+            place = (com.niedzwiecki.przemyslguide.data.model.Place) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
         } else if (getIntent().hasExtra(PLACES_LIST)) {
             placesResponse = (PlacesResponse) getIntent().getExtras().getSerializable(PLACES_LIST);
         }
@@ -151,11 +151,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (placesResponse != null) {
 //            setPlacesMarkers(placesResponse);
-        } else if (interestPlace != null) {
-            LatLng latLng = new LatLng(interestPlace.latLocation, interestPlace.longLocation);
+        } else if (place != null) {
+            LatLng latLng = new LatLng(place.lat, place.lon);
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(latLng);
-            markerOptions.title(String.format("lat: %s, long: %s", interestPlace.latLocation, interestPlace.longLocation));
+            markerOptions.title(String.format("lat: %s, long: %s", place.lat, place.lon));
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
             mCurrLocationMarker = map.addMarker(markerOptions);
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15f);
