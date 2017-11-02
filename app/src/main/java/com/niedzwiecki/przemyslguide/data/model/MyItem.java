@@ -18,7 +18,7 @@ public class MyItem implements ClusterItem {
     public String namePlace;
     public String addressPlace;
 
-    InterestPlace interestPlace;
+    Place interestPlace;
 
     public MyItem(double lat, double lng) {
         mPosition = new LatLng(lat, lng);
@@ -29,7 +29,7 @@ public class MyItem implements ClusterItem {
         namePlace = name;
         addressPlace = address;
         imagePlace = image;
-        interestPlace = new InterestPlace(0, image, name, address, lng, lat);
+        interestPlace = new Place(0, image, name, lng, lat);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class MyItem implements ClusterItem {
         return addressPlace;
     }
 
-    public InterestPlace getInterestPlace() {
+    public Place getInterestPlace() {
         return interestPlace;
     }
 }

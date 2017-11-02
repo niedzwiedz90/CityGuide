@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
-import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.Place;
+import com.niedzwiecki.przemyslguide.util.Utils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -23,15 +24,15 @@ import butterknife.ButterKnife;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
 
-    private List<InterestPlace> places;
+    private List<Place> places;
 
     @Inject
     public PlacesAdapter() {
         places = new ArrayList<>();
     }
 
-    public void setPlaces(List<InterestPlace> ribots) {
-        places = ribots;
+    public void setPlaces(List<Place> ribots) {
+        places = (List<Place>) ribots;
     }
 
     @Override
@@ -43,9 +44,13 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
     @Override
     public void onBindViewHolder(final PlacesViewHolder holder, int position) {
-        InterestPlace ribot = places.get(position);
+        Place ribot = places.get(position);
 //        holder.hexColorView.setImageURI(ribot.image);
 //        holder.hexColorView.setBackgroundColor(Color.parseColor(ribot.profile().hexColor()));
+        if (Utils.isEmpty(ribot.image)) {
+            return;
+        }
+
         Picasso.with(holder.hexColorView.getContext())
                 .load(ribot.image)
                 .resize(700, 700)
@@ -53,7 +58,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
                 .into(holder.hexColorView);
         holder.nameTextView.setText(String.format("%s",
                 ribot.name));
-        holder.emailTextView.setText(ribot.address);
+        holder.emailTextView.setText(ribot.email);
         holder.setIsRecyclable(true);
     }
 
@@ -62,7 +67,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         return places.size();
     }
 
-    public InterestPlace getPlace(int position) {
+    public Place getPlace(int position) {
         return places.get(position);
     }
 

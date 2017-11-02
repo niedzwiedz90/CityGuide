@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
+import com.niedzwiecki.przemyslguide.data.model.Place;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
@@ -59,6 +60,7 @@ public class MainActivity extends BaseActivity {
 
     private String email;
     private PlacesResponse placesResponse;
+    private List<Place> placesList;
 
     /**
      * Return an Intent to start this Activity.
@@ -101,7 +103,7 @@ public class MainActivity extends BaseActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        InterestPlace places = placesAdapter.getPlace(position);
+                        Place places = placesAdapter.getPlace(position);
                         openDetail(places);
                     }
 
@@ -157,7 +159,7 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-    private void openDetail(InterestPlace interestPlace) {
+    private void openDetail(Place interestPlace) {
         startActivity(PlaceDetailsActivity.getStartIntent(this, interestPlace));
     }
 
@@ -204,9 +206,8 @@ public class MainActivity extends BaseActivity {
         super.moveForward(options, data);
         switch (options) {
             case SHOW_PLACES:
-                placesResponse = (PlacesResponse) data[0];
-                placesResponse.interestPlaces.remove(3);
-                showPlaces(placesResponse.interestPlaces);
+                placesList = (List<Place>) data[0];
+                showPlaces(placesList);
                 break;
             case START_EMAIL_ACTIVITY:
                 EmailActivity.start(this);
@@ -215,7 +216,7 @@ public class MainActivity extends BaseActivity {
     }
 
     //MVP
-    public void showPlaces(List<InterestPlace> interestPlaces) {
+    public void showPlaces(List<Place> interestPlaces) {
         placesAdapter.setPlaces(interestPlaces);
         placesAdapter.notifyDataSetChanged();
     }
