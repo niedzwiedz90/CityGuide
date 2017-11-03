@@ -15,9 +15,7 @@ import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
-import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
 import com.niedzwiecki.przemyslguide.data.model.Place;
-import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
 import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity;
@@ -34,6 +32,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KEY;
+import static com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.ALL_PLACES_KEY;
+import static com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.PLACES_LIST;
 
 public class MainActivity extends BaseActivity {
 
@@ -59,7 +59,6 @@ public class MainActivity extends BaseActivity {
     DrawerLayout drawerLayout;
 
     private String email;
-    private PlacesResponse placesResponse;
     private List<Place> placesList;
 
     /**
@@ -130,26 +129,34 @@ public class MainActivity extends BaseActivity {
 
                         switch (item.getItemId()) {
                             case R.id.navMap:
-                                if (placesResponse != null) {
-                                    startActivity(MapsActivity.getStartIntent(MainActivity.this,
-                                            placesResponse, true));
+                                if (placesList != null) {
+                                    ArrayList<Place> tempList = new ArrayList<>();
+                                    for (Place interestPlace : placesList) {
+                                        tempList.add(interestPlace);
+                                    }
+
+                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                                    intent.putExtra(PLACES_LIST, tempList);
+//                                    intent.putExtra(ALL_PLACES_KEY, true);
+                                    startActivity(intent);
                                 }
                                 return true;
                             case R.id.navLogout:
                                 mainViewModel.logout();
                                 return true;
                             case R.id.navMapWithHotels:
-                                if (placesResponse != null) {
-                                    PlacesResponse tempList = new PlacesResponse();
-                                    tempList.interestPlaces = new ArrayList<InterestPlace>();
-                                    for (InterestPlace interestPlace : placesResponse.interestPlaces) {
-                                        if (interestPlace != null && interestPlace.isHotel) {
-                                            tempList.interestPlaces.add(interestPlace);
+                                if (placesList != null) {
+                                    ArrayList<Place> tempList = new ArrayList<>();
+                                    for (Place interestPlace : placesList) {
+                                        if (interestPlace != null && interestPlace.type.equals("Hotel")) {
+                                            tempList.add(interestPlace);
                                         }
                                     }
 
-                                    startActivity(MapsActivity.getStartIntent(MainActivity.this,
-                                            tempList, true));
+                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                                    intent.putExtra(PLACES_LIST, tempList);
+//                                    intent.putExtra(ALL_PLACES_KEY, true);
+                                    startActivity(intent);
                                 }
                                 return true;
                             default:

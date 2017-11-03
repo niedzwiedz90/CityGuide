@@ -43,7 +43,7 @@ public class DataManager {
     }
 
   /*  public Observable<Ribot> syncRibots() {
-        return mRibotsService.getRibots()
+        return mRibotsService.getPlaces()
                 .concatMap(new Func1<List<Ribot>, Observable<Ribot>>() {
                     @Override
                     public Observable<Ribot> call(List<Ribot> ribots) {
@@ -53,18 +53,18 @@ public class DataManager {
     }*/
 
 /*
-    public Observable<List<Ribot>> getRibots() {
-        return mDatabaseHelper.getRibots().distinct();
+    public Observable<List<Ribot>> getPlaces() {
+        return mDatabaseHelper.getPlaces().distinct();
     }
 */
 /*
 
-    public Observable<PlacesResponse> getRibots() {
-        return mRibotsService.getRibots();
+    public Observable<PlacesResponse> getPlaces() {
+        return mRibotsService.getPlaces();
     }
 */
 
-    public Observable<List<Place>> getRibots() {
+    public Observable<List<Place>> getPlaces() {
         return mRibotsService.getRibots();
     }
 
