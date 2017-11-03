@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -57,6 +58,9 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
+
+    @BindView(R.id.swipeToRefresh)
+    SwipeRefreshLayout swipeToRefreshLayout;
 
     private String email;
     private List<Place> placesList;
@@ -164,6 +168,13 @@ public class MainActivity extends BaseActivity {
                         }
                     }
                 });
+
+        swipeToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Timbe
+            }
+        });
     }
 
     private void openDetail(Place interestPlace) {
