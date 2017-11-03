@@ -19,7 +19,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.places.Place;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,6 +35,9 @@ import com.niedzwiecki.przemyslguide.data.model.MyItem;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.INTEREST_PLACE_KEY;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -43,8 +45,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
-    private static final String ALL_PLACES_KEY = "AllPlacesKey";
-    private static final String PLACES_LIST = "PlacesList";
+    public static final String ALL_PLACES_KEY = "AllPlacesKey";
+    public static final String PLACES_LIST = "PlacesList";
 
     private GoogleMap map;
     private GoogleApiClient mGoogleApiClient;
@@ -52,7 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location mLastLocation;
     private Marker mCurrLocationMarker;
 
-    private PlacesResponse placesResponse;
+    private ArrayList<com.niedzwiecki.przemyslguide.data.model.Place> placesResponse;
     private com.niedzwiecki.przemyslguide.data.model.Place place;
 
     private ClusterManager<MyItem> clusterManager;
@@ -60,13 +62,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public static Intent getStartIntent(Context context, com.niedzwiecki.przemyslguide.data.model.Place interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
         intent.putExtra(INTEREST_PLACE_KEY, interestPlace);
-        return intent;
-    }
-
-    public static Intent getStartIntent(Context context, PlacesResponse placesResponse, boolean isAllPlaceMap) {
-        Intent intent = new Intent(context, MapsActivity.class);
-        intent.putExtra(PLACES_LIST, placesResponse);
-        intent.putExtra(ALL_PLACES_KEY, isAllPlaceMap);
         return intent;
     }
 
@@ -79,10 +74,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             checkLocationPermission();
         }
 
-        if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
+        if (getIntent().getParcelableExtra(PLACES_LIST) != null) {
+            placesResponse = getIntent().getParcelableExtra(PLACES_LIST);
+        } else if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
             place = (com.niedzwiecki.przemyslguide.data.model.Place) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
-        } else if (getIntent().hasExtra(PLACES_LIST)) {
-            placesResponse = (PlacesResponse) getIntent().getExtras().getSerializable(PLACES_LIST);
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -251,8 +246,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void setUpCluster() {
         if (placesResponse != null) {
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(placesResponse.interestPlaces.get(0)
-                    .latLocation, placesResponse.interestPlaces.get(0).longLocation), 9f));
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(placesResponse.get(0)
+                    .lat, placesResponse.get(0).lon), 9f));
             clusterManager = new ClusterManager<>(this, map);
             map.setOnCameraIdleListener(clusterManager);
             map.setOnMarkerClickListener(clusterManager);
@@ -268,14 +263,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void addItems(PlacesResponse placesResponse) {
-        for (InterestPlace interestPlace : placesResponse.interestPlaces) {
+    private void addItems(List<com.niedzwiecki.przemyslguide.data.model.Place> placesResponse) {
+        for (com.niedzwiecki.przemyslguide.data.model.Place interestPlace : placesResponse) {
             if (map != null) {
                 MyItem offsetItem = new MyItem(
-                        interestPlace.latLocation,
-                        interestPlace.longLocation,
+                        interestPlace.lat,
+                        interestPlace.lon,
                         interestPlace.name,
-                        interestPlace.address,
+                        interestPlace.description,
                         interestPlace.image);
 
                 clusterManager.addItem(offsetItem);

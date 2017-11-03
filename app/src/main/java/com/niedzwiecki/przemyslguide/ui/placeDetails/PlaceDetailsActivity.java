@@ -74,7 +74,7 @@ public class PlaceDetailsActivity extends BaseActivity {
 
     private void fetchData() {
         if (getIntent().hasExtra(MainActivity.INTEREST_PLACE_KEY)) {
-            place = (Place) getIntent().getExtras().getSerializable(MainActivity.INTEREST_PLACE_KEY);
+            place = getIntent().getExtras().getParcelable(MainActivity.INTEREST_PLACE_KEY);
         }
     }
 
@@ -91,7 +91,7 @@ public class PlaceDetailsActivity extends BaseActivity {
     }
 
     private void restoreData(Bundle savedInstanceState) {
-        place = (Place) savedInstanceState.getSerializable(INTEREST_PLACE_KEY);
+        place = savedInstanceState.getParcelable(INTEREST_PLACE_KEY);
     }
 
     private void setScreenFlags() {
@@ -106,10 +106,10 @@ public class PlaceDetailsActivity extends BaseActivity {
             nameTextView.setText(place.name);
         }
 
-        if (Utils.isEmpty(place.descritpion)) {
+        if (Utils.isEmpty(place.description)) {
             descriptionTextView.setVisibility(View.GONE);
         } else {
-            descriptionTextView.setText(place.descritpion);
+            descriptionTextView.setText(place.description);
         }
 
         mailTextView.setVisibility(View.GONE);
@@ -123,6 +123,7 @@ public class PlaceDetailsActivity extends BaseActivity {
             if (Utils.isEmpty(place.image)) {
                 return;
             }
+
             Picasso.with(this)
                     .load(place.image)
                     .resize(700, 700)
@@ -144,7 +145,7 @@ public class PlaceDetailsActivity extends BaseActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable(INTEREST_PLACE_KEY, place);
+        outState.putParcelable(INTEREST_PLACE_KEY, place);
     }
 
     @OnClick(R.id.fabButton)

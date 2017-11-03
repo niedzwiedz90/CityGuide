@@ -3,8 +3,6 @@ package com.niedzwiecki.przemyslguide.ui.main;
 import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
 import com.niedzwiecki.przemyslguide.data.model.Place;
-import com.niedzwiecki.przemyslguide.data.model.Places;
-import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.util.RxUtil;
@@ -31,7 +29,7 @@ public class MainViewModel extends BaseViewModel {
 
     public void loadPlaces() {
         RxUtil.unsubscribe(mSubscription);/*
-        mSubscription = dataManager.getRibots()
+        mSubscription = dataManager.getPlaces()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                .subscribe(new Subscriber<PlacesResponse>() {
@@ -52,7 +50,7 @@ public class MainViewModel extends BaseViewModel {
                    }
                });*/
 
-        mSubscription = dataManager.getRibots()
+        mSubscription = dataManager.getPlaces()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<List<Place>>() {
@@ -64,6 +62,7 @@ public class MainViewModel extends BaseViewModel {
             @Override
             public void onError(Throwable throwable) {
                 Timber.e(throwable ,"<---ERROR RESPONSE");
+                loadPlaces();
             }
 
             @Override

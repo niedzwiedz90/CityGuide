@@ -37,12 +37,12 @@ public interface RibotsService {
 /*
 
     @GET("places")
-    Observable<PlacesResponse> getRibots();
+    Observable<PlacesResponse> getPlaces();
 */
 
 /*
     @GET("v2/59e58509110000b00bec68ff")
-    Observable<PlacesResponse> getRibots();
+    Observable<PlacesResponse> getPlaces();
 */
 
     Observable<SuppliesModel> getSupplies(String format);
