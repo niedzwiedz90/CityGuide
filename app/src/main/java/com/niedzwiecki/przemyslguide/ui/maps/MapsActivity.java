@@ -74,8 +74,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             checkLocationPermission();
         }
 
-        if (getIntent().getParcelableExtra(PLACES_LIST) != null) {
-            placesResponse = getIntent().getParcelableExtra(PLACES_LIST);
+        if (getIntent().hasExtra(PLACES_LIST)) {
+            placesResponse = getIntent().getParcelableArrayListExtra(PLACES_LIST);
         } else if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
             place = (com.niedzwiecki.przemyslguide.data.model.Place) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
         }

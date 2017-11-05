@@ -152,7 +152,7 @@ public class MainActivity extends BaseActivity {
                                 if (placesList != null) {
                                     ArrayList<Place> tempList = new ArrayList<>();
                                     for (Place interestPlace : placesList) {
-                                        if (interestPlace != null && interestPlace.type.equals("Hotel")) {
+                                        if (interestPlace != null && interestPlace.type.equals("hotel")) {
                                             tempList.add(interestPlace);
                                         }
                                     }
@@ -172,7 +172,7 @@ public class MainActivity extends BaseActivity {
         swipeToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Timbe
+//                Timbe
             }
         });
     }
