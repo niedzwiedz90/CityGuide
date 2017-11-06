@@ -87,7 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (getIntent().hasExtra(PLACES_LIST)) {
             placesResponse = getIntent().getParcelableArrayListExtra(PLACES_LIST);
         } else if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
-            place = (PlaceOfInterest) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
+            place = getIntent().getExtras().getParcelable(INTEREST_PLACE_KEY);
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -112,7 +112,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         switch (item.getItemId()) {
                             case R.id.navMap:
-                               filterPlaces("all");
+                                filterPlaces("all");
                                 return true;
                             case R.id.navLogout:
 //                                mainViewModel.logout();
@@ -323,7 +323,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             clusterManager.setOnClusterItemClickListener(new ClusterManager.OnClusterItemClickListener<MyItem>() {
                 @Override
                 public boolean onClusterItemClick(MyItem myItem) {
-                    startActivity(PlaceDetailsActivity.getStartIntent(getApplicationContext(), myItem.getInterestPlace()));
+                    startActivity(PlaceDetailsActivity.getStartIntent(getApplicationContext(),
+                            myItem.getInterestPlace()));
                     return false;
                 }
             });
