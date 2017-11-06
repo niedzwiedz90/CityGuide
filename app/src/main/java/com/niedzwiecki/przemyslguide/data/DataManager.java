@@ -3,11 +3,7 @@ package com.niedzwiecki.przemyslguide.data;
 import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
-import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
-import com.niedzwiecki.przemyslguide.data.model.Place;
-import com.niedzwiecki.przemyslguide.data.model.Places;
-import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
 import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
 
@@ -19,7 +15,6 @@ import javax.inject.Singleton;
 import io.fabric.sdk.android.services.network.HttpRequest;
 import rx.Observable;
 import rx.functions.Action1;
-import rx.functions.Func1;
 
 @Singleton
 public class DataManager {
@@ -64,7 +59,7 @@ public class DataManager {
     }
 */
 
-    public Observable<List<Place>> getPlaces() {
+    public Observable<List<PlaceOfInterest>> getPlaces() {
         return mRibotsService.getRibots();
     }
 

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
-import com.niedzwiecki.przemyslguide.data.model.Place;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.util.Utils;
 import com.squareup.picasso.Picasso;
 
@@ -24,15 +24,15 @@ import butterknife.ButterKnife;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
 
-    private List<Place> places;
+    private List<PlaceOfInterest> places;
 
     @Inject
     public PlacesAdapter() {
         places = new ArrayList<>();
     }
 
-    public void setPlaces(List<Place> ribots) {
-        places = (List<Place>) ribots;
+    public void setPlaces(List<PlaceOfInterest> ribots) {
+        places = (List<PlaceOfInterest>) ribots;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
     @Override
     public void onBindViewHolder(final PlacesViewHolder holder, int position) {
-        Place ribot = places.get(position);
+        PlaceOfInterest ribot = places.get(position);
 //        holder.hexColorView.setImageURI(ribot.image);
 //        holder.hexColorView.setBackgroundColor(Color.parseColor(ribot.profile().hexColor()));
         if (Utils.isEmpty(ribot.image)) {
@@ -67,7 +67,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         return places.size();
     }
 
-    public Place getPlace(int position) {
+    public PlaceOfInterest getPlace(int position) {
         return places.get(position);
     }
 

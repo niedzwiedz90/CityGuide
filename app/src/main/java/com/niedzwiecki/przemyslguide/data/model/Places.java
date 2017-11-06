@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Places {
 
-    List<Place> places;
+    List<PlaceOfInterest> places;
 
     /*
             "url": "http://127.0.0.1:8000/api/places/3/?format=json",

@@ -1,6 +1,5 @@
 package com.niedzwiecki.przemyslguide.data.remote;
 
-import com.bumptech.glide.request.Request;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -14,16 +13,10 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import rx.Observable;
 
-import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
-import com.niedzwiecki.przemyslguide.data.model.Place;
-import com.niedzwiecki.przemyslguide.data.model.Places;
-import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
-import com.niedzwiecki.przemyslguide.ui.placeDetails.ImagePage;
 import com.niedzwiecki.przemyslguide.util.MyGsonTypeAdapterFactory;
 
 public interface RibotsService {
@@ -32,7 +25,7 @@ public interface RibotsService {
     String CITY_GUID_ENDPOINT = "http://51.15.34.44/api/";
 
     @GET("places")
-    Observable<List<Place>> getRibots();
+    Observable<List<PlaceOfInterest>> getRibots();
 
 /*
 

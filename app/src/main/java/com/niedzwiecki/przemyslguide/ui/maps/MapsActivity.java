@@ -32,6 +32,7 @@ import com.google.maps.android.clustering.ClusterManager;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
 import com.niedzwiecki.przemyslguide.data.model.MyItem;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 
@@ -54,12 +55,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location mLastLocation;
     private Marker mCurrLocationMarker;
 
-    private ArrayList<com.niedzwiecki.przemyslguide.data.model.Place> placesResponse;
-    private com.niedzwiecki.przemyslguide.data.model.Place place;
+    private ArrayList<PlaceOfInterest> placesResponse;
+    private PlaceOfInterest place;
 
     private ClusterManager<MyItem> clusterManager;
 
-    public static Intent getStartIntent(Context context, com.niedzwiecki.przemyslguide.data.model.Place interestPlace) {
+    public static Intent getStartIntent(Context context, PlaceOfInterest interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
         intent.putExtra(INTEREST_PLACE_KEY, interestPlace);
         return intent;
@@ -74,10 +75,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             checkLocationPermission();
         }
 
-        if (getIntent().getParcelableExtra(PLACES_LIST) != null) {
-            placesResponse = getIntent().getParcelableExtra(PLACES_LIST);
+        if (getIntent().hasExtra(PLACES_LIST)) {
+            placesResponse = getIntent().getParcelableArrayListExtra(PLACES_LIST);
         } else if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
-            place = (com.niedzwiecki.przemyslguide.data.model.Place) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
+            place = (PlaceOfInterest) getIntent().getExtras().getSerializable(INTEREST_PLACE_KEY);
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -229,13 +230,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public void setPlacesMarkers(PlacesResponse placesMarkers) {
-        for (InterestPlace placesResponse : placesMarkers.interestPlaces) {
+    public void setPlacesMarkers(ArrayList<PlaceOfInterest> placesMarkers) {
+        for (PlaceOfInterest placesResponse : placesMarkers) {
             if (map != null && placesResponse != null) {
-                LatLng latLng = new LatLng(placesResponse.latLocation, placesResponse.longLocation);
+                LatLng latLng = new LatLng(placesResponse.lat, placesResponse.lon);
                 MarkerOptions markerOptions = new MarkerOptions();
                 markerOptions.position(latLng);
-                markerOptions.title(String.format("lat: %s, long: %s", placesResponse.latLocation, placesResponse.longLocation));
+                markerOptions.title(String.format("lat: %s, long: %s", placesResponse.lat, placesResponse.lon));
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
                 mCurrLocationMarker = map.addMarker(markerOptions);
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 12f);
@@ -263,8 +264,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void addItems(List<com.niedzwiecki.przemyslguide.data.model.Place> placesResponse) {
-        for (com.niedzwiecki.przemyslguide.data.model.Place interestPlace : placesResponse) {
+    private void addItems(List<PlaceOfInterest> placesResponse) {
+        for (PlaceOfInterest interestPlace : placesResponse) {
             if (map != null) {
                 MyItem offsetItem = new MyItem(
                         interestPlace.lat,
@@ -272,7 +273,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         interestPlace.name,
                         interestPlace.description,
                         interestPlace.image);
-
                 clusterManager.addItem(offsetItem);
             }
         }
