@@ -19,8 +19,10 @@
         jak Aldus PageMaker</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_details">Details</string>
+
     <string name="showMap">All objects</string>
-    <string name="showHotels">hotels</string>
+    <string name="showHotels">Hotels</string>
+    <string name="showCastles">Castles</string>
 
     <string name="action_logout">Logout</string>
 

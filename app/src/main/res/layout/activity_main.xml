@@ -19,8 +19,8 @@
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeToRefresh"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -31,11 +31,11 @@
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:scrollbars="vertical" />
+
         </android.support.v4.widget.SwipeRefreshLayout>
 
-
         <android.support.design.widget.NavigationView
-            android:id="@+id/nav_view"
+            android:id="@+id/navView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
