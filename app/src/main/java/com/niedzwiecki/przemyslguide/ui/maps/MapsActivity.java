@@ -257,7 +257,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 @Override
                 public boolean onClusterItemClick(MyItem myItem) {
                     startActivity(PlaceDetailsActivity.getStartIntent(getApplicationContext(), myItem.getInterestPlace()));
-                    finish();
                     return false;
                 }
             });
