@@ -12,6 +12,18 @@
         <item
             android:id="@+id/navMapWithCastles"
             android:title="@string/showCastles" />
+
+        <item
+            android:id="@+id/navMapWithFort"
+            android:title="@string/showForts" />
+
+        <item
+            android:id="@+id/navMapWithStation"
+            android:title="@string/showStations" />
+
+        <item
+            android:id="@+id/navMapWithBunker"
+            android:title="@string/showBunkers" />
     </group>
 
     <item android:title="Options">

@@ -9,9 +9,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -30,14 +33,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.ClusterManager;
 import com.niedzwiecki.przemyslguide.R;
-import com.niedzwiecki.przemyslguide.data.model.InterestPlace;
 import com.niedzwiecki.przemyslguide.data.model.MyItem;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
-import com.niedzwiecki.przemyslguide.data.model.PlacesResponse;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 
 import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.INTEREST_PLACE_KEY;
 
@@ -59,6 +62,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private PlaceOfInterest place;
 
     private ClusterManager<MyItem> clusterManager;
+
+    @BindView(R.id.navMapView)
+    NavigationView navigationView;
+
+    @BindView(R.id.drawerMapLayout)
+    DrawerLayout drawerLayout;
 
     public static Intent getStartIntent(Context context, PlaceOfInterest interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
@@ -85,6 +94,64 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(this);
+//        init();
+    }
+
+    private void init() {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                      /*  if (item.isChecked()) {
+                            item.setChecked(false);
+                        } else {
+                            item.setChecked(true);
+                        }*/
+
+                        drawerLayout.closeDrawers();
+
+                        switch (item.getItemId()) {
+                            case R.id.navMap:
+                               filterPlaces("all");
+                                return true;
+                            case R.id.navLogout:
+//                                mainViewModel.logout();
+                                return true;
+                            case R.id.navMapWithHotels:
+                                filterPlaces("hotel");
+                                return true;
+                            case R.id.navMapWithCastles:
+                                filterPlaces("castle");
+                                return true;
+                            case R.id.navMapWithFort:
+                                filterPlaces("station");
+                                return true;
+                            case R.id.navMapWithBunker:
+                                filterPlaces("bunker");
+                                return true;
+                            default:
+                                return true;
+                        }
+                    }
+                });
+    }
+
+    private void filterPlaces(String type) {
+        if (placesResponse != null) {
+            ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
+            for (PlaceOfInterest interestPlace : placesResponse) {
+                if (interestPlace != null && interestPlace.type.equals(type)) {
+                    tempList.add(interestPlace);
+                } else {
+                    tempList.add(interestPlace);
+                }
+            }
+
+            Intent intent = new Intent(MapsActivity.this, MapsActivity.class);
+            intent.putExtra(PLACES_LIST, tempList);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override

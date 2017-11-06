@@ -23,6 +23,9 @@
     <string name="showMap">All objects</string>
     <string name="showHotels">Hotels</string>
     <string name="showCastles">Castles</string>
+    <string name="showForts">Forts</string>
+    <string name="showStations">Stations</string>
+    <string name="showBunkers">Bunkers</string>
 
     <string name="action_logout">Logout</string>
 
