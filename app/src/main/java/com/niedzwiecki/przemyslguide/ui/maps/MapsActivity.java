@@ -146,7 +146,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         if (placesResponse != null) {
-            setPlacesMarkers(placesResponse);
+//            setPlacesMarkers(placesResponse);
         } else if (place != null) {
             LatLng latLng = new LatLng(place.lat, place.lon);
             MarkerOptions markerOptions = new MarkerOptions();
