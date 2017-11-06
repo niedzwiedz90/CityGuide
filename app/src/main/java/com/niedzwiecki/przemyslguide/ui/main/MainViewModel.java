@@ -28,28 +28,7 @@ public class MainViewModel extends BaseViewModel {
     }
 
     public void loadPlaces() {
-        RxUtil.unsubscribe(mSubscription);/*
-        mSubscription = dataManager.getPlaces()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-               .subscribe(new Subscriber<PlacesResponse>() {
-                   @Override
-                   public void onCompleted() {
-
-                   }
-
-                   @Override
-                   public void onError(Throwable e) {
-                       Timber.e(e ,"<---ERROR RESPONSE");
-                   }
-
-                   @Override
-                   public void onNext(PlacesResponse placesResponse) {
-                        Timber.d("PLACES RESPONSE --->", placesResponse);
-                       getNavigator().moveForward(Navigator.Options.SHOW_PLACES, placesResponse);
-                   }
-               });*/
-
+        RxUtil.unsubscribe(mSubscription);
         mSubscription = dataManager.getPlaces()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

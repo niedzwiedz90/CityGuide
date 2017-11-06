@@ -8,6 +8,10 @@
         <item
             android:id="@+id/navMapWithHotels"
             android:title="@string/showHotels" />
+
+        <item
+            android:id="@+id/navMapWithCastles"
+            android:title="@string/showCastles" />
     </group>
 
     <item android:title="Options">

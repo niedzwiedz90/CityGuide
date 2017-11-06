@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
     @Inject
     MainViewModel mainViewModel;
 
-    @BindView(R.id.nav_view)
+    @BindView(R.id.navView)
     NavigationView navigationView;
 
     @BindView(R.id.drawerLayout)
@@ -122,11 +122,11 @@ public class MainActivity extends BaseActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        if (item.isChecked()) {
+                      /*  if (item.isChecked()) {
                             item.setChecked(false);
                         } else {
                             item.setChecked(true);
-                        }
+                        }*/
 
                         drawerLayout.closeDrawers();
 
@@ -160,18 +160,34 @@ public class MainActivity extends BaseActivity {
                                     startActivity(intent);
                                 }
                                 return true;
+                            case R.id.navMapWithCastles:
+                                if (placesList != null) {
+                                    ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
+                                    for (PlaceOfInterest interestPlace : placesList) {
+                                        if (interestPlace != null && interestPlace.type.equals("castle")) {
+                                            tempList.add(interestPlace);
+                                        }
+                                    }
+
+                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                                    intent.putExtra(PLACES_LIST, tempList);
+                                    startActivity(intent);
+                                }
+                                return true;
                             default:
                                 return true;
                         }
                     }
                 });
 
-        swipeToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-//                Timbe
-            }
-        });
+        if (!swipeToRefreshLayout.isRefreshing()) {
+            swipeToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    mainViewModel.loadPlaces();
+                }
+            });
+        }
     }
 
     private void openDetail(PlaceOfInterest interestPlace) {
