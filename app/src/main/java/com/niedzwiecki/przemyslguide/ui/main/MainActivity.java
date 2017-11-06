@@ -132,47 +132,26 @@ public class MainActivity extends BaseActivity {
 
                         switch (item.getItemId()) {
                             case R.id.navMap:
-                                if (placesList != null) {
-                                    ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
-                                    for (PlaceOfInterest interestPlace : placesList) {
-                                        tempList.add(interestPlace);
-                                    }
+                                filterPlaces("all");
+                                return true;
 
-                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                                    intent.putExtra(PLACES_LIST, tempList);
-                                    startActivity(intent);
-                                }
+                            case R.id.navMapWithHotels:
+                                filterPlaces("hotel");
+                                return true;
+                            case R.id.navMapWithCastles:
+                                filterPlaces("castle");
+                                return true;
+                            case R.id.navMapWithFort:
+                                filterPlaces("station");
+                                return true;
+                            case R.id.navMapWithStation:
+                                filterPlaces("station");
+                                return true;
+                            case R.id.navMapWithBunker:
+                                filterPlaces("bunker");
                                 return true;
                             case R.id.navLogout:
                                 mainViewModel.logout();
-                                return true;
-                            case R.id.navMapWithHotels:
-                                if (placesList != null) {
-                                    ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
-                                    for (PlaceOfInterest interestPlace : placesList) {
-                                        if (interestPlace != null && interestPlace.type.equals("hotel")) {
-                                            tempList.add(interestPlace);
-                                        }
-                                    }
-
-                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                                    intent.putExtra(PLACES_LIST, tempList);
-                                    startActivity(intent);
-                                }
-                                return true;
-                            case R.id.navMapWithCastles:
-                                if (placesList != null) {
-                                    ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
-                                    for (PlaceOfInterest interestPlace : placesList) {
-                                        if (interestPlace != null && interestPlace.type.equals("castle")) {
-                                            tempList.add(interestPlace);
-                                        }
-                                    }
-
-                                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                                    intent.putExtra(PLACES_LIST, tempList);
-                                    startActivity(intent);
-                                }
                                 return true;
                             default:
                                 return true;
@@ -187,6 +166,23 @@ public class MainActivity extends BaseActivity {
                     mainViewModel.loadPlaces();
                 }
             });
+        }
+    }
+
+    private void filterPlaces(String type) {
+        if (placesList != null) {
+            ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
+            for (PlaceOfInterest interestPlace : placesList) {
+                if (interestPlace != null && interestPlace.type.equals(type)) {
+                    tempList.add(interestPlace);
+                } else if(type.equals("all")){
+                    tempList.add(interestPlace);
+                }
+            }
+
+            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+            intent.putExtra(PLACES_LIST, tempList);
+            startActivity(intent);
         }
     }
 
@@ -237,8 +233,13 @@ public class MainActivity extends BaseActivity {
         super.moveForward(options, data);
         switch (options) {
             case SHOW_PLACES:
+                if (swipeToRefreshLayout.isRefreshing()) {
+                    swipeToRefreshLayout.setRefreshing(!swipeToRefreshLayout.isRefreshing());
+                }
+                
                 placesList = (List<PlaceOfInterest>) data[0];
                 showPlaces(placesList);
+
                 break;
             case START_EMAIL_ACTIVITY:
                 EmailActivity.start(this);
