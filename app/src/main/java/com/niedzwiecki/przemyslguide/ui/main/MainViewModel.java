@@ -2,7 +2,7 @@ package com.niedzwiecki.przemyslguide.ui.main;
 
 import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
-import com.niedzwiecki.przemyslguide.data.model.Place;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.util.RxUtil;
@@ -53,7 +53,7 @@ public class MainViewModel extends BaseViewModel {
         mSubscription = dataManager.getPlaces()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<List<Place>>() {
+                .subscribe(new Subscriber<List<PlaceOfInterest>>() {
             @Override
             public void onCompleted() {
 
@@ -66,7 +66,7 @@ public class MainViewModel extends BaseViewModel {
             }
 
             @Override
-            public void onNext(List<Place> places) {
+            public void onNext(List<PlaceOfInterest> places) {
                 Timber.d("PLACES RESPONSE --->", places);
                 getNavigator().moveForward(Navigator.Options.SHOW_PLACES, places);
             }

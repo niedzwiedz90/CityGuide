@@ -13,7 +13,7 @@ import android.view.animation.AnimationSet;
 import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
-import com.niedzwiecki.przemyslguide.data.model.Place;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.ui.PlaceDetailViewPager;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity;
@@ -48,12 +48,12 @@ public class PlaceDetailsActivity extends BaseActivity {
     @BindView(R.id.viewPager)
     ViewPager viewPager;
 
-    private Place place;
+    private PlaceOfInterest place;
     private PlaceDetailViewPager adapter;
 
-    public static Intent getStartIntent(Context context, Place ribot) {
+    public static Intent getStartIntent(Context context, PlaceOfInterest place) {
         Intent intent = new Intent(context, PlaceDetailsActivity.class);
-        intent.putExtra(MainActivity.INTEREST_PLACE_KEY, ribot);
+        intent.putExtra(MainActivity.INTEREST_PLACE_KEY, place);
         return intent;
     }
 

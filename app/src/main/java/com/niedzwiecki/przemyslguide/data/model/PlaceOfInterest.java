@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by Niedzwiecki on 11/1/2017.
  */
 
-public class Place implements Parcelable {
+public class PlaceOfInterest implements Parcelable {
 
     public long id;
     public float lat;
@@ -19,7 +19,12 @@ public class Place implements Parcelable {
     public String email;
     public String telephone;
 
-    public Place(int id, String image, String name, double lng, double lat) {
+    public PlaceOfInterest(int id, String image, String name, float lng, float lat) {
+        this.id = id;
+        this.image = image;
+        this.name = name;
+        this.lon = lng;
+        this.lat = lat;
     }
 
     @Override
@@ -40,7 +45,7 @@ public class Place implements Parcelable {
         parcel.writeString(telephone);
     }
 
-    private Place(Parcel in) {
+    private PlaceOfInterest(Parcel in) {
         id = in.readLong();
         lat = in.readFloat();
         lon = in.readFloat();
@@ -52,13 +57,13 @@ public class Place implements Parcelable {
         telephone = in.readString();
     }
 
-    public static final Parcelable.Creator<Place> CREATOR = new Parcelable.Creator<Place>() {
-        public Place createFromParcel(Parcel in) {
-            return new Place(in);
+    public static final Parcelable.Creator<PlaceOfInterest> CREATOR = new Parcelable.Creator<PlaceOfInterest>() {
+        public PlaceOfInterest createFromParcel(Parcel in) {
+            return new PlaceOfInterest(in);
         }
 
-        public Place[] newArray(int size) {
-            return new Place[size];
+        public PlaceOfInterest[] newArray(int size) {
+            return new PlaceOfInterest[size];
 
         }
     };

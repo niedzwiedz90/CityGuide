@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
-import com.niedzwiecki.przemyslguide.data.model.Place;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
 import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity;
@@ -33,7 +33,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KEY;
-import static com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.ALL_PLACES_KEY;
 import static com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.PLACES_LIST;
 
 public class MainActivity extends BaseActivity {
@@ -63,7 +62,7 @@ public class MainActivity extends BaseActivity {
     SwipeRefreshLayout swipeToRefreshLayout;
 
     private String email;
-    private List<Place> placesList;
+    private List<PlaceOfInterest> placesList;
 
     /**
      * Return an Intent to start this Activity.
@@ -106,7 +105,7 @@ public class MainActivity extends BaseActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Place places = placesAdapter.getPlace(position);
+                        PlaceOfInterest places = placesAdapter.getPlace(position);
                         openDetail(places);
                     }
 
@@ -134,14 +133,13 @@ public class MainActivity extends BaseActivity {
                         switch (item.getItemId()) {
                             case R.id.navMap:
                                 if (placesList != null) {
-                                    ArrayList<Place> tempList = new ArrayList<>();
-                                    for (Place interestPlace : placesList) {
+                                    ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
+                                    for (PlaceOfInterest interestPlace : placesList) {
                                         tempList.add(interestPlace);
                                     }
 
                                     Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                                     intent.putExtra(PLACES_LIST, tempList);
-//                                    intent.putExtra(ALL_PLACES_KEY, true);
                                     startActivity(intent);
                                 }
                                 return true;
@@ -150,8 +148,8 @@ public class MainActivity extends BaseActivity {
                                 return true;
                             case R.id.navMapWithHotels:
                                 if (placesList != null) {
-                                    ArrayList<Place> tempList = new ArrayList<>();
-                                    for (Place interestPlace : placesList) {
+                                    ArrayList<PlaceOfInterest> tempList = new ArrayList<>();
+                                    for (PlaceOfInterest interestPlace : placesList) {
                                         if (interestPlace != null && interestPlace.type.equals("hotel")) {
                                             tempList.add(interestPlace);
                                         }
@@ -159,7 +157,6 @@ public class MainActivity extends BaseActivity {
 
                                     Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                                     intent.putExtra(PLACES_LIST, tempList);
-//                                    intent.putExtra(ALL_PLACES_KEY, true);
                                     startActivity(intent);
                                 }
                                 return true;
@@ -177,7 +174,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void openDetail(Place interestPlace) {
+    private void openDetail(PlaceOfInterest interestPlace) {
         startActivity(PlaceDetailsActivity.getStartIntent(this, interestPlace));
     }
 
@@ -224,7 +221,7 @@ public class MainActivity extends BaseActivity {
         super.moveForward(options, data);
         switch (options) {
             case SHOW_PLACES:
-                placesList = (List<Place>) data[0];
+                placesList = (List<PlaceOfInterest>) data[0];
                 showPlaces(placesList);
                 break;
             case START_EMAIL_ACTIVITY:
@@ -234,7 +231,7 @@ public class MainActivity extends BaseActivity {
     }
 
     //MVP
-    public void showPlaces(List<Place> interestPlaces) {
+    public void showPlaces(List<PlaceOfInterest> interestPlaces) {
         placesAdapter.setPlaces(interestPlaces);
         placesAdapter.notifyDataSetChanged();
     }
