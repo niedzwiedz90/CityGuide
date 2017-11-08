@@ -28,11 +28,10 @@ public class EmailActivity extends BaseActivity implements Navigator {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new EmailViewModel(dataManager);
-//        activityComponent().inject(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_email);
         binding.setViewModel(viewModel);
-//        viewModel.attachNavigator(this);
-//        viewModel.checkIfUserIsAlreadyLogged();
+        viewModel.attachNavigator(this);
+        viewModel.checkIfUserIsAlreadyLogged();
     }
 
     @Override

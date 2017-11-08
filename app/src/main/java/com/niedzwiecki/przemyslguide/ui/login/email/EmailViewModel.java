@@ -6,8 +6,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
+import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.DataManager;
-import com.niedzwiecki.przemyslguide.data.StringManager;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
@@ -63,10 +63,10 @@ public class EmailViewModel extends BaseViewModel {
     public void validEmail(String email) {
         if (Utils.isEmpty(email)) {
             showValidationErrorMessage(dataManager.getResourcesManager().
-                    getString(StringManager.ERROR_EMPTY_EMAIL_ADDRESS_VALIDATION));
+                    getString(R.string.emptyEmailAddressValidation));
         } else if (!Utils.isValidEmail(email)) {
             showValidationErrorMessage(dataManager.getResourcesManager().
-                    getString(StringManager.ERROR_INVALID_EMAIL_ADDRESS));
+                    getString(R.string.invalidEmailAddress));
         } else if (Utils.isValidEmail(email)) {
             nextButtonVisibility.set(View.VISIBLE);
             validationEmailAddressError.set("");

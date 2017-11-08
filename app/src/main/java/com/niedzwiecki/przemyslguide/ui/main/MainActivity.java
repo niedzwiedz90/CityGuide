@@ -82,12 +82,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-
         if (getIntent().hasExtra(EMAIL_KEY)) {
             email = getIntent().getStringExtra(EMAIL_KEY);
-            View header = navigationView.getHeaderView(0);
-            TextView name = (TextView) header.findViewById(R.id.emailInfo);
-            name.setText(email);
+
+//            View header = navigationView.getHeaderView(0);
+//            TextView name = (TextView) header.findViewById(R.id.emailInfo);
+//            name.setText(email);
         }
 
         init();
