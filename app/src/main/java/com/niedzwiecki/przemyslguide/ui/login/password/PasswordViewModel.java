@@ -65,10 +65,10 @@ public class PasswordViewModel extends BaseViewModel {
     public void validPassword(CharSequence password) {
         if (Utils.isEmpty(password)) {
             showValidationErrorMessage(dataManager.
-                    getString(StringManager.ERROR_EMPTY_PASSWORD_VALIDATION));
+                    getResourcesManager().getString(StringManager.ERROR_EMPTY_PASSWORD_VALIDATION));
         } else if (!Utils.isPasswordLengthMinimumFourChars(password)) {
             showValidationErrorMessage(dataManager.
-                    getString(StringManager.ERROR_NOT_ENOUGH_PASSWORD_CHARS));
+                    getResourcesManager().getString(StringManager.ERROR_NOT_ENOUGH_PASSWORD_CHARS));
         } else {
             nextButtonVisibility.set(View.VISIBLE);
             errorVisibility.set(View.INVISIBLE);

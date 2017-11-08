@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity {
     public static final String INTEREST_PLACE_KEY =
             "com.niedzwiecki.przemyslGuide.PlaceDetailActivity.key";
 
-    @Inject
     PlacesAdapter placesAdapter;
 
     @BindView(R.id.recycler_view)
@@ -85,7 +84,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityComponent().inject(this);
         ButterKnife.bind(this);
 
         if (getIntent().hasExtra(EMAIL_KEY)) {

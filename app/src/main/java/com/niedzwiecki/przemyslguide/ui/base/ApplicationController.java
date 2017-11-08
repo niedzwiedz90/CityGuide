@@ -1,12 +1,14 @@
 package com.niedzwiecki.przemyslguide.ui.base;
 
+import android.app.Application;
+
 import com.niedzwiecki.przemyslguide.data.DataManager;
 
 /**
  * Created by niedzwiedz on 29.06.17.
  */
 
-public class ApplicationController {
+public class ApplicationController extends Application {
 
     private static ApplicationController instance;
     private DataManager dataManager;

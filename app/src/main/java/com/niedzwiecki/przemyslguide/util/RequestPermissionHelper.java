@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 
 import com.niedzwiecki.przemyslguide.BoilerplateApplication;
+import com.niedzwiecki.przemyslguide.ui.base.ApplicationController;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -93,7 +94,7 @@ public class RequestPermissionHelper {
 
     public boolean isPermissionGranted(String[] permissions) {
         for (String permission : permissions) {
-            if (ContextCompat.checkSelfPermission(new BoilerplateApplication().getComponent().context(), permission) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(ApplicationController.getInstance(), permission) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
         }

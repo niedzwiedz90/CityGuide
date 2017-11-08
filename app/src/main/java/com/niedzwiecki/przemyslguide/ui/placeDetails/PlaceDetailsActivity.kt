@@ -44,7 +44,6 @@ class PlaceDetailsActivity : BaseActivity() {
 
     override fun beforeViews() {
         super.beforeViews()
-        activityComponent().inject(this)
     }
 
     override fun afterViews() {

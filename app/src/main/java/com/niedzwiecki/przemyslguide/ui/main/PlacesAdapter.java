@@ -17,8 +17,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -26,7 +24,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
     private List<PlaceOfInterest> places;
 
-    @Inject
     public PlacesAdapter() {
         places = new ArrayList<>();
     }

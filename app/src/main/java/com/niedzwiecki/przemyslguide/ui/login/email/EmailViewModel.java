@@ -64,11 +64,11 @@ public class EmailViewModel extends BaseViewModel {
 
     public void validEmail(String email) {
         if (Utils.isEmpty(email)) {
-            showValidationErrorMessage(dataManager.
+            showValidationErrorMessage(dataManager.getResourcesManager().
                     getString(StringManager.ERROR_EMPTY_EMAIL_ADDRESS_VALIDATION));
         } else if (!Utils.isValidEmail(email)) {
             showValidationErrorMessage(dataManager.
-                    getString(StringManager.ERROR_INVALID_EMAIL_ADDRESS));
+                    getResourcesManager().getString(StringManager.ERROR_INVALID_EMAIL_ADDRESS));
         } else if (Utils.isValidEmail(email)) {
             nextButtonVisibility.set(View.VISIBLE);
             validationEmailAddressError.set("");

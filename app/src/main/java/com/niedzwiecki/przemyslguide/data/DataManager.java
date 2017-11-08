@@ -8,6 +8,8 @@ import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
 import com.niedzwiecki.przemyslguide.data.remote.GuideService;
 import com.niedzwiecki.przemyslguide.ui.base.ApplicationController;
 import com.niedzwiecki.przemyslguide.ui.base.DataModule;
+import com.niedzwiecki.przemyslguide.ui.base.GuideApi;
+import com.niedzwiecki.przemyslguide.ui.base.ResourcesManager;
 
 import java.util.List;
 
@@ -21,64 +23,52 @@ import rx.functions.Action1;
 @Singleton
 public class DataManager {
 
-    private final GuideService mGuideService;
-    private final DatabaseHelper mDatabaseHelper;
-    private final PreferencesHelper mPreferencesHelper;
-    private final StringManager stringManager;
+    private final GuideApi guideService;
+    private final DatabaseHelper databaseHelper;
+    private final PreferencesHelper preferencesHelper;
     private static DataManager dataManager;
 
+    public ResourcesManager getResourcesManager() {
+        return resourcesManager;
+    }
+
+    private final ResourcesManager resourcesManager;
+
     @Inject
-    public DataManager(GuideService guideService, PreferencesHelper preferencesHelper,
-                       DatabaseHelper databaseHelper, StringManager stringManager) {
-        mGuideService = guideService;
-        mPreferencesHelper = preferencesHelper;
-        mDatabaseHelper = databaseHelper;
-        this.stringManager = stringManager;
+    public DataManager(GuideApi guideService, PreferencesHelper preferencesHelper,
+                       DatabaseHelper databaseHelper, ResourcesManager resourcesManager) {
+        this.guideService = guideService;
+        this.preferencesHelper = preferencesHelper;
+        this.databaseHelper = databaseHelper;
+        this.resourcesManager = resourcesManager;
     }
 
     public PreferencesHelper getPreferencesHelper() {
-        return mPreferencesHelper;
+        return preferencesHelper;
     }
 
   /*  public Observable<Ribot> syncRibots() {
-        return mGuideService.getPlaces()
+        return guideService.getPlaces()
                 .concatMap(new Func1<List<Ribot>, Observable<Ribot>>() {
                     @Override
                     public Observable<Ribot> call(List<Ribot> ribots) {
-                        return mDatabaseHelper.setRibots(ribots);
+                        return databaseHelper.setRibots(ribots);
                     }
                 });
     }*/
 
-/*
-    public Observable<List<Ribot>> getPlaces() {
-        return mDatabaseHelper.getPlaces().distinct();
-    }
-*/
-/*
-
-    public Observable<PlacesResponse> getPlaces() {
-        return mGuideService.getPlaces();
-    }
-*/
-
     public Observable<List<PlaceOfInterest>> getPlaces() {
-        return mGuideService.getRibots();
-    }
-
-
-    public String getString(int stringId) {
-        return stringManager.getStringFromStringResource(stringId);
+        return guideService.getPlaces();
     }
 
     public boolean contains(PreferencesKeys key) {
-        return mPreferencesHelper.contains(key);
+        return preferencesHelper.contains(key);
     }
 
-    public Observable<SuppliesModel> login(String email, String password) {
+ /*   public Observable<SuppliesModel> login(String email, String password) {
         String encoding = HttpRequest.Base64.encode(email + ":" + password);
         final String format = String.format("Basic %s", encoding);
-        return mGuideService.getSupplies(format)
+        return guideService.getSupplies(format)
                 .doOnNext(new Action1<SuppliesModel>() {
                     @Override
                     public void call(SuppliesModel suppliesListModel) {
@@ -87,22 +77,18 @@ public class DataManager {
                         }
                     }
                 });
-    }
+    }*/
 
     public void storeAuthenticationHeader(String loginHeader) {
-        mPreferencesHelper.setAuthenticationHeader(PreferencesKeys.LOGION_HEADER, loginHeader);
+        preferencesHelper.setAuthenticationHeader(PreferencesKeys.LOGION_HEADER, loginHeader);
     }
 
     public static void init() {
         DataModule dataModule = ApplicationController.getInstance().getDataModule();
         dataManager = new DataManager(dataModule.provideApi(),
-                NotificationController.getInstance(),
-                dataModule.provideResourcesManager(),
-                dataModule.provideContactManager(),
                 dataModule.providePreferencesManager(),
                 dataModule.provideDatabaseHelper(),
-                dataModule.provideDatabaseCacheController()
-        );
+                dataModule.provideResourcesManager());
     }
 
     public static DataManager getInstance() {

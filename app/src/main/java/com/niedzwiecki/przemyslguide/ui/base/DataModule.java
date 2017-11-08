@@ -1,37 +1,47 @@
 package com.niedzwiecki.przemyslguide.ui.base;
 
+import android.app.Application;
 import android.support.annotation.NonNull;
 
 import com.niedzwiecki.przemyslguide.data.DataManager;
-import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
-import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
-import com.niedzwiecki.przemyslguide.data.remote.GuideService;
-
-import java.util.List;
-
-import rx.Observable;
+import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
+import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 
 /**
  * Created by Niedzwiecki on 11/8/2017.
  */
 
 public class DataModule {
+
+    protected final Application application;
+
+    public DataModule(Application application) {
+        this.application = application;
+    }
+
     @NonNull
     public DataManager provideDataManager() {
         return DataManager.getInstance();
     }
 
-    public GuideService provideApi() {
-        return new GuideService() {
-            @Override
-            public Observable<List<PlaceOfInterest>> getRibots() {
-                return null;
-            }
-
-            @Override
-            public Observable<SuppliesModel> getSupplies(String format) {
-                return null;
-            }
-        }
+    @NonNull
+    public DatabaseHelper provideDatabaseHelper() {
+        return DatabaseHelper.getInstance();
     }
+
+    @NonNull
+    public ResourcesManager provideResourcesManager() {
+        return ResourcesManager.getInstance(application);
+    }
+
+    @NonNull
+    public GuideApi provideApi() {
+        return new GuideApi(application);
+    }
+
+    @NonNull
+    public PreferencesHelper providePreferencesManager() {
+        return PreferencesHelper.getInstance(application);
+    }
+
 }
