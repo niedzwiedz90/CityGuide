@@ -1,20 +1,15 @@
 package com.niedzwiecki.przemyslguide.util;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import rx.Observable;
 import rx.subjects.PublishSubject;
 
 /**
  * A simple event bus built with RxJava
  */
-@Singleton
 public class RxEventBus {
 
     private final PublishSubject<Object> mBusSubject;
 
-    @Inject
     public RxEventBus() {
         mBusSubject = PublishSubject.create();
     }

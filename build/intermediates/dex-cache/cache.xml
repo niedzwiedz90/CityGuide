@@ -759,6 +759,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\org\jetbrains\kotlin\kotlin-stdlib-jre7\1.1.51\kotlin-stdlib-jre7-1.1.51.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8b5933578dc55f32cfc1a25f1db6371e4161fb8f">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\kotlin-stdlib-jre7-1.1.51_3e33fce3de7c7a62b3005eecd345c290fb96d045\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\7395e3d2e4a5d7b4b317ddd98257d90d6ddd1a8f\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -966,30 +975,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.inject-1_d68d3b81155313ecc4556f7ed899370b116d4bdb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\b2c5fde359500c66e2c0bc8ac4637cb01fbf19ac\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="d395c5142f474891c7750f13b6a85d14682f166b">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_77e0319f4c5853c83a284673271c1b19b2a06275\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.5\571f4e0451db64a7b41dbeb5f2503986fe5acdb4\dagger-2.5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="571f4e0451db64a7b41dbeb5f2503986fe5acdb4">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\dagger-2.5_306d23ca1e70043ae75ba096fdb663545d382fc1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1137,15 +1128,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.inject-1_d68d3b81155313ecc4556f7ed899370b116d4bdb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\e6f81aeec9c47fa52e00c3abdd929fec3229dc75\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -1224,15 +1206,6 @@
         revision="26.0.0"
         sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a2cb145d8569ccf6206592bae097e1d8380be918\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.5\571f4e0451db64a7b41dbeb5f2503986fe5acdb4\dagger-2.5.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="571f4e0451db64a7b41dbeb5f2503986fe5acdb4">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\dagger-2.5_306d23ca1e70043ae75ba096fdb663545d382fc1\classes.dex" />
     </item>
     <item
         is-multidex="true"

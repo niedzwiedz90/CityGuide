@@ -9,8 +9,6 @@ import com.niedzwiecki.przemyslguide.util.RxUtil;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -22,7 +20,6 @@ public class MainViewModel extends BaseViewModel {
     private final DataManager dataManager;
     private Subscription mSubscription;
 
-    @Inject
     public MainViewModel(DataManager dataManager) {
         this.dataManager = dataManager;
     }

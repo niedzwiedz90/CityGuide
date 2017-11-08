@@ -27,8 +27,6 @@ import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -48,7 +46,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
-    @Inject
     MainViewModel mainViewModel;
 
     @BindView(R.id.navView)

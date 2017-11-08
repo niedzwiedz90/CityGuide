@@ -4,8 +4,6 @@ import android.app.Application;
 
 import com.niedzwiecki.przemyslguide.R;
 
-import javax.inject.Inject;
-
 /**
  * Created by niedzwiedz on 21.08.17.
  */
@@ -21,7 +19,6 @@ public class StringManager {
 
     private final Application application;
 
-    @Inject
     public StringManager(Application application) {
         this.application = application;
     }

@@ -2,6 +2,9 @@ package com.niedzwiecki.przemyslguide.data.local;
 
 public class DatabaseHelper {
 
+    public DatabaseHelper() {
+    }
+
     private static DatabaseHelper instance;
 
     public static DatabaseHelper getInstance() {

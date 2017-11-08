@@ -27,7 +27,7 @@ public class EmailActivity extends BaseActivity implements Navigator {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new EmailViewModel();
+        viewModel = new EmailViewModel(dataManager);
 //        activityComponent().inject(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_email);
         binding.setViewModel(viewModel);

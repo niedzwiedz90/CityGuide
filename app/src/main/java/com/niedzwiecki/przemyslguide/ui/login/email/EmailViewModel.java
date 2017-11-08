@@ -14,8 +14,6 @@ import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.util.Utils;
 import com.niedzwiecki.przemyslguide.util.ViewUtil;
 
-import javax.inject.Inject;
-
 
 public class EmailViewModel extends BaseViewModel {
 
@@ -27,8 +25,8 @@ public class EmailViewModel extends BaseViewModel {
     public ObservableInt nextButtonVisibility;
     private String emailText;
 
-    public EmailViewModel() {
-//        this.dataManager = dataManager;
+    public EmailViewModel(DataManager dataManager) {
+        this.dataManager = dataManager;
         this.emailAddressFromEditText = new ObservableField<>();
         this.validationEmailAddressError = new ObservableField<>();
         errorVisibility = new ObservableInt(View.INVISIBLE);
@@ -67,8 +65,8 @@ public class EmailViewModel extends BaseViewModel {
             showValidationErrorMessage(dataManager.getResourcesManager().
                     getString(StringManager.ERROR_EMPTY_EMAIL_ADDRESS_VALIDATION));
         } else if (!Utils.isValidEmail(email)) {
-            showValidationErrorMessage(dataManager.
-                    getResourcesManager().getString(StringManager.ERROR_INVALID_EMAIL_ADDRESS));
+            showValidationErrorMessage(dataManager.getResourcesManager().
+                    getString(StringManager.ERROR_INVALID_EMAIL_ADDRESS));
         } else if (Utils.isValidEmail(email)) {
             nextButtonVisibility.set(View.VISIBLE);
             validationEmailAddressError.set("");

@@ -11,18 +11,35 @@ import com.niedzwiecki.przemyslguide.data.DataManager;
 public class ApplicationController extends Application {
 
     private static ApplicationController instance;
-    private DataManager dataManager;
+    DataManager dataManager;
     private DataModule dataModule;
 
     public static synchronized ApplicationController getInstance() {
         return instance;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        instance = this;
+        init();
+    }
+
     public DataModule getDataModule() {
         return dataModule;
     }
 
-    public void initSdk(ApplicationController context) {
+    public void init() {
+        initDateModule();
+        initDataManager();
         dataManager = getDataModule().provideDataManager();
+    }
+
+    public void initDateModule() {
+        dataModule = new DataModule(this);
+    }
+
+    private void initDataManager() {
+        DataManager.init();
     }
 }

@@ -1,11 +1,11 @@
 package com.niedzwiecki.przemyslguide.data;
 
+import android.support.annotation.NonNull;
+
 import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
-import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
-import com.niedzwiecki.przemyslguide.data.remote.GuideService;
 import com.niedzwiecki.przemyslguide.ui.base.ApplicationController;
 import com.niedzwiecki.przemyslguide.ui.base.DataModule;
 import com.niedzwiecki.przemyslguide.ui.base.GuideApi;
@@ -13,14 +13,8 @@ import com.niedzwiecki.przemyslguide.ui.base.ResourcesManager;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import io.fabric.sdk.android.services.network.HttpRequest;
 import rx.Observable;
-import rx.functions.Action1;
 
-@Singleton
 public class DataManager {
 
     private final GuideApi guideService;
@@ -34,7 +28,6 @@ public class DataManager {
 
     private final ResourcesManager resourcesManager;
 
-    @Inject
     public DataManager(GuideApi guideService, PreferencesHelper preferencesHelper,
                        DatabaseHelper databaseHelper, ResourcesManager resourcesManager) {
         this.guideService = guideService;
@@ -91,6 +84,7 @@ public class DataManager {
                 dataModule.provideResourcesManager());
     }
 
+    @NonNull
     public static DataManager getInstance() {
         if (dataManager == null) {
             init();
