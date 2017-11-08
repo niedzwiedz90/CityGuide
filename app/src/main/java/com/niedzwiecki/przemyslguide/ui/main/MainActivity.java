@@ -6,17 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
+import com.niedzwiecki.przemyslguide.databinding.ActivityMainBinding;
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel;
 import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity;
@@ -26,9 +24,6 @@ import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KEY;
 import static com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.PLACES_LIST;
@@ -42,20 +37,7 @@ public class MainActivity extends BaseActivity {
             "com.niedzwiecki.przemyslGuide.PlaceDetailActivity.key";
 
     PlacesAdapter placesAdapter;
-
-    @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
-
     MainViewModel mainViewModel;
-
-    @BindView(R.id.navView)
-    NavigationView navigationView;
-
-    @BindView(R.id.drawerLayout)
-    DrawerLayout drawerLayout;
-
-    @BindView(R.id.swipeToRefresh)
-    SwipeRefreshLayout swipeToRefreshLayout;
 
     private String email;
     private List<PlaceOfInterest> placesList;
@@ -78,25 +60,11 @@ public class MainActivity extends BaseActivity {
         context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-        if (getIntent().hasExtra(EMAIL_KEY)) {
-            email = getIntent().getStringExtra(EMAIL_KEY);
-
-//            View header = navigationView.getHeaderView(0);
-//            TextView name = (TextView) header.findViewById(R.id.emailInfo);
-//            name.setText(email);
-        }
-
-        init();
-    }
-
     private void init() {
-        mRecyclerView.setAdapter(placesAdapter);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, mRecyclerView,
+        placesAdapter = new PlacesAdapter();
+        getViewDataBinding().recyclerView.setAdapter(placesAdapter);
+        getViewDataBinding().recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        getViewDataBinding().recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, getViewDataBinding().recyclerView,
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
@@ -110,10 +78,9 @@ public class MainActivity extends BaseActivity {
                     }
                 }));
 
-        mainViewModel.attachNavigator(this);
-        mainViewModel.loadPlaces();
+        getViewModel().loadPlaces();
 
-        navigationView.setNavigationItemSelectedListener(
+        getViewDataBinding().navView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -123,7 +90,7 @@ public class MainActivity extends BaseActivity {
                             item.setChecked(true);
                         }*/
 
-                        drawerLayout.closeDrawers();
+                        getViewDataBinding().drawerLayout.closeDrawers();
 
                         switch (item.getItemId()) {
                             case R.id.navMap:
@@ -154,8 +121,8 @@ public class MainActivity extends BaseActivity {
                     }
                 });
 
-        if (!swipeToRefreshLayout.isRefreshing()) {
-            swipeToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        if (!getViewDataBinding().swipeToRefresh.isRefreshing()) {
+            getViewDataBinding().swipeToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
                     mainViewModel.loadPlaces();
@@ -170,7 +137,7 @@ public class MainActivity extends BaseActivity {
             for (PlaceOfInterest interestPlace : placesList) {
                 if (interestPlace != null && interestPlace.type.equals(type)) {
                     tempList.add(interestPlace);
-                } else if(type.equals("all")){
+                } else if (type.equals("all")) {
                     tempList.add(interestPlace);
                 }
             }
@@ -199,20 +166,36 @@ public class MainActivity extends BaseActivity {
     @Override
     public void afterViews() {
         super.afterViews();
-        setViewModel(createViewModel());
+        getViewDataBinding().setViewModel(getViewModel());
+
+        if (getIntent().hasExtra(EMAIL_KEY)) {
+            email = getIntent().getStringExtra(EMAIL_KEY);
+
+//            View header = navigationView.getHeaderView(0);
+//            TextView name = (TextView) header.findViewById(R.id.emailInfo);
+//            name.setText(email);
+        }
+
         if (getIntent().getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
             startService(SyncService.getStartIntent(this));
         }
+
+        init();
     }
 
     @Override
     public ViewModel createViewModel() {
-        return mainViewModel;
+        return new MainViewModel(dataManager);
     }
 
     @Override
     public MainViewModel getViewModel() {
         return (MainViewModel) super.getViewModel();
+    }
+
+    @Override
+    public ActivityMainBinding getViewDataBinding() {
+        return (ActivityMainBinding) super.getViewDataBinding();
     }
 
     @Override
@@ -228,10 +211,10 @@ public class MainActivity extends BaseActivity {
         super.moveForward(options, data);
         switch (options) {
             case SHOW_PLACES:
-                if (swipeToRefreshLayout.isRefreshing()) {
-                    swipeToRefreshLayout.setRefreshing(!swipeToRefreshLayout.isRefreshing());
+                if (getViewDataBinding().swipeToRefresh.isRefreshing()) {
+                    getViewDataBinding().swipeToRefresh.setRefreshing(!getViewDataBinding().swipeToRefresh.isRefreshing());
                 }
-                
+
                 placesList = (List<PlaceOfInterest>) data[0];
                 showPlaces(placesList);
 

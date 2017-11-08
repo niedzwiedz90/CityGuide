@@ -1,6 +1,5 @@
 package com.niedzwiecki.przemyslguide.ui.main;
 
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +16,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
 
     private List<PlaceOfInterest> places;
@@ -28,8 +24,8 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         places = new ArrayList<>();
     }
 
-    public void setPlaces(List<PlaceOfInterest> ribots) {
-        places = (List<PlaceOfInterest>) ribots;
+    public void setPlaces(List<PlaceOfInterest> placeOfInterests) {
+        places = placeOfInterests;
     }
 
     @Override
@@ -41,21 +37,25 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
     @Override
     public void onBindViewHolder(final PlacesViewHolder holder, int position) {
-        PlaceOfInterest ribot = places.get(position);
+        PlaceOfInterest placeOfInterest = places.get(position);
 //        holder.hexColorView.setImageURI(ribot.image);
 //        holder.hexColorView.setBackgroundColor(Color.parseColor(ribot.profile().hexColor()));
-        if (Utils.isEmpty(ribot.image)) {
+        if (Utils.isEmpty(placeOfInterest.image)) {
             return;
         }
 
-        Picasso.with(holder.hexColorView.getContext())
-                .load(ribot.image)
+        ImageView hexColorView = (ImageView) holder.hexColorView.findViewById(R.id.view_hex_color);
+        TextView nameTextView = (TextView) holder.nameTextView.findViewById(R.id.text_name);
+        TextView emailTextView = (TextView) holder.emailTextView.findViewById(R.id.text_email);
+
+        Picasso.with(hexColorView.getContext())
+                .load(placeOfInterest.image)
                 .resize(700, 700)
                 .centerCrop()
-                .into(holder.hexColorView);
-        holder.nameTextView.setText(String.format("%s",
-                ribot.name));
-        holder.emailTextView.setText(ribot.email);
+                .into(hexColorView);
+        nameTextView.setText(String.format("%s",
+                placeOfInterest.name));
+        emailTextView.setText(placeOfInterest.email);
         holder.setIsRecyclable(true);
     }
 
@@ -70,18 +70,13 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
     class PlacesViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
 
-        @BindView(R.id.view_hex_color)
         ImageView hexColorView;
-
-        @Nullable
-        @BindView(R.id.text_name)
         TextView nameTextView;
-        @BindView(R.id.text_email)
         TextView emailTextView;
+
 
         public PlacesViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
         }
 
         @Override
