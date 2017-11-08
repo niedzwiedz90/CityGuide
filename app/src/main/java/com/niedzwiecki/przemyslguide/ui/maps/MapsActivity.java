@@ -314,8 +314,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void setUpCluster() {
         if (placesResponse != null) {
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(placesResponse.get(0)
-                    .lat, placesResponse.get(0).lon), 9f));
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(placesResponse.get(0).lat,
+                    placesResponse.get(0).lon), 9f));
             clusterManager = new ClusterManager<>(this, map);
             map.setOnCameraIdleListener(clusterManager);
             map.setOnMarkerClickListener(clusterManager);
@@ -323,7 +323,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             clusterManager.setOnClusterItemClickListener(new ClusterManager.OnClusterItemClickListener<MyItem>() {
                 @Override
                 public boolean onClusterItemClick(MyItem myItem) {
-                    startActivity(PlaceDetailsActivity.getStartIntent(getApplicationContext(),
+                    startActivity(PlaceDetailsActivity.Companion.getStartIntent(getApplicationContext(),
                             myItem.getInterestPlace()));
                     return false;
                 }

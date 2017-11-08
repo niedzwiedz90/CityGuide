@@ -12,9 +12,10 @@ import android.support.v7.widget.Toolbar;
 
 import com.niedzwiecki.przemyslguide.BoilerplateApplication;
 import com.niedzwiecki.przemyslguide.R;
+import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.injection.component.ActivityComponent;
 import com.niedzwiecki.przemyslguide.injection.component.ConfigPersistentComponent;
-import com.niedzwiecki.przemyslguide.injection.component.DaggerConfigPersistentComponent;
+//import com.niedzwiecki.przemyslguide.injection.component.DaggerConfigPersistentComponent;
 import com.niedzwiecki.przemyslguide.injection.module.ActivityModule;
 
 import java.io.Serializable;
@@ -42,11 +43,12 @@ public abstract class BaseActivity extends AppCompatActivity implements
     private ViewDataBinding viewDataBinding;
     private boolean dataBindingEnabled;
     public ViewModel viewModel;
+    private DataManager dataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        dataManager = ApplicationController.getInstance().getDataModule();
         // Create the ActivityComponent and reuses cached ConfigPersistentComponent if this is
         // being called after a configuration change.
         mActivityId = savedInstanceState != null ?
@@ -54,15 +56,15 @@ public abstract class BaseActivity extends AppCompatActivity implements
         ConfigPersistentComponent configPersistentComponent;
         if (!sComponentsMap.containsKey(mActivityId)) {
             Timber.i("Creating new ConfigPersistentComponent id=%d", mActivityId);
-            configPersistentComponent = DaggerConfigPersistentComponent.builder()
+           /* configPersistentComponent = DaggerConfigPersistentComponent.builder()
                     .applicationComponent(BoilerplateApplication.get(this).getComponent())
-                    .build();
-            sComponentsMap.put(mActivityId, configPersistentComponent);
+                    .build();*/
+//            sComponentsMap.put(mActivityId, configPersistentComponent);
         } else {
             Timber.i("Reusing ConfigPersistentComponent id=%d", mActivityId);
             configPersistentComponent = sComponentsMap.get(mActivityId);
         }
-        mActivityComponent = configPersistentComponent.activityComponent(new ActivityModule(this));
+//        mActivityComponent = configPersistentComponent.activityComponent(new ActivityModule(this));
 
         beforeViews();
         if (contentId() != 0 && !dataBindingEnabled) {

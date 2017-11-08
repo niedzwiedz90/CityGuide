@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.niedzwiecki.przemyslguide.injection.component.ApplicationComponent;
-import com.niedzwiecki.przemyslguide.injection.component.DaggerApplicationComponent;
+//import com.niedzwiecki.przemyslguide.injection.component.DaggerApplicationComponent;
 import com.niedzwiecki.przemyslguide.injection.module.ApplicationModule;
 
 import timber.log.Timber;
@@ -30,11 +30,11 @@ public class BoilerplateApplication extends Application  {
     }
 
     public ApplicationComponent getComponent() {
-        if (mApplicationComponent == null) {
-            mApplicationComponent = DaggerApplicationComponent.builder()
+       /* if (mApplicationComponent == null) {
+            mApplicationComponent = Dagg erApplicationComponent.builder()
                     .applicationModule(new ApplicationModule(this))
                     .build();
-        }
+        }*/
         return mApplicationComponent;
     }
 

@@ -6,12 +6,11 @@ import android.database.Cursor;
 import java.util.Date;
 
 import com.niedzwiecki.przemyslguide.data.model.Name;
-import com.niedzwiecki.przemyslguide.data.model.Profile;
 
 public class Db {
 
     public Db() { }
-
+/*
     public abstract static class RibotProfileTable {
         public static final String TABLE_NAME = "ribot_profile";
 
@@ -61,5 +60,5 @@ public class Db {
                     .setBio(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BIO)))
                     .build();
         }
-    }
+    }*/
 }

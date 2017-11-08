@@ -3,21 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.1.0_d5b86371d737578963adaf68d3ef6da12953e2b2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\7c9d977e42aaecbc9f3a16ed583c79267957112d\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\a2e6aa35ff860f896bdab306e60da1ed366bfed5\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="ec7d3099b4e3cf23230c78acaae438f3371e1c19">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0fee9ae1a0f4eb2a02c420ab9d8bc9b179b19fa2\classes.dex" />
+        revision="26.0.2"
+        sha1="e4851331b3944beb6e7f77316a7661f53781da62">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2a15d21880eb815b22a18986d6d5ef4ff086f3c2\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,6 +30,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_7541dff924ee6f7d7d6819d7358eae1967058a18\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\65c5ff0f5f63d598a2d0d2dce91d7bab11c4bf4a\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -57,21 +57,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.8.0_4bc3826b2405bfcff9b522388766aa77376f5f26\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\50bb4d652d96ff075ce96ee96ffa35ff2cb8e70c\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\98ae4601c03eae0b4c4de1a1bd499cb0d2ae14e4\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="bb004ea36f8802bad30000e286c177691740a322">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1c68de2f2b5a75387e3374b0573b97084594aa7e\classes.dex" />
+        revision="26.0.2"
+        sha1="2d8334c5cb1948de5dde77f8b72c82991af32f8a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2be2cff589195788ac7664d836a61bf63d503961\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,30 +75,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\b4633ab7cc8821bc557fe2b257ad7f0463d2756f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="4b32372f6821e003ae24cd3389bdd7925247f100">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6c9c091672725233e5f1be8bf33abaf6ab3ed6c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.inject-1_d68d3b81155313ecc4556f7ed899370b116d4bdb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\4cb9ba5c221a7b5a94f4758148ef6927c6e7752b\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.0"
         sha1="888983f51cf34f57a93ff16832552f2f15937212">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fbb32faec7c3a3dd48b07ae8c5e55b2dccf4bf76\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b6b10c79ac619a0d6bfd3a5f0b5600eeb8630050\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_47ead54f5a23fc6d66335786d270935aa3a55336\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -138,30 +120,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.5\571f4e0451db64a7b41dbeb5f2503986fe5acdb4\dagger-2.5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="571f4e0451db64a7b41dbeb5f2503986fe5acdb4">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\dagger-2.5_306d23ca1e70043ae75ba096fdb663545d382fc1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\1a26aefef73899a56ad015a81c318a278faf85b2\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.0"
         sha1="b6818f5804ca0b5eb089d902458faea4179eca1d">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ff2110300b228977ff3c2a1fb45b38591775ebce\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\11ad0dc71ca69a17445dbf48932425ef33a8bf55\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="dbae35d7fc3427d30bef0037bdf61ad0d8d984f8">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_723066142c0bc2b879898bcf1feed9f9f53d665e\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -192,30 +156,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.1.0_fb4c23c5bdf254f5647778259cf65dd5a0d50bfd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\94c8266357b3c72b6a3bc53ec15d63cc54753976\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
         sha1="952944218ecedea1554a513dec0c14d570642843">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8ebb98683e5fc16248ab57770ae97277de25268b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\6d571ce7d1c550fa8aee971dfd4a788492d9432e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="c7ba26433d9e9f4429d83ff65ad79bfc801dc00a">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ab1d98f57f28eaace33ec64ef1da381cc065a0a1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -228,12 +174,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\2e7cc6b8843c0742138f25a724375acaf3ca12c8\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\058c2afc6c3e127e5c61877d98fd63b4e00ab494\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="12032271e6be735e811ad529cb08ff066c381640">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_69215dfd7cdb5257fa28bf40289ddf64abb8b0ab\classes.dex" />
+        revision="26.0.2"
+        sha1="0362076a0fa8c125691f759ba4652f11ad31b05a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_31165dbbf8b8c17987b5c1869a36f30dc0b7c539\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -255,12 +201,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\1efc93638fe88cceb7637ce79264eee770ea1903\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\9730d66351762748b08d773c31038cecef9e806f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3575e73a22dce98f0bdbcdb475ef55a84606a9a6">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0ed3de3789f914890017270126a66679493cd330\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\org\jetbrains\annotations\13.0\annotations-13.0.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.0"
-        sha1="8dfe54fbaf4f2a27d395ddf806d0c011170999e0">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f28fe97473951075fad58ccbc1c275ade418d03\classes.dex" />
+        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\annotations-13.0_1a1ecf57ad78f2133cd33f7be09f61b9db498cc9\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -273,21 +228,30 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\9dd8ad36ecb60f87e3f1709eeddf91be21d0ba59\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\30182f047bcf9307da6f03973efb0309af2ef95a\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="e41a052c714bf67f743c22ed74153422ad773f88">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f4307658f6124b51b1891cb0faefd90ad7ea169\classes.dex" />
+        revision="26.0.2"
+        sha1="aba9abcfe7ce6d935add115f5ce20254b037d583">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e8cd5a3103b4ac905f6ea9b940f5a7a415637dbb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\b10280064ecd01a7fb641797e6e304bfb03f5a57\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
+        jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_42237d1a7c310b646f08e25c34952768d338e719\classes.dex" />
+        revision="26.0.2"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.1.0_7fc2733eecd9dc54ee46e05ff0af3baad72fb763\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\11ad0dc71ca69a17445dbf48932425ef33a8bf55\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="dbae35d7fc3427d30bef0037bdf61ad0d8d984f8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_723066142c0bc2b879898bcf1feed9f9f53d665e\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -297,6 +261,24 @@
         revision="26.0.0"
         sha1="bfd85a88cf976eb2c54507cc914d8e8914c2f71e">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8289df7d5248fcdd4b8717296a6a61ed43c8da14\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\8f66f2777ff05909d2ac49a74ccb87c48f9b28f9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9776d7fc4842b350fe56125617629cbbf5bedde0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\1e51ad59bd86145822f681770c197f75c803c1aa\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e18f3f10db02f937bbb7d530498ea96779ca56e8\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -324,6 +306,861 @@
         revision="26.0.0"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_7541dff924ee6f7d7d6819d7358eae1967058a18\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\4a445575cab53d5a11a3b075f5c80c1bca3a6d16\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bb115a110992b254f767f337da233071f6f940b8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7597c0f94069514eb4c433b8cfb9c2b947b39bf2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\13c7ca71044b6d30cfbfe4d00031a1738628964b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b136ac09f209c1d91fec7db8518e33d4373c8f39">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_98951d3ad03fb8a0bce34da48e567f44f3758fe0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\e63f99dcc4ce8683ba1c00f773d9a1a40b22542e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="da5c606c36276a12a356e351882044c6b4b9e8d4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0d08fd3c1d254923400dd3f0e69916f414531be0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\5c6fbdc20b27a6799625dd60ecfe58cd4898cb57\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="125bce1fb2d481b964fabf75f0949957ebe9ecd1">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_223677ca1d542a190d1845b94bcf56ce1c5bf3e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\93dc0a6d4b8c4d0d9fa29c492d44773c2fc31e38\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6f233cb35a6ea92364130d2d48791c461ec65983">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a57de023938aa68c7af3af5a4503e7b9256b407f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\98ae4601c03eae0b4c4de1a1bd499cb0d2ae14e4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2d8334c5cb1948de5dde77f8b72c82991af32f8a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2be2cff589195788ac7664d836a61bf63d503961\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\f11086642d0ef7115aef508c8b39833ca0884f23\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1003547f1f075584289da76b3c7c705882cf6ec5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\585593c2b7730654011264f77ddd8054029c557d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9a83c494ab512f76b28581ec55e26700a32fed0b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\8179c992bd0b3c61c4dec6a4002ad334da827821\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2035e82d6326ff3546531489e5c28f3036dbe068\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\95b9e33a6744b373e6c16bda1972cfc94c389309\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ad7327fc8ad339ba61091d36d0056cfb874eea82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b1fb015caf289775cc332bffcf6895d0c57d6caf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c3c7f923e1df76640acb3a24823600f034a5d226">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8fff43465f56912faf580d3ebd5f0c227dc25723\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\30182f047bcf9307da6f03973efb0309af2ef95a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="aba9abcfe7ce6d935add115f5ce20254b037d583">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e8cd5a3103b4ac905f6ea9b940f5a7a415637dbb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\af63d808829b5de9cd1738e22fd816714beac7fc\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="0c46a5a897439810b6c437ce188bd07d9d8dffb0">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5980a205531b2aa525a1b0dc1cae8b2103a7ce96\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\0bde008ef8d501064ae63231bb6fc9a51bfe9c54\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="cddcd0fb93bc70e27325f2f715b2710332004ebb">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1857f2619c045e7663e0ed26a271d62ca2a795b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\6d571ce7d1c550fa8aee971dfd4a788492d9432e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c7ba26433d9e9f4429d83ff65ad79bfc801dc00a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ab1d98f57f28eaace33ec64ef1da381cc065a0a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b6b10c79ac619a0d6bfd3a5f0b5600eeb8630050\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_47ead54f5a23fc6d66335786d270935aa3a55336\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\f443a318225fd7850e079d1b7d2a55ccff6e95fd\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2f9a9b21b70965cde70f6eb8f2ee68794fb482e6">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f9cf048a901e9a848d72705902de1299c5aad4c0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\13c7ca71044b6d30cfbfe4d00031a1738628964b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b136ac09f209c1d91fec7db8518e33d4373c8f39">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_98951d3ad03fb8a0bce34da48e567f44f3758fe0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\1e51ad59bd86145822f681770c197f75c803c1aa\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e18f3f10db02f937bbb7d530498ea96779ca56e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\f29d260d4959def82dfe19e186ab27a5a828e9bf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7c7d217f45c46a2139aca78ba5eea8fda9950c99\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.0\2b802460eea20f8f2ad9c08c74e0f14718e88aa9\okhttp-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.0_1f42550fd80d8552b054fc786a54f46dd59a9434\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\org\jetbrains\annotations\13.0\annotations-13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="919f0dfe192fb4e063e7dacadee7f8bb9a2672a9">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\annotations-13.0_1a1ecf57ad78f2133cd33f7be09f61b9db498cc9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b22c99d7d1a4e41d81d3cb147f4cc75a72a26ee4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_10bb85aafb49f870d92f7a1086b5a28ee303d7e2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\e63f99dcc4ce8683ba1c00f773d9a1a40b22542e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="da5c606c36276a12a356e351882044c6b4b9e8d4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0d08fd3c1d254923400dd3f0e69916f414531be0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\7c9d977e42aaecbc9f3a16ed583c79267957112d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ec7d3099b4e3cf23230c78acaae438f3371e1c19">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0fee9ae1a0f4eb2a02c420ab9d8bc9b179b19fa2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\0880c7b2181fcbc30bdfdf1c37c506c2e4008f41\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3683531139103cc263b71d8b5ac6062832a8fd30">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_51126cbf915fdab516c111cfb26e51450f35019f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-26.0.0-alpha1_5eb87e7d9ab1388b3a6be3918fb93cc378bd231e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\14153094977e2266689bd0a8e593235aec3a4c36\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="cce5792fa30ee8520620f298bf920309423b180f">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ca8e9583b4d05a7d9fa12f4990f55887e06d025a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\45b5f81308f7063c32ead6775d9b8771a7e267df\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="825c2e97a00df4df5b0f3081faa4fd6280cd7c72">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_79b8e09fc99d8c77ababf05f515d0aa1a5bd2739\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.4.0\ea392375cf9ff59234a82e7928a204215ccc98cd\butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-annotations-8.4.0_7dca1f540cb26232dc53ba0306ab54ea36d545cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\803f1ffb58d30861ace4c19657e49b1c8d058a62\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7d67042688d34474a82fe4ef4c6514ef471377ef">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3d79c3d058ec389ba721f0d9923002f36f9b5d8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\585593c2b7730654011264f77ddd8054029c557d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9a83c494ab512f76b28581ec55e26700a32fed0b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\50bb4d652d96ff075ce96ee96ffa35ff2cb8e70c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bb004ea36f8802bad30000e286c177691740a322">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1c68de2f2b5a75387e3374b0573b97084594aa7e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\e63e69ba965626986f7da3b1b05698780eb8c8ad\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1033af03f01c03a8235f540cceb29482925faecd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.2.3\7fe1a94c1aeb958acc876fe616922cc191f3222c\rxjava-1.2.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7fe1a94c1aeb958acc876fe616922cc191f3222c">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.2.3_8db046106bd5a2bed40581e15dbb3772e73dac82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b78f75dc45002cceb21a2b4bb3fde94d2060ae4d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df8285afc70bbd9d92dab8598ec3ff68b99f1be1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b4633ab7cc8821bc557fe2b257ad7f0463d2756f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4b32372f6821e003ae24cd3389bdd7925247f100">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6c9c091672725233e5f1be8bf33abaf6ab3ed6c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\8f66f2777ff05909d2ac49a74ccb87c48f9b28f9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9776d7fc4842b350fe56125617629cbbf5bedde0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b10280064ecd01a7fb641797e6e304bfb03f5a57\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_42237d1a7c310b646f08e25c34952768d338e719\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\93dc0a6d4b8c4d0d9fa29c492d44773c2fc31e38\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6f233cb35a6ea92364130d2d48791c461ec65983">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a57de023938aa68c7af3af5a4503e7b9256b407f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\551d34a729abaf0f99835143b35243a51da6593c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6b4a0485a5cfb76567ae77fd4d35f45c57181cbd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\09759b3579ba8bd8fd46506d19792ab4587ba880\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6a022bf00ccd0948a8180c505e8e458bbddd43a6">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b09b49a18213bf1590b3e90f668e4acc6ca6c474\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\2e2c7fabb39c3df00fbb18eb13b49b8f4b52d5df\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e3e8ea774c68a9acf2f48535223f5e61a882e2f2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\1d0ac856a3d9952833d3d69b1ad6faeb69840986\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7f2f348b830f292429db987f74ba3e67c6752322">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_32f978393d43cb84c91dcdbf93dbd4f8e9280447\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b1fb015caf289775cc332bffcf6895d0c57d6caf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c3c7f923e1df76640acb3a24823600f034a5d226">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8fff43465f56912faf580d3ebd5f0c227dc25723\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\c0c32edadb7dd90c96d79c15d9fab1cb091e3e71\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="44098e691b36776973374ac03afe0225b17f8a74">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f1b03977be847bbd006015809e048dcdedda1bd8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\5c6fbdc20b27a6799625dd60ecfe58cd4898cb57\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="125bce1fb2d481b964fabf75f0949957ebe9ecd1">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_223677ca1d542a190d1845b94bcf56ce1c5bf3e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\750e12dcca4eff5a103b0c64829bdc6a6d80c345\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c0e006efea70d094a5a04275ee384c12353df827\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_05ca56f9bddc552d684b4e0e79241e39001eb9eb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\95b9e33a6744b373e6c16bda1972cfc94c389309\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ad7327fc8ad339ba61091d36d0056cfb874eea82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\7395e3d2e4a5d7b4b317ddd98257d90d6ddd1a8f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5ee29abfc804ebd51d65a4bde424c0ee74363939">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cc383d4993765a637ce528175f0594146b173504\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\fa735f6828663959e81ae1807d3cba630d7cbdd0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1f9df8b2bfff203397548ee400789154968adfe8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_40fa3c5f48c46ca147221ec2c2894474db682ddf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\65c5ff0f5f63d598a2d0d2dce91d7bab11c4bf4a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4e684205744f814a73b7752545e0661330415c9e">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cb4d242b0be261200b98a96fc73dcb4cdfd68acd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.8.0_4bc3826b2405bfcff9b522388766aa77376f5f26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\31ae2a5aa8b2d6c5ae55ce45e3e0e613b6bff5ee\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0645c5ea867d7908e769ff294894daa48519a510\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\org\jetbrains\kotlin\kotlin-stdlib\1.1.51\kotlin-stdlib-1.1.51.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e34fe80c9714240525f665113dd3749415515655">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\kotlin-stdlib-1.1.51_e71b5a135e124787cbf32bb3d499b807a4ffacdf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_3f4e5cd1be04b3ee1fe3b0f4318ca31419a1a3b3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\5bca550696e9233259bcd4c12e0224655610a7fb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="0bb2f0934fa55799508ba58ffc9ba579b35744b8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_935171cc82d89798cdb2358aa8f5501eb0f937e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\9c8a75c42c2243ab8a03febaa197e018753e6558\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df820a367b77bbe4f1cf3dfc56faf14e29230843\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b2c5fde359500c66e2c0bc8ac4637cb01fbf19ac\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d395c5142f474891c7750f13b6a85d14682f166b">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_77e0319f4c5853c83a284673271c1b19b2a06275\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\9dd8ad36ecb60f87e3f1709eeddf91be21d0ba59\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e41a052c714bf67f743c22ed74153422ad773f88">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f4307658f6124b51b1891cb0faefd90ad7ea169\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\614006bfcf654289b5e906b22dc9c80d4164c1d7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="536fd6afd6e1280607c5d70306eb32d385db7964">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0839fd3b38c34a1f4bd1b12a9c3a682bbf451f4a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\096e9fee2be186398a19ed8b63abdb8d570ccde0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="eae43a93e0fdd57199326ce3c038172b132065a5">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ef34143c8930fc0abd6deca656a7d8a1dc4a3599\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.android.databinding\baseLibrary\2.3.3\eb3399988a52099b0127e27fb5bed666eca86ace\baseLibrary-2.3.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="eb3399988a52099b0127e27fb5bed666eca86ace">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\baseLibrary-2.3.3_a7b5b305c01d2ff2b6e65a72f7e23d0463983185\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\4e63bafa94ba6b4534f95cec8d595f1d257b4ea6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="25f55515117e14a658120a7b01a9ea5170409db4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e9b5f5a584204ef182bb45a707724a93659f167d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.1.0_d5b86371d737578963adaf68d3ef6da12953e2b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\7c9d977e42aaecbc9f3a16ed583c79267957112d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="ec7d3099b4e3cf23230c78acaae438f3371e1c19">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0fee9ae1a0f4eb2a02c420ab9d8bc9b179b19fa2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\f29d260d4959def82dfe19e186ab27a5a828e9bf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7c7d217f45c46a2139aca78ba5eea8fda9950c99\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\567ff4c47a5708026ba64ad0a7af3e276eaaacfb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5a2386ad9bfff580b206a7fe305cdccd00798159">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8596c0fbd8383a552cd2103266c787249fd8f9d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.8.0_4bc3826b2405bfcff9b522388766aa77376f5f26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\e86c890b517b3473c7a2eb91403b05c68f1943ca\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="efae381df589f3d4977c346c8a980f030315bb8b">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e1d10b48e0c180a1ca4421ceb6fbdd8faea3937b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\50bb4d652d96ff075ce96ee96ffa35ff2cb8e70c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="bb004ea36f8802bad30000e286c177691740a322">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1c68de2f2b5a75387e3374b0573b97084594aa7e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b4633ab7cc8821bc557fe2b257ad7f0463d2756f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="4b32372f6821e003ae24cd3389bdd7925247f100">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6c9c091672725233e5f1be8bf33abaf6ab3ed6c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.inject-1_d68d3b81155313ecc4556f7ed899370b116d4bdb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b2c5fde359500c66e2c0bc8ac4637cb01fbf19ac\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d395c5142f474891c7750f13b6a85d14682f166b">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_77e0319f4c5853c83a284673271c1b19b2a06275\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.5\571f4e0451db64a7b41dbeb5f2503986fe5acdb4\dagger-2.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="571f4e0451db64a7b41dbeb5f2503986fe5acdb4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\dagger-2.5_306d23ca1e70043ae75ba096fdb663545d382fc1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.1.0_fb4c23c5bdf254f5647778259cf65dd5a0d50bfd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\8c24b6e6eade2e40f7d9ea5d5e65718af73f80b8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d81a3b0a16f48b4456f442552b62f4b1a472ce24">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4b8b69a885ad1804cf5b48821afe7dea1a09e9e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\11ad0dc71ca69a17445dbf48932425ef33a8bf55\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="dbae35d7fc3427d30bef0037bdf61ad0d8d984f8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_723066142c0bc2b879898bcf1feed9f9f53d665e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\89f17a25eb9b8d1e20975a9efab8134db8b854ae\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b215e312bdc1ee7bfda31674eab5df8bad45c014">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6fafd9873410103ac79dee9c1eb0afdd98f61fea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\5bca550696e9233259bcd4c12e0224655610a7fb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="0bb2f0934fa55799508ba58ffc9ba579b35744b8">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_935171cc82d89798cdb2358aa8f5501eb0f937e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b78f75dc45002cceb21a2b4bb3fde94d2060ae4d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df8285afc70bbd9d92dab8598ec3ff68b99f1be1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.1.0_fb4c23c5bdf254f5647778259cf65dd5a0d50bfd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\6d571ce7d1c550fa8aee971dfd4a788492d9432e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c7ba26433d9e9f4429d83ff65ad79bfc801dc00a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ab1d98f57f28eaace33ec64ef1da381cc065a0a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\2e7cc6b8843c0742138f25a724375acaf3ca12c8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="12032271e6be735e811ad529cb08ff066c381640">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_69215dfd7cdb5257fa28bf40289ddf64abb8b0ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.1.0_d5b86371d737578963adaf68d3ef6da12953e2b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\394aa2fd3ec0269f14206f51ca035336269b01ec\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a3826817a4de1daa170c33bbc04db24ab6826bd5">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f4cadef2a1afef2db663cac166939acdebb05ec4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\14153094977e2266689bd0a8e593235aec3a4c36\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="cce5792fa30ee8520620f298bf920309423b180f">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ca8e9583b4d05a7d9fa12f4990f55887e06d025a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\1efc93638fe88cceb7637ce79264eee770ea1903\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="8dfe54fbaf4f2a27d395ddf806d0c011170999e0">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f28fe97473951075fad58ccbc1c275ade418d03\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\9dd8ad36ecb60f87e3f1709eeddf91be21d0ba59\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="e41a052c714bf67f743c22ed74153422ad773f88">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f4307658f6124b51b1891cb0faefd90ad7ea169\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b10280064ecd01a7fb641797e6e304bfb03f5a57\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_42237d1a7c310b646f08e25c34952768d338e719\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\a341b54b6d193b9c61d26844d6194ebe2f3310fd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_20246a72ddd9cf0b2c5a6d7173ac9aa6027b42e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\javax.inject-1_d68d3b81155313ecc4556f7ed899370b116d4bdb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\e6f81aeec9c47fa52e00c3abdd929fec3229dc75\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7e980345f5efb728da5271400dea701e83f4fdd6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\1a26aefef73899a56ad015a81c318a278faf85b2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b6818f5804ca0b5eb089d902458faea4179eca1d">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ff2110300b228977ff3c2a1fb45b38591775ebce\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -372,30 +1209,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\93dc0a6d4b8c4d0d9fa29c492d44773c2fc31e38\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\af63d808829b5de9cd1738e22fd816714beac7fc\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="6f233cb35a6ea92364130d2d48791c461ec65983">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a57de023938aa68c7af3af5a4503e7b9256b407f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\98ae4601c03eae0b4c4de1a1bd499cb0d2ae14e4\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="2d8334c5cb1948de5dde77f8b72c82991af32f8a">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2be2cff589195788ac7664d836a61bf63d503961\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\585593c2b7730654011264f77ddd8054029c557d\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9a83c494ab512f76b28581ec55e26700a32fed0b\classes.dex" />
+        revision="26.0.2"
+        sha1="0c46a5a897439810b6c437ce188bd07d9d8dffb0">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5980a205531b2aa525a1b0dc1cae8b2103a7ce96\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -408,12 +1227,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\30182f047bcf9307da6f03973efb0309af2ef95a\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.5\571f4e0451db64a7b41dbeb5f2503986fe5acdb4\dagger-2.5.jar"
+        jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="aba9abcfe7ce6d935add115f5ce20254b037d583">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e8cd5a3103b4ac905f6ea9b940f5a7a415637dbb\classes.dex" />
+        revision="26.0.2"
+        sha1="571f4e0451db64a7b41dbeb5f2503986fe5acdb4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\dagger-2.5_306d23ca1e70043ae75ba096fdb663545d382fc1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\8f7b1828b8dc66aa778580d6d692b557a016af57\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e176fd06c2ad5b50a2f5cb4de6000a83a7cb48f5">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c27d7804d65d47da39aa327996ecb6e9684a2d90\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -426,21 +1254,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\af63d808829b5de9cd1738e22fd816714beac7fc\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="0c46a5a897439810b6c437ce188bd07d9d8dffb0">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5980a205531b2aa525a1b0dc1cae8b2103a7ce96\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\b6b10c79ac619a0d6bfd3a5f0b5600eeb8630050\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\31ae2a5aa8b2d6c5ae55ce45e3e0e613b6bff5ee\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_47ead54f5a23fc6d66335786d270935aa3a55336\classes.dex" />
+        revision="26.0.2"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0645c5ea867d7908e769ff294894daa48519a510\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -480,33 +1299,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\f443a318225fd7850e079d1b7d2a55ccff6e95fd\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="2f9a9b21b70965cde70f6eb8f2ee68794fb482e6">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f9cf048a901e9a848d72705902de1299c5aad4c0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\13c7ca71044b6d30cfbfe4d00031a1738628964b\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="b136ac09f209c1d91fec7db8518e33d4373c8f39">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_98951d3ad03fb8a0bce34da48e567f44f3758fe0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\1e51ad59bd86145822f681770c197f75c803c1aa\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e18f3f10db02f937bbb7d530498ea96779ca56e8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\8c24b6e6eade2e40f7d9ea5d5e65718af73f80b8\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -516,21 +1308,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\f29d260d4959def82dfe19e186ab27a5a828e9bf\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\e6ff6f2820e43db479ac95e963d605f78cd3a332\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7c7d217f45c46a2139aca78ba5eea8fda9950c99\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.0\2b802460eea20f8f2ad9c08c74e0f14718e88aa9\okhttp-3.3.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.0_1f42550fd80d8552b054fc786a54f46dd59a9434\classes.dex" />
+        revision="26.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a2cb145d8569ccf6206592bae097e1d8380be918\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -561,21 +1344,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\e63f99dcc4ce8683ba1c00f773d9a1a40b22542e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="da5c606c36276a12a356e351882044c6b4b9e8d4">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0d08fd3c1d254923400dd3f0e69916f414531be0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\096e9fee2be186398a19ed8b63abdb8d570ccde0\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
         sha1="eae43a93e0fdd57199326ce3c038172b132065a5">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ef34143c8930fc0abd6deca656a7d8a1dc4a3599\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\9c8a75c42c2243ab8a03febaa197e018753e6558\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df820a367b77bbe4f1cf3dfc56faf14e29230843\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -588,21 +1371,21 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\4e63bafa94ba6b4534f95cec8d595f1d257b4ea6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="25f55515117e14a658120a7b01a9ea5170409db4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e9b5f5a584204ef182bb45a707724a93659f167d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\09759b3579ba8bd8fd46506d19792ab4587ba880\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
         sha1="6a022bf00ccd0948a8180c505e8e458bbddd43a6">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b09b49a18213bf1590b3e90f668e4acc6ca6c474\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\14153094977e2266689bd0a8e593235aec3a4c36\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="cce5792fa30ee8520620f298bf920309423b180f">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ca8e9583b4d05a7d9fa12f4990f55887e06d025a\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -615,12 +1398,66 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\b78f75dc45002cceb21a2b4bb3fde94d2060ae4d\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\10f1f42ee8dafa2c2b9152c4c13754cebc8169c2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="cfa47e1b140562d47bc670629d07e209cd8b02c4">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f88758ac53992cf8732561dcd78d105c80f6b37\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\c0c32edadb7dd90c96d79c15d9fab1cb091e3e71\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44098e691b36776973374ac03afe0225b17f8a74">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f1b03977be847bbd006015809e048dcdedda1bd8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\2e7cc6b8843c0742138f25a724375acaf3ca12c8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="12032271e6be735e811ad529cb08ff066c381640">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_69215dfd7cdb5257fa28bf40289ddf64abb8b0ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\94c8266357b3c72b6a3bc53ec15d63cc54753976\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8ebb98683e5fc16248ab57770ae97277de25268b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\e2c42e6b0918c812304d1af4218e6605af718a6b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f838a6ed25bccc42fd030d6c111993251e7e27d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\org\jetbrains\kotlin\kotlin-stdlib\1.1.51\kotlin-stdlib-1.1.51.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.0"
-        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df8285afc70bbd9d92dab8598ec3ff68b99f1be1\classes.dex" />
+        sha1="e34fe80c9714240525f665113dd3749415515655">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\kotlin-stdlib-1.1.51_e71b5a135e124787cbf32bb3d499b807a4ffacdf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\4cb9ba5c221a7b5a94f4758148ef6927c6e7752b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fbb32faec7c3a3dd48b07ae8c5e55b2dccf4bf76\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -633,12 +1470,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\8f66f2777ff05909d2ac49a74ccb87c48f9b28f9\output\jars\classes.jar"
+        jar="C:\Users\Queen\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.0\2b802460eea20f8f2ad9c08c74e0f14718e88aa9\okhttp-3.3.0.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9776d7fc4842b350fe56125617629cbbf5bedde0\classes.dex" />
+        revision="26.0.2"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.0_1f42550fd80d8552b054fc786a54f46dd59a9434\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\b5fc1e0dfac9291e040ed9a48374d55f2c316732\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6c74dab42788b458960618238f338d324b6f0656">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4ce8795cf0d18fd157ca782b461ab1529cc1af9f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -651,6 +1497,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\2613f9587578418bc5da1c3d2a3b022df5bf0596\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="abf7c64e0bbaaa931738856734f76646ae62d9a5">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ca9a62e39629ada8f68b1d68017ca9f18f07728b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\b22c99d7d1a4e41d81d3cb147f4cc75a72a26ee4\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -660,12 +1515,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\551d34a729abaf0f99835143b35243a51da6593c\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Queen\.android\build-cache\7814e9036166a21ff0caa5f86a01bc42222faf2c\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6b4a0485a5cfb76567ae77fd4d35f45c57181cbd\classes.dex" />
+        revision="26.0.2"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2159c5717f4d4b3a5457bab55751e8d855b93b72\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -678,21 +1533,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\2e2c7fabb39c3df00fbb18eb13b49b8f4b52d5df\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Queen\.android\build-cache\ec33de1a0cfb8487b0889297c1580e6bab115f5e\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e3e8ea774c68a9acf2f48535223f5e61a882e2f2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\1d0ac856a3d9952833d3d69b1ad6faeb69840986\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="7f2f348b830f292429db987f74ba3e67c6752322">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_32f978393d43cb84c91dcdbf93dbd4f8e9280447\classes.dex" />
+        revision="26.0.2"
+        sha1="ab8343c3aadefce37313ceadd8bc4db1993f2ff0">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f359bcd575e9eb9128eb8118e8a601f2ecca3f03\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -705,48 +1551,48 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\b1fb015caf289775cc332bffcf6895d0c57d6caf\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\f443a318225fd7850e079d1b7d2a55ccff6e95fd\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="c3c7f923e1df76640acb3a24823600f034a5d226">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8fff43465f56912faf580d3ebd5f0c227dc25723\classes.dex" />
+        revision="26.0.2"
+        sha1="2f9a9b21b70965cde70f6eb8f2ee68794fb482e6">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f9cf048a901e9a848d72705902de1299c5aad4c0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\c0c32edadb7dd90c96d79c15d9fab1cb091e3e71\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\67c168e5392f22ea663dfe8ee93e527870ea7213\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="44098e691b36776973374ac03afe0225b17f8a74">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f1b03977be847bbd006015809e048dcdedda1bd8\classes.dex" />
+        revision="26.0.2"
+        sha1="bfd85a88cf976eb2c54507cc914d8e8914c2f71e">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8289df7d5248fcdd4b8717296a6a61ed43c8da14\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\5c6fbdc20b27a6799625dd60ecfe58cd4898cb57\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\2e2c7fabb39c3df00fbb18eb13b49b8f4b52d5df\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="125bce1fb2d481b964fabf75f0949957ebe9ecd1">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_223677ca1d542a190d1845b94bcf56ce1c5bf3e9\classes.dex" />
+        revision="26.0.2"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e3e8ea774c68a9acf2f48535223f5e61a882e2f2\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\95b9e33a6744b373e6c16bda1972cfc94c389309\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\1d0ac856a3d9952833d3d69b1ad6faeb69840986\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ad7327fc8ad339ba61091d36d0056cfb874eea82\classes.dex" />
+        revision="26.0.2"
+        sha1="7f2f348b830f292429db987f74ba3e67c6752322">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_32f978393d43cb84c91dcdbf93dbd4f8e9280447\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\31ae2a5aa8b2d6c5ae55ce45e3e0e613b6bff5ee\output\jars\classes.jar"
-        jumboMode="true"
+        jar="C:\Users\Queen\.android\build-cache\551d34a729abaf0f99835143b35243a51da6593c\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0645c5ea867d7908e769ff294894daa48519a510\classes.dex" />
+        revision="26.0.2"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6b4a0485a5cfb76567ae77fd4d35f45c57181cbd\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -768,6 +1614,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\1efc93638fe88cceb7637ce79264eee770ea1903\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8dfe54fbaf4f2a27d395ddf806d0c011170999e0">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f28fe97473951075fad58ccbc1c275ade418d03\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\8179c992bd0b3c61c4dec6a4002ad334da827821\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -777,39 +1632,30 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\5bca550696e9233259bcd4c12e0224655610a7fb\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\4041e9e1cb1cbc6a266a083117779daa6018c88b\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="0bb2f0934fa55799508ba58ffc9ba579b35744b8">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_935171cc82d89798cdb2358aa8f5501eb0f937e0\classes.dex" />
+        revision="26.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_33c36f31ba91448e2c32e35de6d9fb64cc085c1b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\9c8a75c42c2243ab8a03febaa197e018753e6558\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\e18febb30e86436593037b48e3cd970c72b57759\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df820a367b77bbe4f1cf3dfc56faf14e29230843\classes.dex" />
+        revision="26.0.2"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3c806e65fe4e84eaa60c0765ca04fecc240d7a66\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\b2c5fde359500c66e2c0bc8ac4637cb01fbf19ac\output\jars\classes.jar"
+        jar="C:\Users\Queen\.android\build-cache\f29d260d4959def82dfe19e186ab27a5a828e9bf\output\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
-        sha1="d395c5142f474891c7750f13b6a85d14682f166b">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_77e0319f4c5853c83a284673271c1b19b2a06275\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Queen\.android\build-cache\4e63bafa94ba6b4534f95cec8d595f1d257b4ea6\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.0"
-        sha1="25f55515117e14a658120a7b01a9ea5170409db4">
-        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e9b5f5a584204ef182bb45a707724a93659f167d\classes.dex" />
+        revision="26.0.2"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_8382d1410d03e4cb7511db74eccd99170022730c\classes.dex" />
     </item>
 
 </items>

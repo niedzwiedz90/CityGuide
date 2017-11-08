@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.UUID;
 
 import com.niedzwiecki.przemyslguide.data.model.Name;
-import com.niedzwiecki.przemyslguide.data.model.Profile;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 
 /**

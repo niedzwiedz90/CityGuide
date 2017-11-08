@@ -5,7 +5,9 @@ import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
-import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
+import com.niedzwiecki.przemyslguide.data.remote.GuideService;
+import com.niedzwiecki.przemyslguide.ui.base.ApplicationController;
+import com.niedzwiecki.przemyslguide.ui.base.DataModule;
 
 import java.util.List;
 
@@ -19,15 +21,16 @@ import rx.functions.Action1;
 @Singleton
 public class DataManager {
 
-    private final RibotsService mRibotsService;
+    private final GuideService mGuideService;
     private final DatabaseHelper mDatabaseHelper;
     private final PreferencesHelper mPreferencesHelper;
     private final StringManager stringManager;
+    private static DataManager dataManager;
 
     @Inject
-    public DataManager(RibotsService ribotsService, PreferencesHelper preferencesHelper,
+    public DataManager(GuideService guideService, PreferencesHelper preferencesHelper,
                        DatabaseHelper databaseHelper, StringManager stringManager) {
-        mRibotsService = ribotsService;
+        mGuideService = guideService;
         mPreferencesHelper = preferencesHelper;
         mDatabaseHelper = databaseHelper;
         this.stringManager = stringManager;
@@ -38,7 +41,7 @@ public class DataManager {
     }
 
   /*  public Observable<Ribot> syncRibots() {
-        return mRibotsService.getPlaces()
+        return mGuideService.getPlaces()
                 .concatMap(new Func1<List<Ribot>, Observable<Ribot>>() {
                     @Override
                     public Observable<Ribot> call(List<Ribot> ribots) {
@@ -55,12 +58,12 @@ public class DataManager {
 /*
 
     public Observable<PlacesResponse> getPlaces() {
-        return mRibotsService.getPlaces();
+        return mGuideService.getPlaces();
     }
 */
 
     public Observable<List<PlaceOfInterest>> getPlaces() {
-        return mRibotsService.getRibots();
+        return mGuideService.getRibots();
     }
 
 
@@ -75,11 +78,11 @@ public class DataManager {
     public Observable<SuppliesModel> login(String email, String password) {
         String encoding = HttpRequest.Base64.encode(email + ":" + password);
         final String format = String.format("Basic %s", encoding);
-        return mRibotsService.getSupplies(format)
+        return mGuideService.getSupplies(format)
                 .doOnNext(new Action1<SuppliesModel>() {
                     @Override
                     public void call(SuppliesModel suppliesListModel) {
-                        if(suppliesListModel != null) {
+                        if (suppliesListModel != null) {
                             storeAuthenticationHeader(format);
                         }
                     }
@@ -90,4 +93,23 @@ public class DataManager {
         mPreferencesHelper.setAuthenticationHeader(PreferencesKeys.LOGION_HEADER, loginHeader);
     }
 
+    public static void init() {
+        DataModule dataModule = ApplicationController.getInstance().getDataModule();
+        dataManager = new DataManager(dataModule.provideApi(),
+                NotificationController.getInstance(),
+                dataModule.provideResourcesManager(),
+                dataModule.provideContactManager(),
+                dataModule.providePreferencesManager(),
+                dataModule.provideDatabaseHelper(),
+                dataModule.provideDatabaseCacheController()
+        );
+    }
+
+    public static DataManager getInstance() {
+        if (dataManager == null) {
+            init();
+        }
+
+        return dataManager;
+    }
 }

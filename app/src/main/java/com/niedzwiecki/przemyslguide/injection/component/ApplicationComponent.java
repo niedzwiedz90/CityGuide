@@ -11,7 +11,7 @@ import com.niedzwiecki.przemyslguide.data.StringManager;
 import com.niedzwiecki.przemyslguide.data.SyncService;
 import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
-import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
+import com.niedzwiecki.przemyslguide.data.remote.GuideService;
 import com.niedzwiecki.przemyslguide.injection.ApplicationContext;
 import com.niedzwiecki.przemyslguide.injection.module.ApplicationModule;
 import com.niedzwiecki.przemyslguide.util.RxEventBus;
@@ -24,7 +24,7 @@ public interface ApplicationComponent {
 
     @ApplicationContext Context context();
     Application application();
-    RibotsService ribotsService();
+    GuideService ribotsService();
     PreferencesHelper preferencesHelper();
     DatabaseHelper databaseHelper();
     DataManager dataManager();

@@ -17,9 +17,8 @@ import rx.Observable;
 
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
-import com.niedzwiecki.przemyslguide.util.MyGsonTypeAdapterFactory;
 
-public interface RibotsService {
+public interface GuideService {
 
     String ENDPOINT = "http://www.mocky.io/";
     String CITY_GUID_ENDPOINT = "http://51.15.34.44/api/";
@@ -43,9 +42,9 @@ public interface RibotsService {
     /******** Helper class that sets up a new services *******/
     class Creator {
 
-        public static RibotsService newRibotsService() {
+        public static GuideService newRibotsService() {
             Gson gson = new GsonBuilder()
-                    .registerTypeAdapterFactory(MyGsonTypeAdapterFactory.create())
+//                    .registerTypeAdapterFactory(MyGsonTypeAdapterFactory.create())
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                     .create();
 
@@ -60,11 +59,11 @@ public interface RibotsService {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(client)
-                    .baseUrl(RibotsService.CITY_GUID_ENDPOINT)
+                    .baseUrl(GuideService.CITY_GUID_ENDPOINT)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
-            return retrofit.create(RibotsService.class);
+            return retrofit.create(GuideService.class);
         }
 
         public static GsonBuilder provideGson() {

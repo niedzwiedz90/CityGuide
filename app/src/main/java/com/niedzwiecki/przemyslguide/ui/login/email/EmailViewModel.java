@@ -27,9 +27,8 @@ public class EmailViewModel extends BaseViewModel {
     public ObservableInt nextButtonVisibility;
     private String emailText;
 
-    @Inject
-    public EmailViewModel(DataManager dataManager) {
-        this.dataManager = dataManager;
+    public EmailViewModel() {
+//        this.dataManager = dataManager;
         this.emailAddressFromEditText = new ObservableField<>();
         this.validationEmailAddressError = new ObservableField<>();
         errorVisibility = new ObservableInt(View.INVISIBLE);

@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import com.niedzwiecki.przemyslguide.data.DataManager;
-import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
+import com.niedzwiecki.przemyslguide.data.remote.GuideService;
 import com.niedzwiecki.przemyslguide.injection.ApplicationContext;
 
 import static org.mockito.Mockito.mock;
@@ -47,8 +47,8 @@ public class ApplicationTestModule {
 
     @Provides
     @Singleton
-    RibotsService provideRibotsService() {
-        return mock(RibotsService.class);
+    GuideService provideRibotsService() {
+        return mock(GuideService.class);
     }
 
 }

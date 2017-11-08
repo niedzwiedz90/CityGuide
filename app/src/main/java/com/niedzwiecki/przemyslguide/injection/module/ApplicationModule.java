@@ -7,7 +7,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
+
+import com.niedzwiecki.przemyslguide.data.remote.GuideService;
 import com.niedzwiecki.przemyslguide.injection.ApplicationContext;
 
 /**
@@ -34,8 +35,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    RibotsService provideRibotsService() {
-        return RibotsService.Creator.newRibotsService();
+    GuideService provideRibotsService() {
+        return GuideService.Creator.newRibotsService();
     }
 
 }

@@ -187,7 +187,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void openDetail(PlaceOfInterest interestPlace) {
-        startActivity(PlaceDetailsActivity.getStartIntent(this, interestPlace));
+        startActivity(PlaceDetailsActivity.Companion.getStartIntent(this, interestPlace));
     }
 
     @Override

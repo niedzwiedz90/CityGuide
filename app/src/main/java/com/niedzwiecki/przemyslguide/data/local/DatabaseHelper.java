@@ -29,7 +29,7 @@ public class DatabaseHelper {
         mDb = briteBuilder.build().wrapDatabaseHelper(dbOpenHelper, Schedulers.immediate());
     }
 
-    public BriteDatabase getBriteDb() {
+  /*  public BriteDatabase getBriteDb() {
         return mDb;
     }
 
@@ -66,5 +66,5 @@ public class DatabaseHelper {
                     }
                 });
     }
-
+*/
 }
