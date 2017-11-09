@@ -14,6 +14,7 @@ import com.niedzwiecki.przemyslguide.ui.PlaceDetailViewPager
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity
+import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.niedzwiecki.przemyslguide.util.Utils
 import com.squareup.picasso.Picasso
 
@@ -36,6 +37,11 @@ class PlaceDetailsActivity : BaseActivity() {
         setScreenFlags()
         fetchData()
         setData()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        viewDataBinding.fabButton.setOnClickListener { onFabButtonClick() }
     }
 
     private fun fetchData() {
@@ -113,24 +119,15 @@ class PlaceDetailsActivity : BaseActivity() {
         return PlaceDetailsViewModel()
     }
 
-    /*  override fun createViewModel(): ViewModel {
-          return PlacesDetailsViewModel()
-      }
-
-      override fun getViewModel(): PlacesDetailsViewModel {
-          return super.getViewModel() as PlacesDetailsViewModel
-      }
-  */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(INTEREST_PLACE_KEY, place)
     }
-/*
-    //    @OnClick(R.id.fabButton)
+
     fun onFabButtonClick() {
         val intent = Intent(MapsActivity.getStartIntent(baseContext, place))
         startActivity(intent)
-    }*/
+    }
 
     companion object {
 
