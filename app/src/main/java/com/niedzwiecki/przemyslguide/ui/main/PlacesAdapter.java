@@ -31,7 +31,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
     @Override
     public PlacesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_ribot, parent, false);
+                .inflate(R.layout.place_item, parent, false);
         return new PlacesViewHolder(itemView);
     }
 
@@ -44,18 +44,14 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
             return;
         }
 
-        ImageView hexColorView = (ImageView) holder.hexColorView.findViewById(R.id.view_hex_color);
-        TextView nameTextView = (TextView) holder.nameTextView.findViewById(R.id.text_name);
-        TextView emailTextView = (TextView) holder.emailTextView.findViewById(R.id.text_email);
-
-        Picasso.with(hexColorView.getContext())
+        Picasso.with(holder.hexColorView.getContext())
                 .load(placeOfInterest.image)
                 .resize(700, 700)
                 .centerCrop()
-                .into(hexColorView);
-        nameTextView.setText(String.format("%s",
+                .into(holder.hexColorView);
+        holder.nameTextView.setText(String.format("%s",
                 placeOfInterest.name));
-        emailTextView.setText(placeOfInterest.email);
+        holder.emailTextView.setText(placeOfInterest.email);
         holder.setIsRecyclable(true);
     }
 
@@ -74,9 +70,11 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         TextView nameTextView;
         TextView emailTextView;
 
-
         public PlacesViewHolder(View itemView) {
             super(itemView);
+            hexColorView = (ImageView) itemView.findViewById(R.id.view_hex_color);
+            nameTextView = (TextView) itemView.findViewById(R.id.text_name);
+            emailTextView = (TextView) itemView.findViewById(R.id.text_email);
         }
 
         @Override
