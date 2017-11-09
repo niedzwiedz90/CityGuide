@@ -3,20 +3,14 @@ package com.niedzwiecki.przemyslguide.data.local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import com.niedzwiecki.przemyslguide.injection.ApplicationContext;
-
-@Singleton
 public class PreferencesHelper {
 
     public static final String PREF_FILE_NAME = "android_boilerplate_pref_file";
 
     private final SharedPreferences mPref;
+    private static PreferencesHelper instance;
 
-    @Inject
-    public PreferencesHelper(@ApplicationContext Context context) {
+    public PreferencesHelper(Context context) {
         mPref = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
     }
 
@@ -40,4 +34,11 @@ public class PreferencesHelper {
         mPref.edit().remove(key.name()).apply();
     }
 
+    public static PreferencesHelper getInstance(Context context) {
+        if (instance == null) {
+            instance = new PreferencesHelper(context);
+        }
+
+        return instance;
+    }
 }

@@ -16,7 +16,7 @@ import com.niedzwiecki.przemyslguide.data.DataManager;
 import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
-import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
+import com.niedzwiecki.przemyslguide.data.remote.GuideService;
 import com.niedzwiecki.przemyslguide.test.common.TestDataFactory;
 
 import static org.mockito.Mockito.never;
@@ -36,13 +36,14 @@ public class DataManagerTest {
 
     @Mock DatabaseHelper mMockDatabaseHelper;
     @Mock PreferencesHelper mMockPreferencesHelper;
-    @Mock RibotsService mMockRibotsService;
+    @Mock
+    GuideService mMockGuideService;
     private DataManager mDataManager;
 
     @Before
     public void setUp() {
-        mDataManager = new DataManager(mMockRibotsService, mMockPreferencesHelper,
-                mMockDatabaseHelper, stringManager);
+        mDataManager = new DataManager(mMockGuideService, mMockPreferencesHelper,
+                mMockDatabaseHelper, stringManager, resourcesManager);
     }
 
     @Test
@@ -65,24 +66,24 @@ public class DataManagerTest {
 
         mDataManager.syncRibots().subscribe();
         // Verify right calls to helper methods
-        verify(mMockRibotsService).getRibots();
+        verify(mMockGuideService).getPlaces();
         verify(mMockDatabaseHelper).setRibots(ribots);
     }
 
     @Test
     public void syncRibotsDoesNotCallDatabaseWhenApiFails() {
-        when(mMockRibotsService.getRibots())
+        when(mMockGuideService.getPlaces())
                 .thenReturn(Observable.<List<Ribot>>error(new RuntimeException()));
 
         mDataManager.syncRibots().subscribe(new TestSubscriber<Ribot>());
         // Verify right calls to helper methods
-        verify(mMockRibotsService).getRibots();
+        verify(mMockGuideService).getPlaces();
         verify(mMockDatabaseHelper, never()).setRibots(ArgumentMatchers.<Ribot>anyList());
     }
 
     private void stubSyncRibotsHelperCalls(List<Ribot> ribots) {
         // Stub calls to the ribot service and database helper.
-        when(mMockRibotsService.getRibots())
+        when(mMockGuideService.getPlaces())
                 .thenReturn(Observable.just(ribots));
         when(mMockDatabaseHelper.setRibots(ribots))
                 .thenReturn(Observable.from(ribots));

@@ -1,93 +1,95 @@
 package com.niedzwiecki.przemyslguide.data;
 
+import android.support.annotation.NonNull;
+
 import com.niedzwiecki.przemyslguide.data.local.DatabaseHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesHelper;
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
-import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
-import com.niedzwiecki.przemyslguide.data.remote.RibotsService;
+import com.niedzwiecki.przemyslguide.ui.base.ApplicationController;
+import com.niedzwiecki.przemyslguide.ui.base.DataModule;
+import com.niedzwiecki.przemyslguide.ui.base.GuideApi;
+import com.niedzwiecki.przemyslguide.ui.base.ResourcesManager;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import io.fabric.sdk.android.services.network.HttpRequest;
 import rx.Observable;
-import rx.functions.Action1;
 
-@Singleton
 public class DataManager {
 
-    private final RibotsService mRibotsService;
-    private final DatabaseHelper mDatabaseHelper;
-    private final PreferencesHelper mPreferencesHelper;
-    private final StringManager stringManager;
+    private final GuideApi guideService;
+    private final DatabaseHelper databaseHelper;
+    private final PreferencesHelper preferencesHelper;
+    private static DataManager dataManager;
 
-    @Inject
-    public DataManager(RibotsService ribotsService, PreferencesHelper preferencesHelper,
-                       DatabaseHelper databaseHelper, StringManager stringManager) {
-        mRibotsService = ribotsService;
-        mPreferencesHelper = preferencesHelper;
-        mDatabaseHelper = databaseHelper;
-        this.stringManager = stringManager;
+    public ResourcesManager getResourcesManager() {
+        return resourcesManager;
+    }
+
+    private final ResourcesManager resourcesManager;
+
+    public DataManager(GuideApi guideService, PreferencesHelper preferencesHelper,
+                       DatabaseHelper databaseHelper, ResourcesManager resourcesManager) {
+        this.guideService = guideService;
+        this.preferencesHelper = preferencesHelper;
+        this.databaseHelper = databaseHelper;
+        this.resourcesManager = resourcesManager;
     }
 
     public PreferencesHelper getPreferencesHelper() {
-        return mPreferencesHelper;
+        return preferencesHelper;
     }
 
   /*  public Observable<Ribot> syncRibots() {
-        return mRibotsService.getPlaces()
+        return guideService.getPlaces()
                 .concatMap(new Func1<List<Ribot>, Observable<Ribot>>() {
                     @Override
                     public Observable<Ribot> call(List<Ribot> ribots) {
-                        return mDatabaseHelper.setRibots(ribots);
+                        return databaseHelper.setRibots(ribots);
                     }
                 });
     }*/
 
-/*
-    public Observable<List<Ribot>> getPlaces() {
-        return mDatabaseHelper.getPlaces().distinct();
-    }
-*/
-/*
-
-    public Observable<PlacesResponse> getPlaces() {
-        return mRibotsService.getPlaces();
-    }
-*/
-
     public Observable<List<PlaceOfInterest>> getPlaces() {
-        return mRibotsService.getRibots();
-    }
-
-
-    public String getString(int stringId) {
-        return stringManager.getStringFromStringResource(stringId);
+        return guideService.getPlaces();
     }
 
     public boolean contains(PreferencesKeys key) {
-        return mPreferencesHelper.contains(key);
+        return preferencesHelper.contains(key);
     }
 
-    public Observable<SuppliesModel> login(String email, String password) {
+ /*   public Observable<SuppliesModel> login(String email, String password) {
         String encoding = HttpRequest.Base64.encode(email + ":" + password);
         final String format = String.format("Basic %s", encoding);
-        return mRibotsService.getSupplies(format)
+        return guideService.getSupplies(format)
                 .doOnNext(new Action1<SuppliesModel>() {
                     @Override
                     public void call(SuppliesModel suppliesListModel) {
-                        if(suppliesListModel != null) {
+                        if (suppliesListModel != null) {
                             storeAuthenticationHeader(format);
                         }
                     }
                 });
-    }
+    }*/
 
     public void storeAuthenticationHeader(String loginHeader) {
-        mPreferencesHelper.setAuthenticationHeader(PreferencesKeys.LOGION_HEADER, loginHeader);
+        preferencesHelper.setAuthenticationHeader(PreferencesKeys.LOGION_HEADER, loginHeader);
     }
 
+    public static void init() {
+        DataModule dataModule = ApplicationController.getInstance().getDataModule();
+        dataManager = new DataManager(dataModule.provideApi(),
+                dataModule.providePreferencesManager(),
+                dataModule.provideDatabaseHelper(),
+                dataModule.provideResourcesManager());
+    }
+
+    @NonNull
+    public static DataManager getInstance() {
+        if (dataManager == null) {
+            init();
+        }
+
+        return dataManager;
+    }
 }

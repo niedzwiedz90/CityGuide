@@ -3,9 +3,8 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails;
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 
 /**
- * Created by niedzwiedz on 11.07.17.
+ * Created by Niedzwiecki on 11/8/2017.
  */
 
-public class PlacesDetailsViewModel extends BaseViewModel {
-
+public class PlaceDetailsViewModel extends BaseViewModel {
 }

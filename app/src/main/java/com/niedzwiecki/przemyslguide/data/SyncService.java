@@ -7,21 +7,15 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.IBinder;
 
-import javax.inject.Inject;
-
-import rx.Observer;
-import rx.Subscription;
-import rx.schedulers.Schedulers;
-import timber.log.Timber;
-import com.niedzwiecki.przemyslguide.BoilerplateApplication;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
 import com.niedzwiecki.przemyslguide.util.AndroidComponentUtil;
 import com.niedzwiecki.przemyslguide.util.NetworkUtil;
 import com.niedzwiecki.przemyslguide.util.RxUtil;
 
+import rx.Subscription;
+import timber.log.Timber;
+
 public class SyncService extends Service {
 
-    @Inject DataManager mDataManager;
     private Subscription mSubscription;
 
     public static Intent getStartIntent(Context context) {
@@ -35,7 +29,7 @@ public class SyncService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        BoilerplateApplication.get(this).getComponent().inject(this);
+//        BoilerplateApplication.get(this).getComponent().inject(this);
     }
 
     @Override

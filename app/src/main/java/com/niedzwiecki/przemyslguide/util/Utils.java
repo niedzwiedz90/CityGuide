@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+    public static final int TOAST_OFFSET = 150;
+
     public static boolean isEmpty(@Nullable CharSequence str) {
         return str == null || str.length() == 0;
     }

@@ -12,8 +12,6 @@ import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.util.Utils;
 
-import javax.inject.Inject;
-
 import rx.Subscription;
 
 public class PasswordViewModel extends BaseViewModel {
@@ -31,7 +29,6 @@ public class PasswordViewModel extends BaseViewModel {
     private Subscription mSubscrition;
     private ObservableField<String> error;
 
-    @Inject
     public PasswordViewModel(DataManager dataManager) {
         this.dataManager = dataManager;
         this.validationPasswordErrorText = new ObservableField<>();
@@ -65,10 +62,10 @@ public class PasswordViewModel extends BaseViewModel {
     public void validPassword(CharSequence password) {
         if (Utils.isEmpty(password)) {
             showValidationErrorMessage(dataManager.
-                    getString(StringManager.ERROR_EMPTY_PASSWORD_VALIDATION));
+                    getResourcesManager().getString(StringManager.ERROR_EMPTY_PASSWORD_VALIDATION));
         } else if (!Utils.isPasswordLengthMinimumFourChars(password)) {
             showValidationErrorMessage(dataManager.
-                    getString(StringManager.ERROR_NOT_ENOUGH_PASSWORD_CHARS));
+                    getResourcesManager().getString(StringManager.ERROR_NOT_ENOUGH_PASSWORD_CHARS));
         } else {
             nextButtonVisibility.set(View.VISIBLE);
             errorVisibility.set(View.INVISIBLE);

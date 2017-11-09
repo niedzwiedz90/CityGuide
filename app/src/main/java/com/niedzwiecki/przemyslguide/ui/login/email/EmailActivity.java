@@ -12,12 +12,9 @@ import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity;
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity;
 
-import javax.inject.Inject;
-
 
 public class EmailActivity extends BaseActivity implements Navigator {
 
-    @Inject
     EmailViewModel viewModel;
 
     private ActivityEmailBinding binding;
@@ -30,7 +27,7 @@ public class EmailActivity extends BaseActivity implements Navigator {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityComponent().inject(this);
+        viewModel = new EmailViewModel(dataManager);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_email);
         binding.setViewModel(viewModel);
         viewModel.attachNavigator(this);

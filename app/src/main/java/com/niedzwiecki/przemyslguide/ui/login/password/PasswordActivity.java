@@ -12,8 +12,6 @@ import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity;
 
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,7 +19,6 @@ public class PasswordActivity extends BaseActivity implements Navigator {
 
     public static final String EMAIL_KEY = "emailKey";
 
-    @Inject
     PasswordViewModel viewModel;
 
     @BindView(R.id.nextButton)
@@ -37,8 +34,8 @@ public class PasswordActivity extends BaseActivity implements Navigator {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityComponent().inject(this);
         ActivityPasswordBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_password);
+        viewModel = new PasswordViewModel(dataManager);
         binding.setViewModel(viewModel);
         viewModel.attachNavigator(this);
         ButterKnife.bind(this);

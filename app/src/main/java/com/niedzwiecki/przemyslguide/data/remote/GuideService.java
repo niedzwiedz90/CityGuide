@@ -2,6 +2,8 @@ package com.niedzwiecki.przemyslguide.data.remote;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
+import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,37 +17,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import rx.Observable;
 
-import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
-import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
-import com.niedzwiecki.przemyslguide.util.MyGsonTypeAdapterFactory;
+public interface GuideService {
 
-public interface RibotsService {
-
-    String ENDPOINT = "http://www.mocky.io/";
     String CITY_GUID_ENDPOINT = "http://51.15.34.44/api/";
 
     @GET("places")
-    Observable<List<PlaceOfInterest>> getRibots();
-
-/*
-
-    @GET("places")
-    Observable<PlacesResponse> getPlaces();
-*/
-
-/*
-    @GET("v2/59e58509110000b00bec68ff")
-    Observable<PlacesResponse> getPlaces();
-*/
+    Observable<List<PlaceOfInterest>> getPlaces();
 
     Observable<SuppliesModel> getSupplies(String format);
 
     /******** Helper class that sets up a new services *******/
     class Creator {
 
-        public static RibotsService newRibotsService() {
+        public static Retrofit newRibotsService() {
             Gson gson = new GsonBuilder()
-                    .registerTypeAdapterFactory(MyGsonTypeAdapterFactory.create())
+//                    .registerTypeAdapterFactory(MyGsonTypeAdapterFactory.create())
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                     .create();
 
@@ -60,11 +46,11 @@ public interface RibotsService {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(client)
-                    .baseUrl(RibotsService.CITY_GUID_ENDPOINT)
+                    .baseUrl(GuideService.CITY_GUID_ENDPOINT)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
-            return retrofit.create(RibotsService.class);
+            return retrofit;
         }
 
         public static GsonBuilder provideGson() {

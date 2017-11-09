@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.UUID;
 
 import com.niedzwiecki.przemyslguide.data.model.Name;
-import com.niedzwiecki.przemyslguide.data.model.Profile;
 import com.niedzwiecki.przemyslguide.data.model.Ribot;
 
 /**
@@ -18,7 +17,7 @@ public class TestDataFactory {
     public static String randomUuid() {
         return UUID.randomUUID().toString();
     }
-
+/*
     public static Ribot makeRibot(String uniqueSuffix) {
         return Ribot.create(makeProfile(uniqueSuffix));
     }
@@ -44,6 +43,6 @@ public class TestDataFactory {
 
     public static Name makeName(String uniqueSuffix) {
         return Name.create("Name-" + uniqueSuffix, "Surname-" + uniqueSuffix);
-    }
+    }*/
 
 }

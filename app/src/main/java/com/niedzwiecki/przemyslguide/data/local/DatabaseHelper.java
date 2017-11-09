@@ -1,35 +1,29 @@
 package com.niedzwiecki.przemyslguide.data.local;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
-import com.squareup.sqlbrite.BriteDatabase;
-import com.squareup.sqlbrite.SqlBrite;
-
-import java.util.Collection;
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import rx.Observable;
-import rx.Subscriber;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
-import com.niedzwiecki.przemyslguide.data.model.Ribot;
-
-@Singleton
 public class DatabaseHelper {
 
-    private final BriteDatabase mDb;
+    public DatabaseHelper() {
+    }
 
-    @Inject
+    private static DatabaseHelper instance;
+
+    public static DatabaseHelper getInstance() {
+        if (instance == null) {
+            instance = new DatabaseHelper();
+        }
+
+        return instance;
+    }
+
+
+/*
     public DatabaseHelper(DbOpenHelper dbOpenHelper) {
         SqlBrite.Builder briteBuilder = new SqlBrite.Builder();
         mDb = briteBuilder.build().wrapDatabaseHelper(dbOpenHelper, Schedulers.immediate());
     }
+*/
 
-    public BriteDatabase getBriteDb() {
+  /*  public BriteDatabase getBriteDb() {
         return mDb;
     }
 
@@ -56,7 +50,7 @@ public class DatabaseHelper {
         });
     }
 
-    public Observable<List<Ribot>> getRibots() {
+    public Observable<List<Ribot>> getPlaces() {
         return mDb.createQuery(Db.RibotProfileTable.TABLE_NAME,
                 "SELECT * FROM " + Db.RibotProfileTable.TABLE_NAME)
                 .mapToList(new Func1<Cursor, Ribot>() {
@@ -66,5 +60,5 @@ public class DatabaseHelper {
                     }
                 });
     }
-
+*/
 }
