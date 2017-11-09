@@ -23,27 +23,12 @@ import com.squareup.picasso.Picasso
 
 class PlaceDetailsActivity : BaseActivity() {
 
-
-/*    //    @BindView(R.id.nameOfRibot)
-    private var nameTextView: TextView? = null
-
-    //    @BindView(R.id.description)
-    internal var descriptionTextView: TextView? = null
-
-    //    @BindView(R.id.coverImage)
-    internal var coverImage: AppCompatImageView? = null
-
-    //    @BindView(R.id.mailTextView)
-    internal var mailTextView: TextView? = null
-
-    //    @BindView(R.id.viewPager)
-    internal var viewPager: ViewPager? = null*/
-
     private var place: PlaceOfInterest? = null
     private var adapter: PlaceDetailViewPager? = null
 
     override fun beforeViews() {
         super.beforeViews()
+        setDataBindingEnabled(true)
     }
 
     override fun afterViews() {
@@ -80,13 +65,13 @@ class PlaceDetailsActivity : BaseActivity() {
 
     private fun setData() {
         if (Utils.isEmpty(place!!.name)) {
-            viewDataBinding.nameOfRibot.visibility = View.GONE
+            viewDataBinding.nameOfRibot!!.visibility = View.GONE
         } else {
             viewDataBinding.nameOfRibot!!.text = place!!.name
         }
 
         if (Utils.isEmpty(place!!.description)) {
-            viewDataBinding.description.visibility = View.GONE
+            viewDataBinding.description!!.visibility = View.GONE
         } else {
             viewDataBinding.description!!.text = place!!.description
         }
@@ -121,11 +106,11 @@ class PlaceDetailsActivity : BaseActivity() {
     }
 
     override fun getViewDataBinding(): ActivityPlaceDetailsBinding {
-        return super.getViewDataBinding() as ActivityPlaceDetailsBinding
+        return (super.getViewDataBinding() as? ActivityPlaceDetailsBinding)!!
     }
 
     override fun createViewModel(): ViewModel {
-        return super.createViewModel()
+        return PlaceDetailsViewModel()
     }
 
     /*  override fun createViewModel(): ViewModel {
@@ -136,10 +121,6 @@ class PlaceDetailsActivity : BaseActivity() {
           return super.getViewModel() as PlacesDetailsViewModel
       }
   */
-    override fun setDataBindingEnabled(dataBindingEnabled: Boolean) {
-        super.setDataBindingEnabled(true)
-    }
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(INTEREST_PLACE_KEY, place)
