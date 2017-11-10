@@ -47,7 +47,7 @@ public class EmailActivity extends BaseActivity implements Navigator {
                 PasswordActivity.start(this, (String) data[0]);
                 break;
             case START_MAIN_ACTIVITY:
-                MainActivity.start(this, (String) data[0]);
+                MainActivity.Companion.start(this, (String) data[0]);
         }
     }
 

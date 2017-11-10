@@ -14,6 +14,8 @@ import com.niedzwiecki.przemyslguide.ui.base.ResourcesManager;
 import java.util.List;
 
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class DataManager {
 
@@ -71,6 +73,27 @@ public class DataManager {
                     }
                 });
     }*/
+
+
+    private <T> Observable<T> decorateObservable(Observable<T> observable) {
+        return observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+//                .onErrorReturn();
+    }
+/*
+
+    private
+    @Nullable
+    <T> T handleError(Throwable throwable) {
+        if (NetworkUtil.isHttpStatusCode(throwable, 401)) {
+            clearAllUserData();
+            resourcesManager.startLauncher();
+            return null;
+        } else {
+            throw guideService.parseException(throwable);
+        }
+    }
+*/
 
     public void storeAuthenticationHeader(String loginHeader) {
         preferencesHelper.setAuthenticationHeader(PreferencesKeys.LOGION_HEADER, loginHeader);
