@@ -43,7 +43,6 @@ public class MainViewModel extends BaseViewModel {
 
             @Override
             public void onNext(List<PlaceOfInterest> places) {
-//                Timber.d("PLACES RESPONSE --->", places);
                 getNavigator().moveForward(Navigator.Options.SHOW_PLACES, places);
             }
         });

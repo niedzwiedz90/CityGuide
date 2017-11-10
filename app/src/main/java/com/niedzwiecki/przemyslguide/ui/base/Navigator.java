@@ -49,7 +49,8 @@ public interface Navigator {
         SHOW_KEYBOARD,
         START_PASSWORD_ACTIVITY,
         START_EMAIL_ACTIVITY,
-        START_MAIN_ACTIVITY
+        START_MAIN_ACTIVITY,
+        START_ACTIVITY_WITH_INTENT
     }
 
 }
