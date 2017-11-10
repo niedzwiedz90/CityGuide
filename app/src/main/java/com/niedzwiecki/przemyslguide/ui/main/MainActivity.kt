@@ -1,7 +1,6 @@
 package com.niedzwiecki.przemyslguide.ui.main
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
@@ -22,29 +21,56 @@ import java.util.*
 
 class MainActivity : BaseActivity() {
 
-    internal var placesAdapter: PlacesAdapter? = null
-    internal var mainViewModel: MainViewModel? = null
-
     private var email: String? = null
     private var placesList: List<PlaceOfInterest>? = null
 
+    override fun beforeViews() {
+        super.beforeViews()
+        setDataBindingEnabled(true)
+    }
+
+    override fun contentId(): Int {
+        return R.layout.activity_main
+    }
+
+    override fun afterViews() {
+        super.afterViews()
+        viewDataBinding.viewModel = getViewModel()
+        fetchData()
+        init()
+    }
+
+    private fun fetchData() {
+        if (intent.hasExtra(EMAIL_KEY)) {
+            email = intent.getStringExtra(EMAIL_KEY)
+
+            //            View header = navigationView.getHeaderView(0);
+            //            TextView name = (TextView) header.findViewById(R.id.emailInfo);
+            //            name.setText(email);
+        }
+
+        if (intent.getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
+            startService(SyncService.getStartIntent(this))
+        }
+
+    }
+
+    override fun createViewModel(): ViewModel {
+        return MainViewModel(dataManager)
+    }
+
+    override fun getViewModel(): MainViewModel {
+        return super.getViewModel() as MainViewModel
+    }
+
+    override fun getViewDataBinding(): ActivityMainBinding {
+        return super.getViewDataBinding() as ActivityMainBinding
+    }
+
     private fun init() {
-        placesAdapter = PlacesAdapter()
-        viewDataBinding.recyclerView.adapter = placesAdapter
-        viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
-        viewDataBinding.recyclerView.addOnItemTouchListener(RecyclerItemClickListener(this, viewDataBinding.recyclerView,
-                object : RecyclerItemClickListener.OnItemClickListener {
-                    override fun onItemClick(view: View, position: Int) {
-                        val places = placesAdapter?.getPlace(position)
-                        openDetail(places!!)
-                    }
-
-                    override fun onLongItemClick(view: View, position: Int) {
-
-                    }
-                }))
-
         getViewModel().loadPlaces()
+        viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+
 
         viewDataBinding.navView.setNavigationItemSelectedListener { item ->
             /*  if (item.isChecked()) {
@@ -82,15 +108,15 @@ class MainActivity : BaseActivity() {
                     true
                 }
                 R.id.navLogout -> {
-                    mainViewModel!!.logout()
+                    viewDataBinding.viewModel?.logout()
                     true
                 }
                 else -> true
             }
         }
 
-        if (!viewDataBinding.swipeToRefresh.isRefreshing) {
-            viewDataBinding.swipeToRefresh.setOnRefreshListener { mainViewModel!!.loadPlaces() }
+        if (!getViewModel().isRefreshing.get()) {
+            viewDataBinding.swipeToRefresh.setOnRefreshListener { viewDataBinding.viewModel?.loadPlaces() }
         }
     }
 
@@ -115,45 +141,6 @@ class MainActivity : BaseActivity() {
         startActivity(PlaceDetailsActivity.getStartIntent(this, interestPlace))
     }
 
-    override fun beforeViews() {
-        super.beforeViews()
-        setDataBindingEnabled(true)
-    }
-
-    override fun contentId(): Int {
-        return R.layout.activity_main
-    }
-
-    override fun afterViews() {
-        super.afterViews()
-        viewDataBinding.viewModel = getViewModel()
-
-        if (intent.hasExtra(EMAIL_KEY)) {
-            email = intent.getStringExtra(EMAIL_KEY)
-
-            //            View header = navigationView.getHeaderView(0);
-            //            TextView name = (TextView) header.findViewById(R.id.emailInfo);
-            //            name.setText(email);
-        }
-
-        if (intent.getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
-            startService(SyncService.getStartIntent(this))
-        }
-
-        init()
-    }
-
-    override fun createViewModel(): ViewModel? {
-        return MainViewModel(dataManager)
-    }
-
-    override fun getViewModel(): MainViewModel {
-        return super.getViewModel() as MainViewModel
-    }
-
-    override fun getViewDataBinding(): ActivityMainBinding {
-        return super.getViewDataBinding() as ActivityMainBinding
-    }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
@@ -165,22 +152,22 @@ class MainActivity : BaseActivity() {
     override fun moveForward(options: Navigator.Options, vararg data: Any) {
         super.moveForward(options, *data)
         when (options) {
-            Navigator.Options.SHOW_PLACES -> {
+           /* Navigator.Options.SHOW_PLACES -> {
                 if (viewDataBinding.swipeToRefresh.isRefreshing) {
                     viewDataBinding.swipeToRefresh.isRefreshing = !viewDataBinding.swipeToRefresh.isRefreshing
                 }
 
                 placesList = data[0] as List<PlaceOfInterest>
                 showPlaces(placesList)
-            }
+            }*/
             Navigator.Options.START_EMAIL_ACTIVITY -> EmailActivity.start(this)
         }
     }
 
     //MVP
     fun showPlaces(interestPlaces: List<PlaceOfInterest>?) {
-        placesAdapter?.setPlaces(interestPlaces)
-        placesAdapter?.notifyDataSetChanged()
+        getViewModel().placesAdapter?.setPlaces(interestPlaces)
+        getViewModel().placesAdapter?.notifyDataSetChanged()
     }
 
     companion object {
