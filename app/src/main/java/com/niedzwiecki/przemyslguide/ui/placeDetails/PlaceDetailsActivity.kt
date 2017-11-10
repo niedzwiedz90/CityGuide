@@ -3,20 +3,15 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
-import android.view.animation.AlphaAnimation
-import android.view.animation.AnimationSet
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
 import com.niedzwiecki.przemyslguide.databinding.ActivityPlaceDetailsBinding
-import com.niedzwiecki.przemyslguide.ui.PlaceDetailViewPager
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity
+import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
-import com.niedzwiecki.przemyslguide.util.Utils
-import com.squareup.picasso.Picasso
 
 /**
  * Created by niedzwiedz on 10.07.17.
@@ -25,7 +20,6 @@ import com.squareup.picasso.Picasso
 class PlaceDetailsActivity : BaseActivity() {
 
     private var place: PlaceOfInterest? = null
-    private var adapter: PlaceDetailViewPager? = null
 
     override fun beforeViews() {
         super.beforeViews()
@@ -34,14 +28,10 @@ class PlaceDetailsActivity : BaseActivity() {
 
     override fun afterViews() {
         super.afterViews()
+        viewDataBinding.viewModel = getViewModel()
         setScreenFlags()
         fetchData()
-        setData()
-        initListeners()
-    }
-
-    private fun initListeners() {
-        viewDataBinding.fabButton.setOnClickListener { onFabButtonClick() }
+        setDataToViewModel()
     }
 
     private fun fetchData() {
@@ -52,9 +42,10 @@ class PlaceDetailsActivity : BaseActivity() {
 
     override fun afterViews(savedInstanceState: Bundle?) {
         super.afterViews(savedInstanceState)
+        viewDataBinding.viewModel = getViewModel()
         setScreenFlags()
         fetchData()
-        setData()
+        setDataToViewModel()
         if (savedInstanceState != null) {
             restoreData(savedInstanceState)
         }
@@ -69,42 +60,8 @@ class PlaceDetailsActivity : BaseActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
 
-    private fun setData() {
-        if (Utils.isEmpty(place!!.name)) {
-            viewDataBinding.nameOfRibot!!.visibility = View.GONE
-        } else {
-            viewDataBinding.nameOfRibot!!.text = place!!.name
-        }
-
-        if (Utils.isEmpty(place!!.description)) {
-            viewDataBinding.description!!.visibility = View.GONE
-        } else {
-            viewDataBinding.description!!.text = place!!.description
-        }
-
-        viewDataBinding.mailTextView!!.visibility = View.GONE
-
-        if (!Utils.isEmpty(place!!.image)) {
-            val fadeIn = AlphaAnimation(0f, 1f)
-            fadeIn.duration = 3000
-            val animation = AnimationSet(true)
-            animation.addAnimation(fadeIn)
-            viewDataBinding.coverImage!!.animation = animation
-            if (Utils.isEmpty(place!!.image)) {
-                return
-            }
-
-            Picasso.with(this)
-                    .load(place!!.image)
-                    .resize(700, 700)
-                    .centerCrop()
-                    .into(viewDataBinding.coverImage)
-        } else {
-            viewDataBinding.coverImage!!.visibility = View.GONE
-        }
-
-        adapter = PlaceDetailViewPager()
-        viewDataBinding.viewPager!!.adapter = adapter
+    private fun setDataToViewModel() {
+        getViewModel().setData(place)
     }
 
     override fun contentId(): Int {
@@ -116,7 +73,11 @@ class PlaceDetailsActivity : BaseActivity() {
     }
 
     override fun createViewModel(): ViewModel {
-        return PlaceDetailsViewModel()
+        return PlaceDetailsViewModel(dataManager)
+    }
+
+    override fun getViewModel(): PlaceDetailsViewModel {
+        return super.getViewModel() as PlaceDetailsViewModel
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -124,7 +85,16 @@ class PlaceDetailsActivity : BaseActivity() {
         outState.putParcelable(INTEREST_PLACE_KEY, place)
     }
 
-    fun onFabButtonClick() {
+    override fun moveForward(options: Navigator.Options?, vararg data: Any?) {
+        super.moveForward(options, *data)
+        when (options) {
+            Navigator.Options.START_ACTIVITY_WITH_INTENT ->
+                startMapActivity(data[0] as PlaceOfInterest)
+        }
+
+    }
+
+    private fun startMapActivity(place: PlaceOfInterest) {
         val intent = Intent(MapsActivity.getStartIntent(baseContext, place))
         startActivity(intent)
     }

@@ -85,4 +85,6 @@
     <dimen name="textSizeBig">20sp</dimen>
     <dimen name="textSizeBigger">34sp</dimen>
 
+    <dimen name="clipped_padding">75dp</dimen>
+
 </resources>
