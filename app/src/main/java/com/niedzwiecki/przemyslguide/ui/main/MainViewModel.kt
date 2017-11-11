@@ -54,18 +54,17 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
         navigator.finish()
     }
 
- /*   fun onTouchRecyclerListener(view: View) {
-        viewDataBinding.recyclerView
-                .addOnItemTouchListener(RecyclerItemClickListener(this, viewDataBinding.recyclerView,
+  /*  fun onTouchRecyclerListener(view: View) {
+        view?.addOnItemTouchListener(RecyclerItemClickListener(this, viewDataBinding.recyclerView,
                         object : RecyclerItemClickListener.OnItemClickListener {
                             override fun onItemClick(view: View, position: Int) {
-                                *//*val places = placesAdapter?.getPlace(position)
-                                openDetail(places!!)*//**//*
+                                val places = placesAdapter?.getPlace(position)
+                                openDetail(places!!)
                             }
 
                             override fun onLongItemClick(view: View, position: Int) {
 
                             }
-                        }))*//*
+                        }))
     }*/
 }

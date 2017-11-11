@@ -71,7 +71,6 @@ class MainActivity : BaseActivity() {
         getViewModel().loadPlaces()
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-
         viewDataBinding.navView.setNavigationItemSelectedListener { item ->
             /*  if (item.isChecked()) {
                             item.setChecked(false);

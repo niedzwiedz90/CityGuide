@@ -32,8 +32,7 @@
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:scrollbars="vertical"
-                app:adapter="@{viewModel.placesAdapter}"
-                app:setSelection="@={viewModel.selectedRecyclerPosition}"/>
+                app:adapter="@{viewModel.placesAdapter}"/>
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
