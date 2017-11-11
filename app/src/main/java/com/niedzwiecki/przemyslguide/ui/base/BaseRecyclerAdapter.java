@@ -60,6 +60,14 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         notifyDataSetChanged();
     }
 
+    public List<T> getItems() {
+        return items;
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
     @Override
     public int getItemCount() {
         return items.size();

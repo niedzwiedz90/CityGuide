@@ -3,7 +3,6 @@ package com.niedzwiecki.przemyslguide.ui.main
 import android.app.Activity
 import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
-import android.view.View
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.SyncService
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -16,7 +15,6 @@ import com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KE
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
-import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
 import java.util.*
 
 class MainActivity : BaseActivity() {

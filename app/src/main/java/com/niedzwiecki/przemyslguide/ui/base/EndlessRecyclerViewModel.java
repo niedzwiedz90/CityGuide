@@ -18,17 +18,13 @@ import android.view.ViewGroup;
 
 import com.niedzwiecki.przemyslguide.data.DataManager;
 
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Niedzwiecki on 11/11/2017.
  */
 
-public class EndlessRecyclerViewModel<T extends
-        EndlessRecyclerViewModel.DataManagerIntegration> extends BaseViewModel {
-
+public class EndlessRecyclerViewModel<T extends EndlessRecyclerViewModel.DataManagerIntegration> extends BaseViewModel {
 
     public static final int COUNT_ITEMS_BEFORE_END_TO_LOAD_DATA = 3;
     public static final String FOOTER_TEXT_MESSAGE_KEY = "footerTextMessageKey";
@@ -48,15 +44,16 @@ public class EndlessRecyclerViewModel<T extends
     public static final String RECYCLER_VIEW_STATE_KEY = "SocialStreamFragment_recyclerVIew";
     public static final String SHOW_PROGRESSBAR_ON_ERROR_CLICKED = "showProgressbarOnErrorClicked";
 
-    private final WeakReference<EndlessRecyclerViewModel> weakReference;
+//    private final WeakReference<EndlessRecyclerViewModel> weakReference;
 
-    private View.OnClickListener onErrorClickedListener;
+    private View.OnClickListener onErrorClickedListenr;
 
     public ObservableList<T> items;
 
     public ObservableField<CharSequence> footerTextMessage;
     public ObservableField<CharSequence> infoText;
     public ObservableInt loadingState;
+    public ObservableInt searchProgressState;
     public ObservableInt columns;
     public ObservableBoolean refreshingEnabled;
     public ObservableBoolean refreshing;
@@ -70,6 +67,9 @@ public class EndlessRecyclerViewModel<T extends
     public ObservableField<View.OnClickListener> onErrorClicked;
     public ObservableField<View.OnClickListener> onAdditionalErrorClicked;
     public int scrollPosition;
+
+    protected DataManager dataManager;
+
     private boolean showFooterView;
 
     public EndlessAdapter<T> adapter = new EndlessAdapter<T>(COUNT_ITEMS_BEFORE_END_TO_LOAD_DATA) {
@@ -93,10 +93,15 @@ public class EndlessRecyclerViewModel<T extends
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT)
                     );
-                    footerView.setOnErrorClick(v -> loadData(true, adapter.getPage()));
+                    footerView.setOnErrorClick(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            loadData(true, adapter.getPage());
+                        }
+                    });
                     setFooterView(footerView);
                     footerView.setInfoText(footerTextMessage.get());
-                    LoadingViewListBinder.footerState(footerView, footerState.get());
+//                    LoadingViewListBinder.footerState(footerView, footerState.get());
                     footerView.requestLayout();
                     return footerView;
                 } else {
@@ -105,7 +110,7 @@ public class EndlessRecyclerViewModel<T extends
                         parent.removeView(getFooterView().getView());
                     }
 
-                    LoadingViewListBinder.footerState(getFooterView(), footerState.get());
+//                    LoadingViewListBinder.footerState(getFooterView(), footerState.get());
                     getFooterView().setInfoText(footerTextMessage.get());
                     return getFooterView();
                 }
@@ -137,24 +142,49 @@ public class EndlessRecyclerViewModel<T extends
     };
 
     public EndlessRecyclerViewModel() {
-        weakReference = new WeakReference<>(this);
+//        weakReference = new WeakReference<>(this);
         init();
     }
 
-    private static void restoreAdapterItems(DataManager dataManager,
+    public EndlessRecyclerViewModel(DataManager dataManager) {
+//        weakReference = new WeakReference<>(this);
+        this.dataManager = dataManager;
+        init();
+    }
+
+ /*   private static void restoreAdapterItems(DataManager dataManager,
                                             @NonNull Bundle savedInstanceState,
                                             EndlessAdapter<? extends DataManagerIntegration> adapter) {
         List<? extends DataManagerIntegration> parcelableArrayList = savedInstanceState.getParcelableArrayList(SocialStreamFragment.ITEMS_KEY);
-        for (DataManagerIntegration parcelable : parcelableArrayList) {
-            parcelable.setDataManager(dataManager);
-        }
+        if (parcelableArrayList != null) {
+            for (DataManagerIntegration parcelable : parcelableArrayList) {
+                parcelable.setDataManager(dataManager);
+            }
 
-        adapter.setItems(new ArrayList(parcelableArrayList));
+            adapter.setItems(new ArrayList(parcelableArrayList));
+        }
+    }*/
+
+   /* private static void restoreAdapterItems(DataManager dataManager,
+                                            @NonNull Bundle savedInstanceState,
+                                            EndlessAdapter<? extends DataManagerIntegration> adapter) {
+        List<? extends DataManagerIntegration> parcelableArrayList = savedInstanceState.getParcelableArrayList(SocialStreamFragment.ITEMS_KEY);
+        if (parcelableArrayList != null) {
+            for (DataManagerIntegration parcelable : parcelableArrayList) {
+                parcelable.setDataManager(dataManager);
+            }
+
+            adapter.setItems(new ArrayList(parcelableArrayList));
+        }
+    }
+
+    private static void saveAdapterInstanceState(cc.eventory.app.base.Bundle outState, EndlessAdapter<? extends Parcelable> adapter) {
+        outState.putParcelableArrayList(SocialStreamFragment.ITEMS_KEY, new ArrayList<>(adapter.getItems()));
     }
 
     private static void saveAdapterInstanceState(Bundle outState, EndlessAdapter<? extends Parcelable> adapter) {
         outState.putParcelableArrayList(SocialStreamFragment.ITEMS_KEY, new ArrayList<>(adapter.getItems()));
-    }
+    }*/
 
     public static void saveRecyclerInstanceState(Bundle outState, RecyclerView recyclerView) {
         Parcelable value = recyclerView.getLayoutManager().onSaveInstanceState();
@@ -166,17 +196,19 @@ public class EndlessRecyclerViewModel<T extends
 
     public void init() {
         showProgressbarOnErrorClicked = new ObservableBoolean(true);
-        onRefreshListener = () -> {
-            EndlessRecyclerViewModel endlessRecyclerViewModel = weakReference.get();
-            if (endlessRecyclerViewModel != null) {
-                endlessRecyclerViewModel.onRefresh();
+        onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                onRefresh();
             }
+
         };
+
         actionText = new ObservableField<>();
         showFooterView = true;
         refreshingEnabled = new ObservableBoolean(true);
         footerTextMessage = new ObservableField<>();
-        footerTextMessage.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
+        /*footerTextMessage.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable observable, int i) {
                 adapter.setShowFooterView(showFooterView && footerState.get() != LoadingViewListBinder.STATE_HIDDEN);
@@ -184,19 +216,20 @@ public class EndlessRecyclerViewModel<T extends
                     adapter.getFooterView().setInfoText(footerTextMessage.get());
                 }
             }
-        });
+        });*/
         infoText = new ObservableField<>();
         loadingState = new ObservableInt();
+        searchProgressState = new ObservableInt(View.GONE);
 
         items = new ObservableArrayList<>();
         footerState = new ObservableInt();
-        footerState.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
+        /*footerState.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable observable, int state) {
                 adapter.setShowFooterView(showFooterView && footerState.get() != LoadingViewListBinder.STATE_HIDDEN);
                 LoadingViewListBinder.footerState(adapter.getFooterView(), footerState.get());
             }
-        });
+        });*/
         columns = new ObservableInt(1);
         noMoreItems = new ObservableBoolean(false);
         noMoreItems.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
@@ -208,15 +241,15 @@ public class EndlessRecyclerViewModel<T extends
         });
 
         image = new ObservableInt();
-        title = new ObservableInt();
+//        title = new ObservableInt(R.string.empty_text);
         refreshing = new ObservableBoolean(false);
-        onErrorClickedListener = v -> {
-            EndlessRecyclerViewModel endlessRecyclerViewModel = weakReference.get();
-            if (endlessRecyclerViewModel != null) {
-                endlessRecyclerViewModel.onRefresh();
+        onErrorClickedListenr = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRefresh();
             }
         };
-        onErrorClicked = new ObservableField<>(onErrorClickedListener);
+        onErrorClicked = new ObservableField<>(onErrorClickedListenr);
         onAdditionalErrorClicked = new ObservableField<>();
     }
 
@@ -263,7 +296,7 @@ public class EndlessRecyclerViewModel<T extends
 
     }
 
-    public void onError(int page, UserNotLoggedInError throwable, int image, String message, String errorActionText) {
+ /*   public void onError(int page, UserNotLoggedInError throwable, int image, String message, String errorActionText) {
         // TODO: 20/02/2017 remove title, image from UserNotLoggedInError
         showProgressbarOnErrorClicked.set(false);
         throwable.setTitle(R.string.user_not_logged_in_title);
@@ -275,7 +308,8 @@ public class EndlessRecyclerViewModel<T extends
         onAdditionalErrorClicked.notifyChange();
         actionText.set(errorActionText);
         onError(this, page, throwable.getMessage(), throwable.getTitle(), throwable.getImage());
-    }
+    }*/
+/*
 
     private void setUpActionUserNotLoggedIn() {
         onErrorClicked.set(v -> {
@@ -290,6 +324,8 @@ public class EndlessRecyclerViewModel<T extends
             }
         });
     }
+*/
+/*
 
     public void setUpAdditionalErrorClick() {
         showProgressbarOnErrorClicked.set(false);
@@ -305,16 +341,17 @@ public class EndlessRecyclerViewModel<T extends
             }
         });
     }
+*/
 
-    public static void onError(EndlessRecyclerViewModel viewModel, String errorMessage, int page) {
-        onError(viewModel, page, errorMessage, R.string.error, R.drawable.ic_error_default);
-    }
+    /*  public static void onError(EndlessRecyclerViewModel viewModel, String errorMessage, int page) {
+          onError(viewModel, page, errorMessage, R.string.error, R.drawable.ic_error_default);
+      }
 
-    public void onError(String errorMessage, int page) {
-        showProgressbarOnErrorClicked.set(true);
-        onError(this, page, errorMessage, R.string.error, R.drawable.ic_error_default);
-    }
-
+      public void onError(String errorMessage, int page) {
+          showProgressbarOnErrorClicked.set(true);
+          onError(this, page, errorMessage, R.string.error, R.drawable.ic_error_default);
+      }
+  */
     public static void onError(EndlessRecyclerViewModel viewModel, int page, String errorMessage, int errorTitle, int imageRes) {
         if (page == 1) {
             viewModel.image.set(imageRes);
@@ -344,18 +381,23 @@ public class EndlessRecyclerViewModel<T extends
         viewModel.refreshing.notifyChange();
     }
 
-    public static <T extends DataManagerIntegration> void handleResponse(EndlessRecyclerViewModel<T> viewModel, List<T> response, int page, boolean hasMoreItems, CharSequence emptyText, CharSequence endOfListText) {
+    public static <T extends DataManagerIntegration> void handleResponse(EndlessRecyclerViewModel<T> viewModel, List<T> response, int page, boolean hasMoreItems, CharSequence emptyText) {
         if (page == 1) {
             if (response == null || response.isEmpty()) {
                 viewModel.setEmptyText(emptyText);
                 viewModel.loadingState.set(LoadingViewListBinder.STATE_INFO);
 
-                viewModel.footerState.set(LoadingViewListBinder.STATE_HIDDEN);
+                viewModel.showFooterView = false;
+                if (viewModel.footerState.get() == LoadingViewListBinder.STATE_HIDDEN) {
+                    viewModel.footerState.notifyChange();
+                } else {
+                    viewModel.footerState.set(LoadingViewListBinder.STATE_HIDDEN);
+                }
             } else {
                 viewModel.loadingState.set(LoadingViewListBinder.STATE_HIDDEN);
                 if (!hasMoreItems) {
-                    viewModel.footerState.set(LoadingViewListBinder.STATE_INFO);
-                    viewModel.footerTextMessage.set(endOfListText);
+                    viewModel.showFooterView = false;
+                    viewModel.footerState.set(LoadingViewListBinder.STATE_HIDDEN);
                 }
             }
 
@@ -363,12 +405,10 @@ public class EndlessRecyclerViewModel<T extends
         } else {
             if (hasMoreItems) {
                 viewModel.loadingState.set(LoadingViewListBinder.STATE_HIDDEN);
-                viewModel.footerTextMessage.set(endOfListText);
                 viewModel.footerState.set(LoadingViewListBinder.STATE_HIDDEN);
             } else {
                 viewModel.loadingState.set(LoadingViewListBinder.STATE_HIDDEN);
-                viewModel.footerTextMessage.set(endOfListText);
-                viewModel.footerState.set(LoadingViewListBinder.STATE_INFO);
+                viewModel.footerState.set(LoadingViewListBinder.STATE_HIDDEN);
             }
         }
 
@@ -379,10 +419,9 @@ public class EndlessRecyclerViewModel<T extends
         viewModel.refreshing.notifyChange();
     }
 
-    public void handleAddItem(EndlessRecyclerViewModel<T> viewModel, T item, int position, String endOfListText) {
+    public void handleAddItem(EndlessRecyclerViewModel<T> viewModel, T item, int position) {
         viewModel.loadingState.set(LoadingViewListBinder.STATE_HIDDEN);
-        viewModel.footerState.set(LoadingViewListBinder.STATE_INFO);
-        viewModel.footerTextMessage.set(endOfListText);
+        viewModel.footerState.set(LoadingViewListBinder.STATE_HIDDEN);
 
         viewModel.loadingState.notifyChange();
         viewModel.footerState.notifyChange();
@@ -400,9 +439,9 @@ public class EndlessRecyclerViewModel<T extends
         throw new RuntimeException("Override createItemView.");
     }
 
-    public void startLoadingData() {
-        loadData(true, PageList.FIRST_PAGE);
-    }
+//    public void startLoadingData() {
+//        loadData(true, PageList.FIRST_PAGE);
+//    }
 
     public void loadData(boolean showProgress, int page) {
 
@@ -429,9 +468,31 @@ public class EndlessRecyclerViewModel<T extends
 
     public void setShowFooterView(boolean showFooterView) {
         this.showFooterView = showFooterView;
-        adapter.setShowFooterView(showFooterView);
+//        adapter.setShowFooterView(showFooterView);
     }
 
+    /* public void saveInstanceState(cc.eventory.app.base.Bundle bundle) {
+         bundle.putString(FOOTER_TEXT_MESSAGE_KEY, footerTextMessage.get() == null ? "" : footerTextMessage.get().toString());
+         bundle.putString(INFO_TEXT_KEY, infoText.get() == null ? "" : infoText.get().toString());
+         bundle.putString(ACTION_TEXT_KEY, actionText.get() == null ? "" : actionText.get());
+
+         bundle.putInt(LOADING_STATE_KEY, loadingState.get());
+         bundle.putInt(COLUMNS_KEY, columns.get());
+         bundle.putInt(FOOTER_STATE_KEY, footerState.get());
+         bundle.putInt(IMAGE_KEY, image.get());
+         bundle.putInt(TITLE_KEY, title.get());
+         bundle.putInt(SCROLL_POSITION_KEY, scrollPosition);
+
+         bundle.putBoolean(REFRESHING_ENABLED_KEY, refreshingEnabled.get());
+         bundle.putBoolean(REFRESHING_KEY, refreshing.get());
+         bundle.putBoolean(NO_MORE_ITEMS_KEY, noMoreItems.get());
+         bundle.putBoolean(SHOW_FOOTER_VIEW_KEY, showFooterView);
+         bundle.putBoolean(SAVE_INSTANCE_ADDITIONAL_TEXT_KEY, onAdditionalErrorClicked != null && onAdditionalErrorClicked.get() != null);
+         bundle.putBoolean(SHOW_PROGRESSBAR_ON_ERROR_CLICKED, showProgressbarOnErrorClicked.get());
+         adapter.saveInstanceState(bundle);
+         saveAdapterInstanceState(bundle, adapter);
+     }
+ */
     @Override
     public void saveInstanceState(Bundle bundle) {
         super.saveInstanceState(bundle);
@@ -453,7 +514,7 @@ public class EndlessRecyclerViewModel<T extends
         bundle.putBoolean(SAVE_INSTANCE_ADDITIONAL_TEXT_KEY, onAdditionalErrorClicked != null && onAdditionalErrorClicked.get() != null);
         bundle.putBoolean(SHOW_PROGRESSBAR_ON_ERROR_CLICKED, showProgressbarOnErrorClicked.get());
         adapter.saveInstanceState(bundle);
-        saveAdapterInstanceState(bundle, adapter);
+//        saveAdapterInstanceState(bundle, adapter);
     }
 
     @Override
@@ -477,18 +538,65 @@ public class EndlessRecyclerViewModel<T extends
         showFooterView = bundle.getBoolean(SHOW_FOOTER_VIEW_KEY);
         boolean shouldSetUpAdditionalText = bundle.getBoolean(SAVE_INSTANCE_ADDITIONAL_TEXT_KEY);
         if (shouldSetUpAdditionalText) {
+//            setUpAdditionalErrorClick();
+//            setUpActionUserNotLoggedIn();
+        }
+
+        adapter.restoreInstanceState(bundle);
+//        restoreAdapterItems(dataManager, bundle, adapter);
+    }
+
+    /*public void restoreInstanceState(Bundle bundle) {
+        if (bundle.getBoolean(SHOW_PROGRESSBAR_ON_ERROR_CLICKED) != null) {
+            showProgressbarOnErrorClicked.set(bundle.getBoolean(SHOW_PROGRESSBAR_ON_ERROR_CLICKED));
+        }
+
+        if (bundle.getString(FOOTER_TEXT_MESSAGE_KEY) != null) {
+            footerTextMessage.set(bundle.getString(FOOTER_TEXT_MESSAGE_KEY));
+        }
+
+        if (bundle.getString(INFO_TEXT_KEY) != null) {
+            infoText.set(bundle.getString(INFO_TEXT_KEY));
+        }
+        if (bundle.getString(ACTION_TEXT_KEY) != null) {
+            actionText.set(bundle.getString(ACTION_TEXT_KEY));
+        }
+
+        loadingState.set(bundle.getInt(LOADING_STATE_KEY));
+        columns.set(bundle.getInt(COLUMNS_KEY));
+        footerState.set(bundle.getInt(FOOTER_STATE_KEY));
+        image.set(bundle.getInt(IMAGE_KEY));
+        title.set(bundle.getInt(TITLE_KEY));
+        scrollPosition = bundle.getInt(SCROLL_POSITION_KEY);
+
+        if (bundle.getBoolean(REFRESHING_ENABLED_KEY) != null) {
+            refreshingEnabled.set(bundle.getBoolean(REFRESHING_ENABLED_KEY));
+        }
+
+        if (bundle.getBoolean(REFRESHING_KEY) != null) {
+            refreshing.set(bundle.getBoolean(REFRESHING_KEY));
+        }
+
+        noMoreItems.set(bundle.getBoolean(NO_MORE_ITEMS_KEY));
+        showFooterView = bundle.getBoolean(SHOW_FOOTER_VIEW_KEY);
+        boolean shouldSetUpAdditionalText = bundle.getBoolean(SAVE_INSTANCE_ADDITIONAL_TEXT_KEY);
+        if (shouldSetUpAdditionalText) {
             setUpAdditionalErrorClick();
             setUpActionUserNotLoggedIn();
         }
 
         adapter.restoreInstanceState(bundle);
-        restoreAdapterItems(DataManager.getInstance(), bundle, adapter);
-    }
-
+        restoreAdapterItems(dataManager, bundle, adapter);
+    }*/
 
     public interface DataManagerIntegration extends Parcelable {
 
         void setDataManager(DataManager dataManager);
 
     }
+
+    public void setSearchProgressVisible(boolean visible) {
+        searchProgressState.set(visible ? View.VISIBLE : View.GONE);
+    }
+
 }

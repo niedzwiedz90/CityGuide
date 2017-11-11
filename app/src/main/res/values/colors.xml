@@ -7,4 +7,190 @@
     <color name="gray">#ffdfdfdf</color>
     <color name="royalBlueColor">#624CAB</color>
 
+
+    <!-- Base colors-->
+    <!--<color name="accent">@color/blue</color>-->
+    <color name="primaryDark">@color/blue_dark</color>
+    <color name="accentDark">@color/blue_dark</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="background">#fbfbfb</color>
+    <color name="backgroundDark">#dededf</color>
+
+    <!-- Base colors-->
+
+    <!-- Social buttons -->
+    <color name="facebook">#3b5998</color>
+    <color name="facebookDark">#355089</color>
+    <color name="linkedin">#0177b5</color>
+    <color name="linkedinDark">#006ba3</color>
+    <!-- Social buttons -->
+
+    <!-- Text -->
+    <color name="white_transparent_70">#B3ffffff</color>
+    <color name="white_transparent_50">#80ffffff</color>
+    <color name="white_transparent_38">#61ffffff</color>
+    <color name="white_transparent_12">#1Fffffff</color>
+
+    <color name="black_transparent_87">#DE000000</color>
+    <color name="black_transparent_54">#8A000000</color>
+    <color name="black_transparent_38">#61000000</color>
+    <color name="black_transparent_12">#1F000000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="white70">#b3b3b3</color>
+    <color name="white50">#7f7f7f</color>
+    <color name="white38">#616161</color>
+    <color name="white12">#1e1e1e</color>
+
+
+    <color name="black">#000000</color>
+    <color name="black87">#212121</color>
+    <color name="black80">#2d2d2e</color>
+    <color name="black60">#646464</color>
+    <color name="black54">#757575</color>
+    <color name="black38">#9e9e9e</color>
+    <color name="black12">#e1e1e1</color>
+
+    <color name="text_error">@color/red90</color>
+    <color name="text_valid">@color/green70</color>
+    <!-- Text -->
+
+    <!-- POI -->
+    <color name="poiOrange">#ee5f20</color>
+    <color name="poiOrangeDisabled">#5aee5f20</color>
+    <color name="poiBlue">#2a95a2</color>
+    <color name="poiBlueDisabled">#5a2a95a2</color>
+    <color name="poiGreen">#2aa25d</color>
+    <color name="poiGreenDisabled">#5a2aa25d</color>
+    <color name="poiGreenDark">#ad1da161</color>
+    <color name="poiPurple">#8d5f9b</color>
+    <color name="poiPurpleDisabled">#5a8d5f9b</color>
+    <color name="poiGray">#b36337</color>
+    <color name="poiGrayDisabled">#5ab36337</color>
+    <color name="poiPink">#d62728</color>
+    <color name="poiPinkDisabled">#5ad62728</color>
+    <color name="poiFeatured">#F8A02E</color>
+    <!-- POI -->
+
+    <!--Colors from brand book-->
+    <color name="raspberry">#ca233f</color>
+    <color name="raspberry90">#cf3952</color>
+    <color name="raspberry80">#d54f65</color>
+    <color name="raspberry70">#da6579</color>
+    <color name="raspberry60">#df7b8c</color>
+    <color name="raspberry50">#e4919f</color>
+    <color name="raspberry40">#eaa7b2</color>
+    <color name="raspberry30">#efbdc5</color>
+    <color name="raspberry20">#f4d3d8</color>
+    <color name="raspberry10">#fae9ec</color>
+
+    <!--<color name="gray">#222426</color>-->
+    <color name="gray90">#383A3C</color>
+    <color name="gray80">#4E5051</color>
+    <color name="gray70">#646667</color>
+    <color name="gray60">#7A7C7D</color>
+    <color name="gray50">#919293</color>
+    <color name="gray40">#A7A7A8</color>
+    <color name="gray30">#BDBDBE</color>
+    <color name="gray20">#D3D3D4</color>
+    <color name="gray10">#E9E9E9</color>
+
+    <color name="blue_dark">#0b6288</color>
+    <color name="blue">#0D6D97</color>
+    <color name="blue90">#257CA1</color>
+    <color name="blue80">#3D8AAC</color>
+    <color name="blue70">#5699B6</color>
+    <color name="blue60">#6EA7C1</color>
+    <color name="blue50">#86B6CB</color>
+    <color name="blue40">#9EC5D5</color>
+    <color name="blue30">#B6D3E0</color>
+    <color name="blue20">#CFE2EA</color>
+    <color name="blue10">#E7F0F5</color>
+
+    <color name="purple">#8D5F9B</color>
+    <color name="purple90">#986FA5</color>
+    <color name="purple80">#A47FAF</color>
+    <color name="purple70">#AF8FB9</color>
+    <color name="purple60">#BB9FC3</color>
+    <color name="purple50">#C6AFCD</color>
+    <color name="purple40">#D1BFD7</color>
+    <color name="purple30">#DDCFE1</color>
+    <color name="purple20">#E8DFEB</color>
+    <color name="purple10">#F4EFF5</color>
+
+    <color name="turquoise">#2A95A2</color>
+    <color name="turquoise90">#3FA0AB</color>
+    <color name="turquoise80">#55AAB5</color>
+    <color name="turquoise70">#6AB5BE</color>
+    <color name="turquoise60">#7FC0C7</color>
+    <color name="turquoise50">#94CAD1</color>
+    <color name="turquoise40">#AAD5DA</color>
+    <color name="turquoise30">#BFDFE3</color>
+    <color name="turquoise20">#D4EAEC</color>
+    <color name="turquoise10">#EAF4F6</color>
+
+    <color name="green">#2AA25D</color>
+    <color name="green90">#3FAB6D</color>
+    <color name="green80">#55B57D</color>
+    <color name="green70">#6ABE8E</color>
+    <color name="green60">#7FC79E</color>
+    <color name="green50">#94D1AE</color>
+    <color name="green40">#AADABE</color>
+    <color name="green30">#BFE3CE</color>
+    <color name="green20">#D4ECDF</color>
+    <color name="green10">#EAF6EF</color>
+
+    <color name="yellow">#F8A02E</color>
+    <color name="yellow90">#F9AA43</color>
+    <color name="yellow80">#F9B358</color>
+    <color name="yellow70">#FABC6D</color>
+    <color name="yellow60">#FBC682</color>
+    <color name="yellow50">#FBD096</color>
+    <color name="yellow40">#FCD9AB</color>
+    <color name="yellow30">#FDE2C0</color>
+    <color name="yellow20">#FEECD5</color>
+    <color name="yellow10">#FEF6EA</color>
+
+    <color name="orange">#EE5F20</color>
+    <color name="orange90">#F06F36</color>
+    <color name="orange80">#F17F4C</color>
+    <color name="orange70">#F38F63</color>
+    <color name="orange60">#F59F79</color>
+    <color name="orange50">#F7AF90</color>
+    <color name="orange40">#F8BFA6</color>
+    <color name="orange30">#FACFBC</color>
+    <color name="orange20">#FCDFD2</color>
+    <color name="orange10">#FDEFE9</color>
+
+    <color name="red">#D62728</color>
+    <color name="red90">#DA3D3D</color>
+    <color name="red80">#DE5253</color>
+    <color name="red70">#E26869</color>
+    <color name="red60">#E77D7E</color>
+    <color name="red50">#EB9393</color>
+    <color name="red40">#EFA9A9</color>
+    <color name="red30">#F3BEBE</color>
+    <color name="red20">#F7D4D4</color>
+    <color name="red10">#FBE9EA</color>
+
+    <color name="brown">#B36337</color>
+    <color name="brown90">#BB724B</color>
+    <color name="brown80">#C2825F</color>
+    <color name="brown70">#CA9273</color>
+    <color name="brown60">#D1A187</color>
+    <color name="brown50">#D9B19B</color>
+    <color name="brown40">#E1C1AF</color>
+    <color name="brown30">#E8D0C3</color>
+    <color name="brown20">#F0E0D7</color>
+    <color name="brown10">#F7EFEB</color>
+    <!--Colors from brand book-->
+
+    <color name="divider_color">#949494</color>
+
+    <!--uber button-->
+    <color name="uber_black_90">#333333</color>
+
+
+
 </resources>

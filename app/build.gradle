@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply from: '../config/quality/quality.gradle'
 apply plugin: 'com.github.triplet.play'
 apply plugin: 'kotlin-android'
-//apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 //TODO uncomment line below after adding fabric api secret and key to fabric.properties
 //apply plugin: 'io.fabric'
@@ -21,6 +20,9 @@ android {
         versionName '0.1.0'
         resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
         multiDexEnabled true
+        /*jackOptions {
+            enabled true
+        }*/
     }
 
     signingConfigs {
@@ -79,6 +81,10 @@ android {
         enabled = true
     }
 
+   /* compileOptions {
+        targetCompatibility 1.7
+        sourceCompatibility 1.7
+    }*/
 }
 
 play {
@@ -168,10 +174,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
-//    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    // notice that the compiler version must be the same than our gradle version
     kapt 'com.android.databinding:compiler:2.3.3'
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 repositories {
     mavenCentral()

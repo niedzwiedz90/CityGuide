@@ -7,6 +7,7 @@ import com.niedzwiecki.przemyslguide.data.DataManager
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
 import com.niedzwiecki.przemyslguide.ui.base.BaseViewModel
+import com.niedzwiecki.przemyslguide.ui.base.EndlessRecyclerViewModel
 import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
 import com.niedzwiecki.przemyslguide.util.RxUtil
@@ -44,6 +45,7 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
                         placesAdapter?.notifyDataSetChanged()
                         isRefreshing.set(false)
                         isRefreshing.notifyChange()
+
                     }
                 })
     }
