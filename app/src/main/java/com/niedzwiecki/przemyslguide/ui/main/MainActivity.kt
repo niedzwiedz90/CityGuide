@@ -2,7 +2,9 @@ package com.niedzwiecki.przemyslguide.ui.main
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.SyncService
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -15,6 +17,7 @@ import com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KE
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
+import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
 import java.util.*
 
 class MainActivity : BaseActivity() {
@@ -35,7 +38,18 @@ class MainActivity : BaseActivity() {
         super.afterViews()
         viewDataBinding.viewModel = getViewModel()
         fetchData()
+        loadPlaces()
         init()
+    }
+
+    override fun afterViews(savedInstanceState: Bundle?) {
+        super.afterViews(savedInstanceState)
+        if (savedInstanceState != null) {
+            placesList = savedInstanceState.get(INTEREST_PLACE_KEY) as List<PlaceOfInterest>?
+            init()
+            showPlaces(placesList)
+        }
+
     }
 
     private fun fetchData() {
@@ -65,10 +79,25 @@ class MainActivity : BaseActivity() {
         return super.getViewDataBinding() as ActivityMainBinding
     }
 
-    private fun init() {
-        getViewModel().loadPlaces()
-        viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+    private lateinit var placesAdapter: PlacesAdapter
 
+    private fun init() {
+        placesAdapter = PlacesAdapter()
+        viewDataBinding.recyclerView.adapter = placesAdapter
+        viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+        viewDataBinding.recyclerView.addOnItemTouchListener(RecyclerItemClickListener(this, viewDataBinding.recyclerView,
+                object : RecyclerItemClickListener.OnItemClickListener {
+                    override fun onItemClick(view: View, position: Int) {
+                        val places = placesAdapter.getPlace(position)
+                        openDetail(places!!)
+                    }
+
+                    override fun onLongItemClick(view: View, position: Int) {
+
+                    }
+                }))
+
+        viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         viewDataBinding.navView.setNavigationItemSelectedListener { item ->
             /*  if (item.isChecked()) {
                             item.setChecked(false);
@@ -77,7 +106,6 @@ class MainActivity : BaseActivity() {
                         }*/
 
             viewDataBinding.drawerLayout.closeDrawers()
-
             when (item.itemId) {
                 R.id.navMap -> {
                     filterPlaces("all")
@@ -117,6 +145,19 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    private fun loadPlaces() {
+        getViewModel().loadPlaces()
+    }
+
+    private lateinit var savedListOfPlaces: ArrayList<PlaceOfInterest>
+
+    private fun savePlacesList(placesList: List<PlaceOfInterest>) {
+        savedListOfPlaces = ArrayList<PlaceOfInterest>()
+        for (interestPlace in placesList) {
+            savedListOfPlaces.add(interestPlace)
+        }
+    }
+
     private fun filterPlaces(type: String) {
         if (placesList != null) {
             val tempList = ArrayList<PlaceOfInterest>()
@@ -138,7 +179,6 @@ class MainActivity : BaseActivity() {
         startActivity(PlaceDetailsActivity.getStartIntent(this, interestPlace))
     }
 
-
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (viewModel != null) {
@@ -149,28 +189,38 @@ class MainActivity : BaseActivity() {
     override fun moveForward(options: Navigator.Options, vararg data: Any) {
         super.moveForward(options, *data)
         when (options) {
-           /* Navigator.Options.SHOW_PLACES -> {
+            Navigator.Options.SHOW_PLACES -> {
                 if (viewDataBinding.swipeToRefresh.isRefreshing) {
-                    viewDataBinding.swipeToRefresh.isRefreshing = !viewDataBinding.swipeToRefresh.isRefreshing
+                    viewDataBinding.swipeToRefresh.isRefreshing =
+                            !viewDataBinding.swipeToRefresh.isRefreshing
                 }
 
                 placesList = data[0] as List<PlaceOfInterest>
                 showPlaces(placesList)
-            }*/
+            }
+
             Navigator.Options.START_EMAIL_ACTIVITY -> EmailActivity.start(this)
         }
     }
 
     //MVP
     fun showPlaces(interestPlaces: List<PlaceOfInterest>?) {
-        getViewModel().placesAdapter?.setPlaces(interestPlaces)
-        getViewModel().placesAdapter?.notifyDataSetChanged()
+        placesAdapter.setPlaces(interestPlaces)
+        placesAdapter.notifyDataSetChanged()
+        if (interestPlaces != null) {
+            savePlacesList(interestPlaces)
+        }
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelableArrayList(INTEREST_PLACE_KEY, savedListOfPlaces)
     }
 
     companion object {
 
         private val EXTRA_TRIGGER_SYNC_FLAG = "uk.co.ribot.androidboilerplate.ui.main.MainActivity.EXTRA_TRIGGER_SYNC_FLAG"
-
         val INTEREST_PLACE_KEY = "com.niedzwiecki.przemyslGuide.PlaceDetailActivity.key"
 
         fun start(context: Activity, email: String) {

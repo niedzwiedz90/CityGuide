@@ -67,6 +67,4 @@ public class PlaceOfInterest implements Parcelable {
 
         }
     };
-
-    // all get , set method
 }

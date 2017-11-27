@@ -31,8 +31,7 @@
                 android:clipToPadding="false"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
-                android:scrollbars="vertical"
-                app:adapter="@{viewModel.placesAdapter}"/>
+                android:scrollbars="vertical" />
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
