@@ -16,7 +16,7 @@ import com.niedzwiecki.przemyslguide.ui.base.ViewModel
 import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity
 import com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KEY
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
-import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.PLACES_LIST
+import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.Companion.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
 
@@ -38,8 +38,8 @@ class MainActivity : BaseActivity() {
         super.afterViews()
         viewDataBinding.viewModel = getViewModel()
         fetchData()
-        loadPlaces()
         init()
+        loadPlaces()
     }
 
     override fun afterViews(savedInstanceState: Bundle?) {
