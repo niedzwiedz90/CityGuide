@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.SyncService
+import com.niedzwiecki.przemyslguide.data.model.InterestPlace
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
 import com.niedzwiecki.przemyslguide.databinding.ActivityMainBinding
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity
@@ -15,10 +16,9 @@ import com.niedzwiecki.przemyslguide.ui.base.ViewModel
 import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity
 import com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KEY
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
-import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.PLACES_LIST
+import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.Companion.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
-import java.util.*
 
 class MainActivity : BaseActivity() {
 
@@ -38,8 +38,8 @@ class MainActivity : BaseActivity() {
         super.afterViews()
         viewDataBinding.viewModel = getViewModel()
         fetchData()
-        loadPlaces()
         init()
+        loadPlaces()
     }
 
     override fun afterViews(savedInstanceState: Bundle?) {
@@ -48,8 +48,8 @@ class MainActivity : BaseActivity() {
             placesList = savedInstanceState.get(INTEREST_PLACE_KEY) as List<PlaceOfInterest>?
             init()
             showPlaces(placesList)
+            getViewModel().setPlaceList(placesList)
         }
-
     }
 
     private fun fetchData() {
@@ -106,30 +106,31 @@ class MainActivity : BaseActivity() {
                         }*/
 
             viewDataBinding.drawerLayout.closeDrawers()
+
             when (item.itemId) {
                 R.id.navMap -> {
-                    filterPlaces("all")
+                    getViewModel().filterPlaces("all")
                     true
                 }
 
                 R.id.navMapWithHotels -> {
-                    filterPlaces("hotel")
+                    getViewModel().filterPlaces("hotel")
                     true
                 }
                 R.id.navMapWithCastles -> {
-                    filterPlaces("castle")
+                    getViewModel().filterPlaces("castle")
                     true
                 }
                 R.id.navMapWithFort -> {
-                    filterPlaces("station")
+                    getViewModel().filterPlaces("station")
                     true
                 }
                 R.id.navMapWithStation -> {
-                    filterPlaces("station")
+                    getViewModel().filterPlaces("station")
                     true
                 }
                 R.id.navMapWithBunker -> {
-                    filterPlaces("bunker")
+                    getViewModel().filterPlaces("bunker")
                     true
                 }
                 R.id.navLogout -> {
@@ -158,21 +159,10 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private fun filterPlaces(type: String) {
-        if (placesList != null) {
-            val tempList = ArrayList<PlaceOfInterest>()
-            for (interestPlace in placesList!!) {
-                if (interestPlace.type == type) {
-                    tempList.add(interestPlace)
-                } else if (type == "all") {
-                    tempList.add(interestPlace)
-                }
-            }
-
-            val intent = Intent(this@MainActivity, MapsActivity::class.java)
-            intent.putExtra(PLACES_LIST, tempList)
-            startActivity(intent)
-        }
+    private fun openMapWithFilterPlaces(filteredInterestPlacesList: ArrayList<InterestPlace>) {
+        val intent = Intent(this@MainActivity, MapsActivity::class.java)
+        intent.putExtra(PLACES_LIST, filteredInterestPlacesList)
+        startActivity(intent)
     }
 
     private fun openDetail(interestPlace: PlaceOfInterest) {
@@ -200,10 +190,10 @@ class MainActivity : BaseActivity() {
             }
 
             Navigator.Options.START_EMAIL_ACTIVITY -> EmailActivity.start(this)
+            Navigator.Options.SHOW_FILTERED_PLACES -> openMapWithFilterPlaces(data[0] as ArrayList<InterestPlace>)
         }
     }
 
-    //MVP
     fun showPlaces(interestPlaces: List<PlaceOfInterest>?) {
         placesAdapter.setPlaces(interestPlaces)
         placesAdapter.notifyDataSetChanged()

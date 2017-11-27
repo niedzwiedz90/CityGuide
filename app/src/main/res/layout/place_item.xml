@@ -5,7 +5,7 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/card_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:layout_marginLeft="12dp"
@@ -13,38 +13,54 @@
         android:layout_marginTop="6dp"
         card_view:cardCornerRadius="2dp">
 
-        <RelativeLayout
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/view_hex_color"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:background="@android:color/holo_blue_dark" />
-
-            <TextView
-                android:id="@+id/text_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/view_hex_color"
-                android:textSize="@dimen/text_body"
-                tools:text="Antony Ribot" />
+                android:layout_width="173dp"
+                android:layout_height="120dp"
+                android:background="@android:color/holo_blue_dark"
+                android:scaleType="centerCrop"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_email"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/text_name"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/view_hex_color"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:textSize="@dimen/text_small_body"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/text_name"
+                tools:ignore="MissingConstraints"
                 tools:text="developer" />
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/text_body"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/view_hex_color"
+                tools:ignore="MissingConstraints"
+                tools:text="Antony Ribot" />
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
+
 </layout>
 

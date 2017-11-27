@@ -165,6 +165,7 @@ dependencies {
     compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.google.android.gms:play-services:10.2.1'
     compile 'com.google.maps.android:android-maps-utils:0.5+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     testCompile 'org.robolectric:robolectric:3.1'
     annotationProcessor 'com.ryanharter.auto.value:auto-value-parcel:0.2.4-rc2'

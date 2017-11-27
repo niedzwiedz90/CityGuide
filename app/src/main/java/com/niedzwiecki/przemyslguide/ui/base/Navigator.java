@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.io.Serializable;
 
 /**
@@ -50,7 +52,8 @@ public interface Navigator {
         START_PASSWORD_ACTIVITY,
         START_EMAIL_ACTIVITY,
         START_MAIN_ACTIVITY,
-        START_ACTIVITY_WITH_INTENT
+        START_ACTIVITY_WITH_INTENT,
+        SHOW_FILTERED_PLACES
     }
 
 }
