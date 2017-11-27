@@ -35,14 +35,13 @@ import com.google.maps.android.clustering.ClusterManager;
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.MyItem;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
+import com.niedzwiecki.przemyslguide.ui.main.MainActivity;
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
-import static com.niedzwiecki.przemyslguide.ui.main.MainActivity.INTEREST_PLACE_KEY;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -71,7 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public static Intent getStartIntent(Context context, PlaceOfInterest interestPlace) {
         Intent intent = new Intent(context, MapsActivity.class);
-        intent.putExtra(INTEREST_PLACE_KEY, interestPlace);
+        intent.putExtra(MainActivity.Companion.getINTEREST_PLACE_KEY(), interestPlace);
         return intent;
     }
 
@@ -86,8 +85,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (getIntent().hasExtra(PLACES_LIST)) {
             placesResponse = getIntent().getParcelableArrayListExtra(PLACES_LIST);
-        } else if (getIntent().hasExtra(INTEREST_PLACE_KEY)) {
-            place = getIntent().getExtras().getParcelable(INTEREST_PLACE_KEY);
+        } else if (getIntent().hasExtra(MainActivity.Companion.getINTEREST_PLACE_KEY())) {
+            place = getIntent().getExtras().getParcelable(MainActivity.Companion.getINTEREST_PLACE_KEY());
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

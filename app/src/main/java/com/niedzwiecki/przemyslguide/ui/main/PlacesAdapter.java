@@ -16,6 +16,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import timber.log.Timber;
+
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
 
     private List<PlaceOfInterest> places;
@@ -40,6 +42,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         PlaceOfInterest placeOfInterest = places.get(position);
 //        holder.hexColorView.setImageURI(ribot.image);
 //        holder.hexColorView.setBackgroundColor(Color.parseColor(ribot.profile().hexColor()));
+
         if (Utils.isEmpty(placeOfInterest.image)) {
             return;
         }
@@ -79,7 +82,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
 
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
         }
     }
 }

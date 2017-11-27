@@ -20,7 +20,8 @@
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeToRefresh"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:refreshing="@{viewModel.isRefreshing}">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"

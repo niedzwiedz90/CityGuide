@@ -30,5 +30,8 @@ public class GuideApi {
     public Observable<List<PlaceOfInterest>> getPlaces() {
         return guideService.getPlaces();
     }
-
+/*
+    public ApiError parseException(Throwable throwable) {
+        return ApiError.fromRetrofitError(retrofit, throwable);
+    }*/
 }

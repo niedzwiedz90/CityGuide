@@ -53,5 +53,10 @@
     <string name="emptyListDescription">The list is empty.</string>
     <string name="noInternetError">No internet connection.</string>
     <string name="try_again">try again</string>
+    <string name="Something_went_wrong">Something went wrong</string>
+    <string name="error">Error</string>
+    <string name="unexpected_error">Unexpected error</string>
+
+    <string name="RETRY">Retry </string>
 
 </resources>

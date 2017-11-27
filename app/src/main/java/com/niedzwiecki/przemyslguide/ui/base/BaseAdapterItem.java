@@ -9,4 +9,5 @@ import android.content.Context;
 public interface BaseAdapterItem<T> {
 
     BaseItemView<T> createViewItem(Context context, int viewType);
+
 }

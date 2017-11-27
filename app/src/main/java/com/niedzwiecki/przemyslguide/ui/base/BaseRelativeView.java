@@ -1,60 +1,64 @@
 package com.niedzwiecki.przemyslguide.ui.base;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import butterknife.ButterKnife;
+public abstract class BaseRelativeView extends RelativeLayout implements BaseView {
 
-public class BaseRelativeView extends RelativeLayout implements BaseView {
+    private ViewDataBinding viewDataBinding;
+    protected boolean dataBidingEnabled;
+
     public BaseRelativeView(Context context) {
         super(context);
         init();
     }
 
     public BaseRelativeView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        super(context, attrs, 0);
         init();
     }
 
-    public BaseRelativeView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    public BaseRelativeView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
         init();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public BaseRelativeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
 
     private void init() {
+        dataBidingEnabled = true;
         beforeViews();
-        inflate(getContext(), contentId(), this);
-        ButterKnife.bind(this);
+        if (dataBidingEnabled) {
+            viewDataBinding = DataBindingUtil.inflate(
+                    LayoutInflater.from(getContext()),
+                    contentId(), this, true);
+        } else {
+            inflate(getContext(), contentId(), this);
+        }
+
         afterViews();
     }
+
+
+    public abstract int contentId();
 
     public void beforeViews() {
 
     }
 
-    @Override
-    public int contentId() {
-        return 0;
+    public void afterViews() {
     }
 
-    @Override
-    public void afterViews() {
-
+    public ViewDataBinding getViewDataBinding() {
+        return viewDataBinding;
     }
 
     @Override
     public View getView() {
         return this;
     }
-
 }

@@ -55,6 +55,30 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         notifyItemInserted(position);
     }
 
+    public void addItems(List<T> items) {
+        this.items.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public List<T> getItems() {
+        return items;
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
+
+    public void clearItems() {
+        items.clear();
+        notifyDataSetChanged();
+    }
+
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public ViewHolder(View itemView) {

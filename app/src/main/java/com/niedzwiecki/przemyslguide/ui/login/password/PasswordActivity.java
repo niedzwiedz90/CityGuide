@@ -60,7 +60,7 @@ public class PasswordActivity extends BaseActivity implements Navigator {
         super.moveForward(options, data);
         switch (options) {
             case START_MAIN_ACTIVITY:
-                MainActivity.start(this, (String) data[0]);
+                MainActivity.Companion.start(this, (String) data[0]);
                 break;
         }
 

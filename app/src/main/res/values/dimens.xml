@@ -10,30 +10,9 @@
     <dimen name="text_body">16sp</dimen>
     <dimen name="text_small_body">14sp</dimen>
 
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-
-    <!--CardView-->
-    <dimen name="card_view_default_radius">4dp</dimen>
-    <dimen name="card_view_default_padding_horizontal">16dp</dimen>
-    <dimen name="card_view_default_padding_vertical">8dp</dimen>
-    <dimen name="card_view_exhibitors_margin_bottom">10dp</dimen>
-    <dimen name="exhibitors_details_button_view_height">50dp</dimen>
-    <dimen name="min_height_exhibitors_categories">52dp</dimen>
-    <dimen name="divider_size">1dp</dimen>
-    <dimen name="button_round_stroke_width">1dp</dimen>
-    <dimen name="button_round_size">32dp</dimen>
-    <dimen name="button_round_padding">6dp</dimen>
-    <dimen name="bottom_bar_height">48dp</dimen>
-    <dimen name="centered_button_with_icon_padding">4dp</dimen>
-    <dimen name="tag_view_min_height">35dp</dimen>
-    <dimen name="scroll_view_max_size">100dp</dimen>
-    <dimen name="survey_other_option_edit_text_size">150dp</dimen>
-    <dimen name="centered_button_height_at_event_home_fragment">66dp</dimen>
-    <dimen name="message_divider_width">80dp</dimen>
 
     <dimen name="nano_padding">2dp</dimen>
     <dimen name="micro_padding">4dp</dimen>
@@ -85,6 +64,139 @@
     <dimen name="textSizeBig">20sp</dimen>
     <dimen name="textSizeBigger">34sp</dimen>
 
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Image size -->
+    <dimen name="image_size_small">20dp</dimen>
+    <dimen name="image_size_normal">35dp</dimen>
+    <dimen name="image_size_medium">40dp</dimen>
+    <dimen name="image_size_92">92dp</dimen>
+    <dimen name="image_size_big">100dp</dimen>
+    <dimen name="image_size_large">120dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <!-- Image size -->
+
+    <!-- Text -->
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_medium">14sp</dimen>
+    <dimen name="text_big">16sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_huge">20sp</dimen>
+    <!-- Text -->
+
+
+    <!-- Spacing -->
+    <dimen name="spacing_nano">2dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_normal">12dp</dimen>
+    <dimen name="spacing_10">10dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_20">20dp</dimen>
+    <dimen name="spacing_big">24dp</dimen>
+    <dimen name="spacing_26">26dp</dimen>
+    <dimen name="spacing_large">36dp</dimen>
+    <dimen name="spacing_huge">60dp</dimen>
+
+    <!-- Spacing -->
+
+    <dimen name="button_elevation">2dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+
+    <!--CardView-->
+    <dimen name="card_view_default_radius">4dp</dimen>
+    <dimen name="card_view_default_elevation">2dp</dimen>
+    <dimen name="card_view_default_elevation_from_code">100dp</dimen>
+    <dimen name="card_view_default_padding_horizontal">16dp</dimen>
+    <dimen name="card_view_default_padding_vertical">8dp</dimen>
+    <dimen name="card_view_exhibitors_margin_bottom">10dp</dimen>
+    <dimen name="exhibitors_details_button_view_height">50dp</dimen>
+    <dimen name="min_height_exhibitors_categories">52dp</dimen>
+    <dimen name="divider_size">1dp</dimen>
+    <dimen name="button_round_stroke_width">1dp</dimen>
+    <dimen name="button_round_size">32dp</dimen>
+    <dimen name="button_round_padding">6dp</dimen>
+    <dimen name="bottom_bar_height">48dp</dimen>
+    <dimen name="centered_button_with_icon_padding">4dp</dimen>
+    <dimen name="tag_view_min_height">35dp</dimen>
+    <dimen name="scroll_view_max_size">100dp</dimen>
+    <dimen name="survey_other_option_edit_text_size">150dp</dimen>
+    <dimen name="centered_button_height_at_event_home_fragment">66dp</dimen>
+    <dimen name="message_divider_width">80dp</dimen>
+
+    <!--LoginOrRegisterDialog-->
+    <dimen name="padding_between_description_and_login">33dp</dimen>
+    <dimen name="padding_between_header_and_description">12dp</dimen>
+    <dimen name="padding_between_buttons">30dp</dimen>
+    <dimen name="margin_bottom">26dp</dimen>
+    <dimen name="padding_drawable_login">32dp</dimen>
+    <dimen name="padding_drawable_register">39dp</dimen>
+    <dimen name="join_button_height">45dp</dimen>
+    <dimen name="sliding_tab_layout_height">48dp</dimen>
+    <dimen name="autocomplete_padding">20dp</dimen>
+    <dimen name="text_header">20sp</dimen>
+    <dimen name="drawable_left_padding_login">24dp</dimen>
+
+    <dimen name="button_press_elevation">40dp</dimen>
+    <dimen name="button_join_event_height">50dp</dimen>
+    <dimen name="tag_element_h">20dp</dimen>
+    <dimen name="tag_height">24dp</dimen>
+    <dimen name="card_view_default_z_index">1dp</dimen>
+    <dimen name="vertical_item_spacing">@dimen/spacing_small</dimen>
+
+    <!--Launcher activity-->
+    <dimen name="view_quick_login_width">40dp</dimen>
+
+    <dimen name="initial_text_logo_margin">160dp</dimen>
+    <dimen name="initial_star_margin">52dp</dimen>
+    <dimen name="initial_login_button_margin">276dp</dimen>
+    <dimen name="initial_register_button_margin">324dp</dimen>
+    <dimen name="initial_register_or_text_view">380dp</dimen>
+    <dimen name="initial_register_as_guest_button_margin">425dp</dimen>
+    <dimen name="form_top_margin">80dp</dimen>
+    <dimen name="big_star_size">63dp</dimen>
+    <dimen name="small_star_size">34dp</dimen>
+    <dimen name="max_small_star_right_margin">-3dp</dimen>
+    <dimen name="initial_social_buttons_margin">-72dp</dimen>
+
+    <dimen name="minimum_height_one_line_material_item">42dp</dimen>
+    <dimen name="minimum_height_material_item">72dp</dimen>
+    <dimen name="material_divider_margin">72dp</dimen>
+    <dimen name="zero_margin">0dp</dimen>
+    <dimen name="launcher_register_background_image_size">128dp</dimen>
+    <dimen name="launcher_text_logo_size">150dp</dimen>
+    <dimen name="launcher_small_logo_initial_size">0dp</dimen>
+    <dimen name="launcher_small_logo_margin_bottom">26dp</dimen>
+    <dimen name="launcher_content_margin">48dp</dimen>
+    <dimen name="survey_custom_answer_margin">-4dp</dimen>
+    <dimen name="divider_margin_left">@dimen/material_divider_margin</dimen>
+
+    <!-- Choose agenda Dialog-->
+    <dimen name="dialog_agenda_top_padding">20dp</dimen>
+    <dimen name="dialog_agenda_buttons_top_padding">30dp</dimen>
+    <dimen name="discover_event_title_size">36sp</dimen>
+    <dimen name="recommendation_image_margin_top">-50dp</dimen>
+    <dimen name="shadow_size">8dp</dimen>
+    <dimen name="agenda_lecture_row_radius">2dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <!-- Clipped padding recycler view when button visible on the bottom-right side -->
     <dimen name="clipped_padding">75dp</dimen>
+    <dimen name="search_progress_margin_top">-6dp</dimen>
+
+    <!--uber-->
+    <dimen name="ub__ride_request_button_width">0dp</dimen>
+    <dimen name="ub__small_padding">@dimen/spacing_small</dimen>
+    <dimen name="ub__standard_padding">@dimen/spacing_small</dimen>
+    <dimen name="uber_button_round_size">2dp</dimen>
+    <dimen name="ub__text_size">14dp</dimen>
+
+    <dimen name="dialog_title_margin_bottom">20dp</dimen>
+    <dimen name="dialog_content_margin_bottom">44dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+
 
 </resources>

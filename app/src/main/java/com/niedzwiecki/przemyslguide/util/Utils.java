@@ -19,6 +19,8 @@ import java.util.regex.Pattern;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import rx.Subscription;
+
 /**
  * Created by niedzwiedz on 17.08.17.
  */
@@ -100,5 +102,11 @@ public class Utils {
         }
 
         return view;
+    }
+
+    public static void unsubscribe(@Nullable Subscription subscribe) {
+        if (subscribe != null && !subscribe.isUnsubscribed()) {
+            subscribe.unsubscribe();
+        }
     }
 }
