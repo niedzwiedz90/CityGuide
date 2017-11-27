@@ -12,11 +12,12 @@ import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import timber.log.Timber
+import java.util.*
 
 class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainActivity>() {
 
     private var mSubscription: Subscription? = null
-//    var placesAdapter: PlacesAdapter? = PlacesAdapter()
+    private lateinit var placesList: List<PlaceOfInterest>
     val isRefreshing = ObservableBoolean(false)
 
     fun loadPlaces() {
@@ -36,6 +37,7 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
 
                     override fun onNext(places: List<PlaceOfInterest>) {
                         navigator.moveForward(Navigator.Options.SHOW_PLACES, places)
+                        placesList = places
                         isRefreshing.set(false)
                         isRefreshing.notifyChange()
                     }
@@ -48,17 +50,21 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
         navigator.finish()
     }
 
-    /*  fun onTouchRecyclerListener(view: View) {
-          view?.addOnItemTouchListener(RecyclerItemClickListener(this, viewDataBinding.recyclerView,
-                          object : RecyclerItemClickListener.OnItemClickListener {
-                              override fun onItemClick(view: View, position: Int) {
-                                  val places = placesAdapter?.getPlace(position)
-                                  openDetail(places!!)
-                              }
+    fun filterPlaces(type: String) {
+        val tempList = ArrayList<PlaceOfInterest>()
+        for (interestPlace in placesList) {
+            if (interestPlace.type == type) {
+                tempList.add(interestPlace)
+            } else if (type == "all") {
+                tempList.add(interestPlace)
+            }
+        }
 
-                              override fun onLongItemClick(view: View, position: Int) {
+        navigator.moveForward(Navigator.Options.SHOW_FILTERED_PLACES, tempList)
+    }
 
-                              }
-                          }))
-      }*/
+    fun setPlaceList(restoredPlacesList: List<PlaceOfInterest>?) {
+        this.placesList = restoredPlacesList!!
+    }
+
 }
