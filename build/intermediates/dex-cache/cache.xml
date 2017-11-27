@@ -507,6 +507,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Queen\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_d8f580dfc5ee244e52ddaa6ffdacc8de8f178510\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Queen\.android\build-cache\b22c99d7d1a4e41d81d3cb147f4cc75a72a26ee4\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -1341,6 +1350,15 @@
         revision="26.0.0"
         sha1="a3826817a4de1daa170c33bbc04db24ab6826bd5">
         <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f4cadef2a1afef2db663cac166939acdebb05ec4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Queen\.android\build-cache\3ce37c8f9b883043fd0e3f59677b3d8d3e84fc4b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Queen\git\przemyslguide\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ec979f4bed2e5a2c08425250841406feaee4586b\classes.dex" />
     </item>
     <item
         is-multidex="true"
