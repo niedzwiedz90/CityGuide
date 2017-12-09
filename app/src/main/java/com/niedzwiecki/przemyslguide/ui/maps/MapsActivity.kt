@@ -12,15 +12,13 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.DrawerLayout
-import android.view.MenuItem
 import android.widget.Toast
-
+import butterknife.BindView
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdate
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -35,10 +33,7 @@ import com.niedzwiecki.przemyslguide.data.model.MyItem
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
-
-import java.util.ArrayList
-
-import butterknife.BindView
+import java.util.*
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
