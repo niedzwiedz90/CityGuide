@@ -36,7 +36,7 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
                     }
 
                     override fun onNext(places: List<PlaceOfInterest>) {
-                        navigator.moveForward(Navigator.Options.SHOW_PLACES, places)
+                        navigator?.moveForward(Navigator.Options.SHOW_PLACES, places)
                         placesList = places
                         isRefreshing.set(false)
                         isRefreshing.notifyChange()
@@ -46,8 +46,8 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
 
     fun logout() {
         dataManager.preferencesHelper.clearAuthenticationHeader(PreferencesKeys.LOGION_HEADER)
-        navigator.moveForward(Navigator.Options.START_EMAIL_ACTIVITY)
-        navigator.finish()
+        navigator?.moveForward(Navigator.Options.START_EMAIL_ACTIVITY)
+        navigator?.finish()
     }
 
     fun filterPlaces(type: String) {
@@ -60,7 +60,7 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
             }
         }
 
-        navigator.moveForward(Navigator.Options.SHOW_FILTERED_PLACES, tempList)
+        navigator?.moveForward(Navigator.Options.SHOW_FILTERED_PLACES, tempList)
     }
 
     fun setPlaceList(restoredPlacesList: List<PlaceOfInterest>?) {
