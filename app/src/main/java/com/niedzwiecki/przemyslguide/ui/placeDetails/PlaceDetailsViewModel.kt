@@ -21,7 +21,13 @@ class PlaceDetailsViewModel(var DataManager: DataManager) : BaseViewModel<PlaceD
     val placeDescriptionFieldVisibility = ObservableInt()
     val emailFieldVisibility = ObservableInt()
     val imageFieldUrl = ObservableField<String>()
+    val emailField = ObservableField<String>()
     var placeOfIntrest: PlaceOfInterest? = null
+    val telephoneFieldVisibility = ObservableInt()
+    val telephoneField = ObservableField<String>()
+    val locationField = ObservableField<String>()
+    val typeFieldVisibility = ObservableInt()
+    val mapSectionVisibility = ObservableInt()
 
     fun setData(place: PlaceOfInterest?) {
         placeOfIntrest = place
@@ -38,10 +44,28 @@ class PlaceDetailsViewModel(var DataManager: DataManager) : BaseViewModel<PlaceD
             placeDescription.set(place?.description)
         }
 
-        if (!Utils.isEmpty(place?.image))
+        if (!Utils.isEmpty(place?.image)) {
             imageFieldUrl.set(place?.image)
+        }
 
-        emailFieldVisibility.set(View.GONE)
+        if (Utils.isEmpty(place?.email)) {
+            emailFieldVisibility.set(View.GONE)
+        } else {
+            emailField.set(place?.email)
+        }
+
+        if (Utils.isEmpty(place?.telephone)) {
+            telephoneFieldVisibility.set(View.GONE)
+        } else {
+            telephoneField.set(place?.telephone)
+        }
+
+        if (Utils.isEmpty(place?.type)) {
+            typeFieldVisibility.set(View.GONE)
+        } else {
+            locationField.set(place?.type)
+        }
+
     }
 
     fun onMapButtonClick(view: View) {

@@ -29,7 +29,8 @@
                 app:contentScrim="?attr/colorPrimaryDark"
                 app:expandedTitleMarginEnd="64dp"
                 app:expandedTitleMarginStart="48dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@{viewModel.name}">
 
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/coverImage"
@@ -45,7 +46,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -77,14 +79,45 @@
                         card_view:cardCornerRadius="4dp"
                         card_view:cardUseCompatPadding="true">
 
-                        <android.support.v7.widget.AppCompatTextView
-                            android:id="@+id/placeName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/medium_padding"
-                            android:text="@{viewModel.name}"
-                            android:visibility="@{viewModel.placeNameFieldVisibility}" />
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
 
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/placeName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                                android:drawablePadding="@dimen/medium_padding"
+                                android:padding="@dimen/medium_padding"
+                                android:text="@{viewModel.locationField}"
+                                android:visibility="@{viewModel.typeFieldVisibility}" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/placeName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/placeName"
+                                android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+                                android:drawablePadding="@dimen/medium_padding"
+                                android:padding="@dimen/medium_padding"
+                                android:text="@{viewModel.telephoneField}"
+                                android:textSize="@dimen/text_medium"
+                                android:visibility="@{viewModel.telephoneFieldVisibility}" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/placeName2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/placeName1"
+                                android:drawableLeft="@drawable/ic_email_black_24dp"
+                                android:drawablePadding="@dimen/medium_padding"
+                                android:padding="@dimen/medium_padding"
+                                android:text="@{viewModel.emailField}"
+                                android:textSize="@dimen/text_medium"
+                                android:visibility="@{viewModel.emailFieldVisibility}" />
+
+                        </RelativeLayout>
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -117,24 +150,17 @@
                         android:layout_below="@id/descriptionCard"
                         android:layout_marginLeft="@dimen/small_padding"
                         android:layout_marginRight="@dimen/small_padding"
-                        android:visibility="@{viewModel.emailFieldVisibility}"
+                        android:visibility="visible"
                         card_view:cardBackgroundColor="@color/accent"
                         card_view:cardCornerRadius="4dp"
                         card_view:cardUseCompatPadding="true">
 
-                        <android.support.v7.widget.AppCompatTextView
-                            android:id="@+id/mailTextView"
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/medium_padding"
-                            android:text="@string/loremIpsum" />
+                            android:id="@+id/staticMap"/>
 
                     </android.support.v7.widget.CardView>
-
-                    <android.support.v4.view.ViewPager
-                        android:id="@+id/viewPager"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
 
                 </RelativeLayout>
             </android.support.v7.widget.LinearLayoutCompat>

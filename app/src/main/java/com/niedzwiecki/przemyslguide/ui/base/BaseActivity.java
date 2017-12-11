@@ -18,8 +18,6 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import timber.log.Timber;
 
-//import com.niedzwiecki.przemyslguide.injection.component.DaggerConfigPersistentComponent;
-
 /**
  * Abstract activity that every other Activity in this application must implement. It handles
  * creation of Dagger components and makes sure that instances of ConfigPersistentComponent survive
@@ -37,11 +35,13 @@ public abstract class BaseActivity extends AppCompatActivity implements
     private boolean dataBindingEnabled;
     public ViewModel viewModel;
     public DataManager dataManager;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dataManager = ApplicationController.getInstance().getDataModule().provideDataManager();
+
         beforeViews();
         if (contentId() != 0 && !dataBindingEnabled) {
             setContentView(contentId());
@@ -53,7 +53,10 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
         if (dataBindingEnabled) {
             viewModel = viewModel != null ? viewModel : createViewModel();
-//            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setupToolbarWithDataBinding(toolbar);
+        } else {
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
         }
 
         if (savedInstanceState == null) {
@@ -66,6 +69,23 @@ public abstract class BaseActivity extends AppCompatActivity implements
             afterViews(savedInstanceState);
         }
 
+    }
+
+    public Toolbar getToolbar() {
+        return toolbar;
+    }
+
+    private void setupToolbarWithDataBinding(Toolbar toolbar) {
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            if (getSupportActionBar() == null) {
+                return;
+            }
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        } else {
+            return;
+        }
     }
 
     @Override

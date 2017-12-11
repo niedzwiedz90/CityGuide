@@ -3,6 +3,7 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -12,6 +13,7 @@ import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
+import com.squareup.picasso.Picasso
 
 /**
  * Created by niedzwiedz on 10.07.17.
@@ -31,7 +33,26 @@ class PlaceDetailsActivity : BaseActivity() {
         viewDataBinding.viewModel = getViewModel()
         setScreenFlags()
         fetchData()
+        setMapAndOnClick()
+
+        toolbar.setTitle(" ")
         setDataToViewModel()
+    }
+
+    private fun setMapAndOnClick() {
+        Picasso.with(this)
+                .load("https://maps.googleapis.com/maps/api/staticmap?center=" + place?.lat +
+                        "," + place?.lon +
+                        "&zoom=14&size=800x400&maptype=roadmap&markers=color:blue%7Clabel:S%7C" + place?.lat +
+                        "," + place?.lon + "&key=AIzaSyDthXCUL8-qPlt8F21aQRuMDGSt8WLveB8")
+                .resize(900, 400)
+                .centerCrop()
+                .into(viewDataBinding.staticMap)
+        viewDataBinding.staticMap.setOnClickListener({
+            if (place != null) {
+                startMapActivity(place!!)
+            }
+        })
     }
 
     private fun fetchData() {
@@ -91,7 +112,6 @@ class PlaceDetailsActivity : BaseActivity() {
             Navigator.Options.START_ACTIVITY_WITH_INTENT ->
                 startMapActivity(data[0] as PlaceOfInterest)
         }
-
     }
 
     private fun startMapActivity(place: PlaceOfInterest) {
