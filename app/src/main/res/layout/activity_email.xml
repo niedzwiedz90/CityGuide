@@ -44,7 +44,7 @@
                     android:lines="1"
                     android:minWidth="@dimen/minimumEditTextWidth"
                     android:onClick="@{viewModel.onClickEmailAddress}"
-                    app:addTextChangedListener="@{viewModel.getEmailAddressTextWatcher}"
+                    app:addTextChangedListener="@{viewModel.emailAddressTextWatcher}"
                     android:textColorHint="@color/accent"
                     android:textSize="@dimen/textSizeBig"
                     tool:text="TOOLS" />
