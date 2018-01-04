@@ -13,14 +13,6 @@ import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 
 
 class EmailActivity : BaseActivity(), Navigator {
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        viewModel = new EmailViewModel(dataManager);
-//        viewModel.attachNavigator(this);
-//        viewModel.checkIfUserIsAlreadyLogged();
-    }*/
 
     override fun beforeViews() {
         super.beforeViews()
