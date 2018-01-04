@@ -4,33 +4,19 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.design.widget.TextInputLayout;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
+import com.niedzwiecki.przemyslguide.databinding.ViewPasswordBinding;
 import com.niedzwiecki.przemyslguide.ui.base.BaseRelativeView;
 import com.niedzwiecki.przemyslguide.util.ViewUtil;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-
 public class PasswordView extends BaseRelativeView {
-
-    @BindView(R.id.inputPasswordEditText)
-    TextInputLayout inputPasswordEditText;
-    @BindView(R.id.showPasswordImageView)
-    ImageView showPasswordImageView;
-    @BindView(R.id.passwordEditText)
-    EditText passwordEditText;
-    @BindView(R.id.passwordErrorText)
-    TextView passwordErrorText;
 
     boolean eyeButtonFlag = false;
 
@@ -63,19 +49,50 @@ public class PasswordView extends BaseRelativeView {
         int padding = (int) getContext().getResources().getDimension(R.dimen.paddingSmall);
         setPadding(padding, padding, padding, padding);
         setGravity(Gravity.RIGHT | CENTER_VERTICAL);
+        dataBidingEnabled = true;
+    }
+
+    @Override
+    public void afterViews() {
+        super.afterViews();
+        getViewDataBinding().passwordEditText.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onPasswordEditTextClicked();
+            }
+        });
+
+        getViewDataBinding().inputPasswordEditText.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onInputPasswordEditTextClicked();
+            }
+        });
+
+        getViewDataBinding().showPasswordImageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onPasswordIconClicked();
+            }
+        });
+    }
+
+    @Override
+    public ViewPasswordBinding getViewDataBinding() {
+        return (ViewPasswordBinding) super.getViewDataBinding();
     }
 
     public String getText() {
-        return passwordEditText.getText().toString();
+        return getViewDataBinding().passwordEditText.getText().toString();
     }
 
     public void hidePassword() {
-        passwordEditText
+        getViewDataBinding().passwordEditText
                 .setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
     }
 
     public void showPassword() {
-        passwordEditText.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        getViewDataBinding().passwordEditText.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
     }
 
     public void onPasswordEyeIconClicked(boolean eyeButtonFlag) {
@@ -86,32 +103,29 @@ public class PasswordView extends BaseRelativeView {
         }
     }
 
-    @OnClick(R.id.passwordEditText)
     public void onPasswordEditTextClicked() {
-        passwordEditText.setFocusableInTouchMode(true);
-        passwordEditText.requestFocus();
-        passwordEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        ViewUtil.showKeyboard(passwordEditText);
+        getViewDataBinding().passwordEditText.setFocusableInTouchMode(true);
+        getViewDataBinding().passwordEditText.requestFocus();
+        getViewDataBinding().passwordEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        ViewUtil.showKeyboard(getViewDataBinding().passwordEditText);
     }
 
-    @OnClick(R.id.inputPasswordEditText)
     public void onInputPasswordEditTextClicked() {
-        passwordEditText.setFocusableInTouchMode(true);
-        passwordEditText.requestFocus();
-        passwordEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        ViewUtil.showKeyboard(passwordEditText);
+        getViewDataBinding().passwordEditText.setFocusableInTouchMode(true);
+        getViewDataBinding().passwordEditText.requestFocus();
+        getViewDataBinding().passwordEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        ViewUtil.showKeyboard(getViewDataBinding().passwordEditText);
     }
 
-    @OnClick(R.id.showPasswordImageView)
     public void onPasswordIconClicked() {
-        int cursorPosition = passwordEditText.getSelectionEnd();
+        int cursorPosition = getViewDataBinding().passwordEditText.getSelectionEnd();
         onPasswordEyeIconClicked(eyeButtonFlag);
         eyeButtonFlag = !eyeButtonFlag;
-        passwordEditText.setSelection(cursorPosition);
+        getViewDataBinding().passwordEditText.setSelection(cursorPosition);
     }
 
     public void setErrorText(String errorMessage) {
-        passwordErrorText.setText(errorMessage);
+        getViewDataBinding().passwordErrorText.setText(errorMessage);
     }
 
     public void setErrorVisibility(int visibility) {
@@ -119,11 +133,12 @@ public class PasswordView extends BaseRelativeView {
             visibility = INVISIBLE;
         }
 
-        passwordErrorText.setVisibility(visibility);
+        getViewDataBinding().passwordErrorText.setVisibility(visibility);
     }
 
     public void setOnChangeTextListener(TextWatcher onChangeTextListener) {
-        passwordEditText.addTextChangedListener(onChangeTextListener);
+        getViewDataBinding().passwordEditText.removeTextChangedListener(onChangeTextListener);
+        getViewDataBinding().passwordEditText.addTextChangedListener(onChangeTextListener);
     }
 
 }
