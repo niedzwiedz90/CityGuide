@@ -14,7 +14,7 @@ import com.niedzwiecki.przemyslguide.ui.base.BaseActivity
 import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel
 import com.niedzwiecki.przemyslguide.ui.login.email.EmailActivity
-import com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.EMAIL_KEY
+import com.niedzwiecki.przemyslguide.ui.login.password.PasswordActivity.Companion.EMAIL_KEY
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.Companion.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
