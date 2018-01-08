@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
+import android.widget.TextView
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.SyncService
 import com.niedzwiecki.przemyslguide.data.model.InterestPlace
@@ -19,11 +20,13 @@ import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.Companion.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
+import com.niedzwiecki.przemyslguide.util.Utils
 
 class MainActivity : BaseActivity() {
 
     private var email: String? = null
     private var placesList: List<PlaceOfInterest>? = null
+    private lateinit var header: TextView
 
     override fun beforeViews() {
         super.beforeViews()
@@ -55,10 +58,6 @@ class MainActivity : BaseActivity() {
     private fun fetchData() {
         if (intent.hasExtra(EMAIL_KEY)) {
             email = intent.getStringExtra(EMAIL_KEY)
-
-            //            View header = navigationView.getHeaderView(0);
-            //            TextView name = (TextView) header.findViewById(R.id.emailInfo);
-            //            name.setText(email);
         }
 
         if (intent.getBooleanExtra(EXTRA_TRIGGER_SYNC_FLAG, true)) {
@@ -96,6 +95,11 @@ class MainActivity : BaseActivity() {
 
                     }
                 }))
+
+        header = viewDataBinding.navView.getHeaderView(0).findViewById(R.id.emailInfo) as TextView
+        if (!Utils.isEmpty(email)) {
+            header.setText(email)
+        }
 
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         viewDataBinding.navView.setNavigationItemSelectedListener { item ->
