@@ -10,9 +10,10 @@ import com.niedzwiecki.przemyslguide.databinding.ActivityPlaceDetailsBinding
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity
 import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel
-import com.niedzwiecki.przemyslguide.ui.gallery.ScreenSlidePagerActivity
+import com.niedzwiecki.przemyslguide.ui.gallery.GalleryPagerAdapter
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
+import com.niedzwiecki.przemyslguide.util.Utils.convertDpToPixel
 import com.squareup.picasso.Picasso
 
 /**
@@ -37,7 +38,8 @@ class PlaceDetailsActivity : BaseActivity() {
         setMapAndOnClick()
         toolbar.setTitle(" ")
         setDataToViewModel()
-        placeAdapter = GalleryPagerAdapter(supportFragmentManager)
+        placeAdapter = GalleryPagerAdapter(this)
+        placeAdapter.setItems(place?.images)
         viewDataBinding.viewPager.adapter = placeAdapter
     }
 
@@ -45,11 +47,12 @@ class PlaceDetailsActivity : BaseActivity() {
         Picasso.with(this)
                 .load("https://maps.googleapis.com/maps/api/staticmap?center=" + place?.lat +
                         "," + place?.lon +
-                        "&zoom=14&size=800x400&maptype=roadmap&markers=color:blue%7Clabel:S%7C" + place?.lat +
+                        "&zoom=14&size=800x450&maptype=roadmap&markers=color:blue%7Clabel:S%7C" + place?.lat +
                         "," + place?.lon + "&key=AIzaSyDthXCUL8-qPlt8F21aQRuMDGSt8WLveB8")
-                .resize(900, 400)
+                .resize(convertDpToPixel(400f, this), convertDpToPixel(250f, this))
                 .centerCrop()
                 .into(viewDataBinding.staticMap)
+
         viewDataBinding.staticMap.setOnClickListener({
             if (place != null) {
                 startMapActivity(place!!)
@@ -69,6 +72,7 @@ class PlaceDetailsActivity : BaseActivity() {
         setScreenFlags()
         fetchData()
         setDataToViewModel()
+//        placeAdapter.setItems(place?.images)
         if (savedInstanceState != null) {
             restoreData(savedInstanceState)
         }
@@ -113,17 +117,11 @@ class PlaceDetailsActivity : BaseActivity() {
         when (options) {
             Navigator.Options.START_ACTIVITY_WITH_INTENT ->
                 startMapActivity(data[0] as PlaceOfInterest)
-            Navigator.Options.START_SLIDER_ACTIVITY -> startSliderActivity()
         }
     }
 
     private fun startMapActivity(place: PlaceOfInterest) {
         val intent = Intent(MapsActivity.getStartIntent(baseContext, place))
-        startActivity(intent)
-    }
-
-    private fun startSliderActivity() {
-        val intent = Intent(baseContext, ScreenSlidePagerActivity::class.java)
         startActivity(intent)
     }
 
