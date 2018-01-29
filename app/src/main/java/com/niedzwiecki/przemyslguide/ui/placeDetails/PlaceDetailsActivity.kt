@@ -22,6 +22,7 @@ import com.squareup.picasso.Picasso
 class PlaceDetailsActivity : BaseActivity() {
 
     private var place: PlaceOfInterest? = null
+    private lateinit var placeAdapter: GalleryPagerAdapter
 
     override fun beforeViews() {
         super.beforeViews()
@@ -34,9 +35,10 @@ class PlaceDetailsActivity : BaseActivity() {
         setScreenFlags()
         fetchData()
         setMapAndOnClick()
-
         toolbar.setTitle(" ")
         setDataToViewModel()
+        placeAdapter = GalleryPagerAdapter(supportFragmentManager)
+        viewDataBinding.viewPager.adapter = placeAdapter
     }
 
     private fun setMapAndOnClick() {

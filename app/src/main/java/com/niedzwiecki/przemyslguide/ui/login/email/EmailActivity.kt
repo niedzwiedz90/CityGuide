@@ -22,11 +22,15 @@ class EmailActivity : BaseActivity(), Navigator {
     override fun afterViews(savedInstanceState: Bundle) {
         super.afterViews(savedInstanceState)
         viewDataBinding.viewModel = getViewModel()
+        getViewModel().attachNavigator(this)
+        getViewModel().checkIfUserIsAlreadyLogged()
     }
 
     override fun afterViews() {
         super.afterViews()
         viewDataBinding.viewModel = getViewModel()
+        getViewModel().attachNavigator(this)
+        getViewModel().checkIfUserIsAlreadyLogged()
     }
 
     override fun getViewDataBinding(): ActivityEmailBinding {

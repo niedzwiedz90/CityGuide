@@ -86,7 +86,6 @@ class PasswordViewModel(internal var dataManager: DataManager) : BaseViewModel<P
     }
 
     companion object {
-
         private val START_EMAIL_ACTIVITY = 0
         private val START_PASSWORD_ACTIVITY = 1
     }

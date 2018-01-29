@@ -14,6 +14,8 @@ import com.niedzwiecki.przemyslguide.ui.base.Navigator;
 import com.niedzwiecki.przemyslguide.util.Utils;
 import com.niedzwiecki.przemyslguide.util.ViewUtil;
 
+import org.jetbrains.annotations.NotNull;
+
 
 public class EmailViewModel extends BaseViewModel {
 
@@ -31,6 +33,11 @@ public class EmailViewModel extends BaseViewModel {
         this.validationEmailAddressError = new ObservableField<>();
         errorVisibility = new ObservableInt(View.INVISIBLE);
         nextButtonVisibility = new ObservableInt(View.INVISIBLE);
+    }
+
+    @Override
+    public void attachNavigator(@NotNull Navigator navigator) {
+        super.attachNavigator(navigator);
     }
 
     public TextWatcher getEmailAddressTextWatcher() {
@@ -88,8 +95,10 @@ public class EmailViewModel extends BaseViewModel {
 
     public void checkIfUserIsAlreadyLogged() {
         if (dataManager.contains(PreferencesKeys.LOGION_HEADER)) {
-            getNavigator().moveForward(Navigator.Options.START_MAIN_ACTIVITY,
-                    dataManager.getPreferencesHelper().getAuthenticationHeader(PreferencesKeys.LOGION_HEADER));
+            getNavigator().moveForward(
+                    Navigator.Options.START_MAIN_ACTIVITY,
+                    dataManager.getPreferencesHelper()
+                            .getAuthenticationHeader(PreferencesKeys.LOGION_HEADER));
             getNavigator().finish();
         }
 
