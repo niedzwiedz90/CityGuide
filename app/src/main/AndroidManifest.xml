@@ -54,6 +54,10 @@
             android:label="@string/logout">
         </activity>
 
+        <activity
+            android:name=".ui.gallery.ScreenSlidePagerActivity"
+            android:label=""/>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

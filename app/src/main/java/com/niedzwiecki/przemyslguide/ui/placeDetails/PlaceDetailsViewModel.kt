@@ -71,4 +71,8 @@ class PlaceDetailsViewModel(var DataManager: DataManager) : BaseViewModel<PlaceD
     fun onMapButtonClick(view: View) {
         navigator?.moveForward(Navigator.Options.START_ACTIVITY_WITH_INTENT, placeOfIntrest)
     }
+
+    fun onFabButtonClick(view: View) {
+        navigator?.moveForward(Navigator.Options.START_SLIDER_ACTIVITY)
+    }
 }

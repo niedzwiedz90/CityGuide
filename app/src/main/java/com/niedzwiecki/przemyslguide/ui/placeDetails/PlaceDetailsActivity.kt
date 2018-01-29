@@ -3,7 +3,6 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -11,6 +10,7 @@ import com.niedzwiecki.przemyslguide.databinding.ActivityPlaceDetailsBinding
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity
 import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel
+import com.niedzwiecki.przemyslguide.ui.gallery.ScreenSlidePagerActivity
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.squareup.picasso.Picasso
@@ -111,11 +111,17 @@ class PlaceDetailsActivity : BaseActivity() {
         when (options) {
             Navigator.Options.START_ACTIVITY_WITH_INTENT ->
                 startMapActivity(data[0] as PlaceOfInterest)
+            Navigator.Options.START_SLIDER_ACTIVITY -> startSliderActivity()
         }
     }
 
     private fun startMapActivity(place: PlaceOfInterest) {
         val intent = Intent(MapsActivity.getStartIntent(baseContext, place))
+        startActivity(intent)
+    }
+
+    private fun startSliderActivity() {
+        val intent = Intent(baseContext, ScreenSlidePagerActivity::class.java)
         startActivity(intent)
     }
 
