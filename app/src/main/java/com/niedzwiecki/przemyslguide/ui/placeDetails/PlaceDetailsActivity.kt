@@ -53,12 +53,6 @@ class PlaceDetailsActivity : BaseActivity() {
                 .resize(convertDpToPixel(400f, this), convertDpToPixel(250f, this))
                 .centerCrop()
                 .into(viewDataBinding.staticMap)
-
-        viewDataBinding.staticMap.setOnClickListener({
-            if (place != null) {
-                startMapActivity(place!!)
-            }
-        })
     }
 
     private fun fetchData() {
