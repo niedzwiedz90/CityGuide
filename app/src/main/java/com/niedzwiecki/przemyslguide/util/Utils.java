@@ -1,5 +1,6 @@
 package com.niedzwiecki.przemyslguide.util;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -7,6 +8,7 @@ import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Base64;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -108,5 +110,10 @@ public class Utils {
         if (subscribe != null && !subscribe.isUnsubscribed()) {
             subscribe.unsubscribe();
         }
+    }
+
+    public static int convertDpToPixel(float dp, Context context) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return Math.round(dp * (metrics.densityDpi / 160f));
     }
 }

@@ -28,6 +28,7 @@ class PlaceDetailsViewModel(var DataManager: DataManager) : BaseViewModel<PlaceD
     val locationField = ObservableField<String>()
     val typeFieldVisibility = ObservableInt()
     val mapSectionVisibility = ObservableInt()
+    val gallerySectionVisibility = ObservableInt()
 
     fun setData(place: PlaceOfInterest?) {
         placeOfIntrest = place
@@ -66,9 +67,18 @@ class PlaceDetailsViewModel(var DataManager: DataManager) : BaseViewModel<PlaceD
             locationField.set(place?.type)
         }
 
+        if (Utils.isEmpty(place?.images)) {
+            gallerySectionVisibility.set(View.GONE)
+        } else {
+            gallerySectionVisibility.set(View.VISIBLE)
+        }
     }
 
     fun onMapButtonClick(view: View) {
         navigator?.moveForward(Navigator.Options.START_ACTIVITY_WITH_INTENT, placeOfIntrest)
+    }
+
+    fun onFabButtonClick(view: View) {
+        navigator?.moveForward(Navigator.Options.START_SLIDER_ACTIVITY)
     }
 }

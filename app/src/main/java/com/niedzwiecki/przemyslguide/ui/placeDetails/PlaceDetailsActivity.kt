@@ -3,7 +3,6 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -11,8 +10,10 @@ import com.niedzwiecki.przemyslguide.databinding.ActivityPlaceDetailsBinding
 import com.niedzwiecki.przemyslguide.ui.base.BaseActivity
 import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.ui.base.ViewModel
+import com.niedzwiecki.przemyslguide.ui.gallery.GalleryPagerAdapter
 import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
+import com.niedzwiecki.przemyslguide.util.Utils.convertDpToPixel
 import com.squareup.picasso.Picasso
 
 /**
@@ -22,6 +23,7 @@ import com.squareup.picasso.Picasso
 class PlaceDetailsActivity : BaseActivity() {
 
     private var place: PlaceOfInterest? = null
+    private lateinit var placeAdapter: GalleryPagerAdapter
 
     override fun beforeViews() {
         super.beforeViews()
@@ -34,20 +36,23 @@ class PlaceDetailsActivity : BaseActivity() {
         setScreenFlags()
         fetchData()
         setMapAndOnClick()
-
         toolbar.setTitle(" ")
         setDataToViewModel()
+        placeAdapter = GalleryPagerAdapter(this)
+        placeAdapter.setItems(place?.images)
+        viewDataBinding.viewPager.adapter = placeAdapter
     }
 
     private fun setMapAndOnClick() {
         Picasso.with(this)
                 .load("https://maps.googleapis.com/maps/api/staticmap?center=" + place?.lat +
                         "," + place?.lon +
-                        "&zoom=14&size=800x400&maptype=roadmap&markers=color:blue%7Clabel:S%7C" + place?.lat +
+                        "&zoom=14&size=800x450&maptype=roadmap&markers=color:blue%7Clabel:S%7C" + place?.lat +
                         "," + place?.lon + "&key=AIzaSyDthXCUL8-qPlt8F21aQRuMDGSt8WLveB8")
-                .resize(900, 400)
+                .resize(convertDpToPixel(400f, this), convertDpToPixel(250f, this))
                 .centerCrop()
                 .into(viewDataBinding.staticMap)
+
         viewDataBinding.staticMap.setOnClickListener({
             if (place != null) {
                 startMapActivity(place!!)
@@ -67,6 +72,7 @@ class PlaceDetailsActivity : BaseActivity() {
         setScreenFlags()
         fetchData()
         setDataToViewModel()
+//        placeAdapter.setItems(place?.images)
         if (savedInstanceState != null) {
             restoreData(savedInstanceState)
         }

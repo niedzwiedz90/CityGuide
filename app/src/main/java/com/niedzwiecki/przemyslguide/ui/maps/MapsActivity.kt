@@ -70,9 +70,9 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
 
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
-
         mapFragment.getMapAsync(this)
-        //        init();
+
+//        init()
     }
 
     private fun init() {
@@ -183,9 +183,9 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
             mCurrLocationMarker!!.remove()
         }
 
-        if (placesResponse != null) {
+        /*if (placesResponse != null) {
             //            setPlacesMarkers(placesResponse);
-        } else if (place != null) {
+        } else */if (place != null) {
             val latLng = LatLng(place!!.lat.toDouble(), place!!.lon.toDouble())
             val markerOptions = MarkerOptions()
             markerOptions.position(latLng)

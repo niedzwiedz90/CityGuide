@@ -40,9 +40,6 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
     @Override
     public void onBindViewHolder(final PlacesViewHolder holder, int position) {
         PlaceOfInterest placeOfInterest = places.get(position);
-//        holder.hexColorView.setImageURI(ribot.image);
-//        holder.hexColorView.setBackgroundColor(Color.parseColor(ribot.profile().hexColor()));
-
         if (Utils.isEmpty(placeOfInterest.image)) {
             return;
         }
