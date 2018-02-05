@@ -72,6 +72,12 @@ class PlaceDetailsViewModel(var DataManager: DataManager) : BaseViewModel<PlaceD
         } else {
             gallerySectionVisibility.set(View.VISIBLE)
         }
+        
+        if (place?.lat == 0f) {
+            mapSectionVisibility.set(View.GONE)
+        } else {
+            mapSectionVisibility.set(View.VISIBLE)
+        }
     }
 
     fun onMapButtonClick(view: View) {

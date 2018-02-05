@@ -187,7 +187,7 @@
                         android:layout_below="@id/staticMapSection"
                         android:layout_marginLeft="@dimen/small_padding"
                         android:layout_marginRight="@dimen/small_padding"
-                        android:visibility="@{viewModel.gallerySectionVisibility}"
+                        android:visibility="@{viewModel.mapSectionVisibility}"
                         card_view:cardBackgroundColor="@color/accent"
                         card_view:cardCornerRadius="4dp"
                         card_view:cardUseCompatPadding="true">
