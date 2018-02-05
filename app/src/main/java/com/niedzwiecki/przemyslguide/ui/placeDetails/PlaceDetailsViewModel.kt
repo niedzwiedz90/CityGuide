@@ -81,4 +81,20 @@ class PlaceDetailsViewModel(var DataManager: DataManager) : BaseViewModel<PlaceD
     fun onFabButtonClick(view: View) {
         navigator?.moveForward(Navigator.Options.START_SLIDER_ACTIVITY)
     }
+
+    fun showGoogleStreet(view: View) {
+        navigator?.moveForward(
+                Navigator.Options.START_GOOGLE_STREET,
+                placeOfIntrest?.lat,
+                placeOfIntrest?.lon
+        )
+    }
+
+    fun showNavigateTo(view: View) {
+        navigator?.moveForward(
+                Navigator.Options.OPEN_NAVIGATION_MAP,
+                placeOfIntrest?.lat,
+                placeOfIntrest?.lon
+        )
+    }
 }
