@@ -10,41 +10,41 @@
             type="com.niedzwiecki.przemyslguide.ui.main.MainViewModel" />
     </data>
 
-        <android.support.v4.widget.DrawerLayout
-            android:id="@+id/drawerLayout"
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeToRefresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            tools:openDrawer="start">
+            android:layout_height="wrap_content"
+            app:refreshing="@{viewModel.isRefreshing}">
 
-            <android.support.v4.widget.SwipeRefreshLayout
-                android:id="@+id/swipeToRefresh"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:refreshing="@{viewModel.isRefreshing}">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/primary_light"
-                    android:clipToPadding="false"
-                    android:paddingBottom="6dp"
-                    android:paddingTop="6dp"
-                    android:scrollbars="vertical" />
-
-            </android.support.v4.widget.SwipeRefreshLayout>
-
-            <android.support.design.widget.NavigationView
-                android:id="@+id/navView"
-                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:fitsSystemWindows="true"
-                app:headerLayout="@layout/nav_header_main"
-                app:menu="@menu/activity_main_drawer" />
+                android:background="@color/primary_light"
+                android:clipToPadding="false"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:scrollbars="vertical" />
 
-        </android.support.v4.widget.DrawerLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+
+    </android.support.v4.widget.DrawerLayout>
 
 </layout>
 

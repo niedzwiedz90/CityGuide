@@ -2,6 +2,7 @@ package com.niedzwiecki.przemyslguide.ui.placeDetails
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.WindowManager
 import com.niedzwiecki.przemyslguide.R
@@ -52,12 +53,6 @@ class PlaceDetailsActivity : BaseActivity() {
                 .resize(convertDpToPixel(400f, this), convertDpToPixel(250f, this))
                 .centerCrop()
                 .into(viewDataBinding.staticMap)
-
-        viewDataBinding.staticMap.setOnClickListener({
-            if (place != null) {
-                startMapActivity(place!!)
-            }
-        })
     }
 
     private fun fetchData() {
@@ -72,6 +67,7 @@ class PlaceDetailsActivity : BaseActivity() {
         setScreenFlags()
         fetchData()
         setDataToViewModel()
+        viewDataBinding.appBarLayout
 //        placeAdapter.setItems(place?.images)
         if (savedInstanceState != null) {
             restoreData(savedInstanceState)
@@ -117,7 +113,25 @@ class PlaceDetailsActivity : BaseActivity() {
         when (options) {
             Navigator.Options.START_ACTIVITY_WITH_INTENT ->
                 startMapActivity(data[0] as PlaceOfInterest)
+            Navigator.Options.START_GOOGLE_STREET ->
+                openGoogleStreet(data[0] as Float, data[1] as Float)
+            Navigator.Options.OPEN_NAVIGATION_MAP ->
+                openNavigation(data[0] as Float, data[1] as Float)
         }
+    }
+
+    private fun openGoogleStreet(lat: Float, lon: Float) {
+        val gmmIntentUri = Uri.parse("google.streetview:cbll=" + lat + "," + lon)
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.`package` = "com.google.android.apps.maps"
+        startActivity(mapIntent)
+    }
+
+    fun openNavigation(lat: Float, lon: Float) {
+        val gmmIntentUri = Uri.parse("google.navigation:q=" + lat + "," + lon + "&mode=w")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.`package` = "com.google.android.apps.maps"
+        startActivity(mapIntent)
     }
 
     private fun startMapActivity(place: PlaceOfInterest) {
