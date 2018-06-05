@@ -20,7 +20,6 @@ import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.Companion.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
-import com.niedzwiecki.przemyslguide.util.Utils
 
 class MainActivity : BaseActivity() {
 
@@ -84,31 +83,28 @@ class MainActivity : BaseActivity() {
         placesAdapter = PlacesAdapter()
         viewDataBinding.recyclerView.adapter = placesAdapter
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
-        viewDataBinding.recyclerView.addOnItemTouchListener(RecyclerItemClickListener(this, viewDataBinding.recyclerView,
-                object : RecyclerItemClickListener.OnItemClickListener {
-                    override fun onItemClick(view: View, position: Int) {
-                        val places = placesAdapter.getPlace(position)
-                        openDetail(places!!)
-                    }
+        viewDataBinding.recyclerView.addOnItemTouchListener(
+                RecyclerItemClickListener(
+                        this, viewDataBinding.recyclerView,
+                        object : RecyclerItemClickListener.OnItemClickListener {
+                            override fun onItemClick(view: View, position: Int) {
+                                val places = placesAdapter.getPlace(position)
+                                openDetail(places!!)
+                            }
 
-                    override fun onLongItemClick(view: View, position: Int) {
+                            override fun onLongItemClick(view: View, position: Int) {
 
-                    }
-                }))
+                            }
+                        }))
 
-        header = viewDataBinding.navView.getHeaderView(0).findViewById(R.id.emailInfo) as TextView
-        if (!Utils.isEmpty(email)) {
-            header.setText(email)
-        }
+//        header = viewDataBinding.navView.getHeaderView(0).findViewById(R.id.emailInfo) as TextView
+//        header = viewDataBinding.navView.getHeaderView(0).findViewById(R.id.emailInfo) as TextView
+//        if (!Utils.isEmpty(email)) {
+//            header.setText(email)
+//        }
 
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         viewDataBinding.navView.setNavigationItemSelectedListener { item ->
-            /*  if (item.isChecked()) {
-                            item.setChecked(false);
-                        } else {
-                            item.setChecked(true);
-                        }*/
-
             viewDataBinding.drawerLayout.closeDrawers()
 
             when (item.itemId) {
@@ -121,6 +117,7 @@ class MainActivity : BaseActivity() {
                     getViewModel().filterPlaces("hotel")
                     true
                 }
+
                 R.id.navMapWithCastles -> {
                     getViewModel().filterPlaces("castle")
                     true
