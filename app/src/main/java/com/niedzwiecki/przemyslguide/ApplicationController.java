@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import timber.log.Timber;
 
-public class BoilerplateApplication extends Application  {
+public class ApplicationController extends Application  {
 
     //Added googleServices.json
 
@@ -18,8 +18,8 @@ public class BoilerplateApplication extends Application  {
         }
     }
 
-    public static BoilerplateApplication get(Context context) {
-        return (BoilerplateApplication) context.getApplicationContext();
+    public static ApplicationController get(Context context) {
+        return (ApplicationController) context.getApplicationContext();
     }
 
 }

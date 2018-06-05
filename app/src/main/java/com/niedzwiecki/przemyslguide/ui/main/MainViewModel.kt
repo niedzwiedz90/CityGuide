@@ -9,8 +9,6 @@ import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.util.RxUtil
 import rx.Subscriber
 import rx.Subscription
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
 import timber.log.Timber
 import java.util.*
 
@@ -22,9 +20,8 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
 
     fun loadPlaces() {
         RxUtil.unsubscribe(mSubscription)
+        navigator?.showProgress("loading")
         mSubscription = dataManager.places
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
                 .subscribe(object : Subscriber<List<PlaceOfInterest>>() {
                     override fun onCompleted() {
 
@@ -32,7 +29,6 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
 
                     override fun onError(throwable: Throwable) {
                         Timber.e(throwable, "<---ERROR RESPONSE")
-                        loadPlaces()
                     }
 
                     override fun onNext(places: List<PlaceOfInterest>) {
@@ -42,6 +38,7 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
                         isRefreshing.notifyChange()
                     }
                 })
+
     }
 
     fun logout() {

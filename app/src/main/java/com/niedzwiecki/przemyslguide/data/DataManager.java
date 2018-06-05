@@ -42,18 +42,8 @@ public class DataManager {
         return preferencesHelper;
     }
 
-  /*  public Observable<Ribot> syncRibots() {
-        return guideService.getPlaces()
-                .concatMap(new Func1<List<Ribot>, Observable<Ribot>>() {
-                    @Override
-                    public Observable<Ribot> call(List<Ribot> ribots) {
-                        return databaseHelper.setRibots(ribots);
-                    }
-                });
-    }*/
-
     public Observable<List<PlaceOfInterest>> getPlaces() {
-        return guideService.getPlaces();
+        return decorateObservable(guideService.getPlaces());
     }
 
     public boolean contains(PreferencesKeys key) {
@@ -74,11 +64,9 @@ public class DataManager {
                 });
     }*/
 
-
-    private <T> Observable<T> decorateObservable(Observable<T> observable) {
+    public <T> Observable<T> decorateObservable(Observable<T> observable) {
         return observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
-//                .onErrorReturn();
     }
 /*
 
