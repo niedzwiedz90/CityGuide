@@ -1,6 +1,7 @@
 package com.niedzwiecki.przemyslguide.ui.base;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -9,9 +10,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.DataManager;
+import com.niedzwiecki.przemyslguide.util.DialogFactory;
 
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicLong;
@@ -36,6 +39,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
     public ViewModel viewModel;
     public DataManager dataManager;
     private Toolbar toolbar;
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +103,9 @@ public abstract class BaseActivity extends AppCompatActivity implements
     protected void onDestroy() {
         if (!isChangingConfigurations()) {
             Timber.i("Clearing ConfigPersistentComponent id=%d", mActivityId);
-//            sComponentsMap.remove(mActivityId);
         }
         super.onDestroy();
     }
-
-//    public ActivityComponent activityComponent() {
-//        return mActivityComponent;
-//    }
 
     @Override
     public ViewModel createViewModel() {
@@ -124,7 +124,13 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     @Override
     public void showProgress(@NonNull String title) {
-
+        if (isFinishing() || progressDialog != null) {
+            return;
+        }
+        progressDialog = DialogFactory.createProgressDialog(this, title);
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
     }
 
     @Override

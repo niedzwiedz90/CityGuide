@@ -39,9 +39,9 @@ class MainActivity : BaseActivity() {
     override fun afterViews() {
         super.afterViews()
         viewDataBinding.viewModel = getViewModel()
-        fetchData()
+        fetchExtraData()
         init()
-        loadPlaces()
+        getViewModel().loadPlaces()
     }
 
     override fun afterViews(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private fun fetchData() {
+    private fun fetchExtraData() {
         if (intent.hasExtra(EMAIL_KEY)) {
             email = intent.getStringExtra(EMAIL_KEY)
         }
@@ -136,6 +136,7 @@ class MainActivity : BaseActivity() {
                 }
                 R.id.navLogout -> {
                     viewDataBinding.viewModel?.logout()
+                    viewDataBinding.viewModel.navigator?.showProgress("PROCESSING")
                     true
                 }
                 else -> true
@@ -145,10 +146,6 @@ class MainActivity : BaseActivity() {
         if (!getViewModel().isRefreshing.get()) {
             viewDataBinding.swipeToRefresh.setOnRefreshListener { viewDataBinding.viewModel?.loadPlaces() }
         }
-    }
-
-    private fun loadPlaces() {
-        getViewModel().loadPlaces()
     }
 
     private lateinit var savedListOfPlaces: ArrayList<PlaceOfInterest>

@@ -7,7 +7,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 
-import com.niedzwiecki.przemyslguide.BoilerplateApplication;
 import com.niedzwiecki.przemyslguide.ui.base.ApplicationController;
 
 import java.util.HashMap;

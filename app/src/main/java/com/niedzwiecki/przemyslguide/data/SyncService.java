@@ -29,7 +29,7 @@ public class SyncService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-//        BoilerplateApplication.get(this).getComponent().inject(this);
+//        ApplicationController.get(this).getComponent().inject(this);
     }
 
     @Override

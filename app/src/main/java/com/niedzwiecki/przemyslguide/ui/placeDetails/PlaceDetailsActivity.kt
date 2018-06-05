@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -35,13 +36,22 @@ class PlaceDetailsActivity : BaseActivity() {
         super.afterViews()
         viewDataBinding.viewModel = getViewModel()
         setScreenFlags()
-        fetchData()
+        fetchExtraData()
         setMapAndOnClick()
         toolbar.setTitle(" ")
         setDataToViewModel()
         placeAdapter = GalleryPagerAdapter(this)
         placeAdapter.setItems(place?.images)
         viewDataBinding.viewPager.adapter = placeAdapter
+    }
+
+    fun init() {
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun setMapAndOnClick() {
@@ -55,7 +65,7 @@ class PlaceDetailsActivity : BaseActivity() {
                 .into(viewDataBinding.staticMap)
     }
 
-    private fun fetchData() {
+    private fun fetchExtraData() {
         if (intent.hasExtra(MainActivity.INTEREST_PLACE_KEY)) {
             place = intent.extras!!.getParcelable(MainActivity.INTEREST_PLACE_KEY)
         }
@@ -65,10 +75,8 @@ class PlaceDetailsActivity : BaseActivity() {
         super.afterViews(savedInstanceState)
         viewDataBinding.viewModel = getViewModel()
         setScreenFlags()
-        fetchData()
+        fetchExtraData()
         setDataToViewModel()
-        viewDataBinding.appBarLayout
-//        placeAdapter.setItems(place?.images)
         if (savedInstanceState != null) {
             restoreData(savedInstanceState)
         }
