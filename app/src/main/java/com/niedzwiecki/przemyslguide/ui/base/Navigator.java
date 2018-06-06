@@ -27,19 +27,6 @@ public interface Navigator {
 
     void showError(@NonNull String title);
 
-    void showError(@NonNull String title, @NonNull String content);
-
-    void showInfo(@NonNull String title, @NonNull String content,
-                  @NonNull String positiveButtonText,
-                  DialogInterface.OnClickListener positiveClick);
-
-    void showInfo(@NonNull String title, @NonNull String content,
-                  @NonNull String positiveButtonText,
-                  DialogInterface.OnClickListener positiveClick,
-                  @NonNull String negativeButtonText,
-                  DialogInterface.OnClickListener negativeClick
-    );
-
     void startActivity(Class<? extends Activity> activityClass);
 
     void startActivity(Class<? extends Activity> activityClass, Serializable serializable);

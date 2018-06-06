@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.niedzwiecki.przemyslguide.R;
@@ -58,7 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
         if (dataBindingEnabled) {
             viewModel = viewModel != null ? viewModel : createViewModel();
-            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            toolbar = findViewById(R.id.toolbar);
             setupToolbarWithDataBinding(toolbar);
         } else {
             toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -91,6 +92,16 @@ public abstract class BaseActivity extends AppCompatActivity implements
         } else {
             return;
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -135,27 +146,23 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     @Override
     public void hideProgress() {
-
+        if (progressDialog == null) {
+            return;
+        }
+        try {
+            progressDialog.dismiss();
+        } catch (Exception e) {
+            Timber.e(e.getMessage());
+        }
+        progressDialog = null;
     }
 
     @Override
-    public void showError(@NonNull String title) {
-
-    }
-
-    @Override
-    public void showError(@NonNull String title, @NonNull String content) {
-
-    }
-
-    @Override
-    public void showInfo(@NonNull String title, @NonNull String content, @NonNull String positiveButtonText, DialogInterface.OnClickListener positiveClick) {
-
-    }
-
-    @Override
-    public void showInfo(@NonNull String title, @NonNull String content, @NonNull String positiveButtonText, DialogInterface.OnClickListener positiveClick, @NonNull String negativeButtonText, DialogInterface.OnClickListener negativeClick) {
-
+    public void showError(@NonNull String content) {
+        boolean showed = DialogFactory.safeShowDialog(this, DialogFactory.createGenericErrorDialog(this, content));
+        if (!showed) {
+            dataManager.showToast(content, Toast.LENGTH_LONG);
+        }
     }
 
     @Override

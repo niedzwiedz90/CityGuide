@@ -11,39 +11,70 @@
     </data>
 
     <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipeToRefresh"
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/myCoordinatorLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:refreshing="@{viewModel.isRefreshing}">
+            android:gravity="center">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/primary_light"
-                android:clipToPadding="false"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:scrollbars="vertical" />
+                android:gravity="center"
+                android:orientation="vertical">
 
-        </android.support.v4.widget.SwipeRefreshLayout>
+                <android.support.design.widget.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="0dp"
+                    app:elevation="0dp">
 
-        <com.niedzwiecki.przemyslguide.ui.views.LoadingView
-            android:id="@+id/loadingView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_gravity="center"/>
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:background="@color/accent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.AppBarLayout>
+
+                <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/swipeToRefresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:refreshing="@{viewModel.isRefreshing}">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/primary_light"
+                        android:clipToPadding="false"
+                        android:paddingBottom="6dp"
+                        android:paddingTop="6dp"
+                        android:scrollbars="vertical" />
+
+                </android.support.v4.widget.SwipeRefreshLayout>
+            </LinearLayout>
+
+
+            <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/addToDoItemFAB"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom|end"-->
+            <!--android:layout_margin="@dimen/fab_margin"-->
+            <!--app:srcCompat="@drawable/ic_add_white_24dp" />-->
+
+        </android.support.design.widget.CoordinatorLayout>
 
         <android.support.design.widget.NavigationView
-            android:id="@+id/navView"
+            android:id="@+id/nav_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
@@ -52,6 +83,5 @@
             app:menu="@menu/activity_main_drawer" />
 
     </android.support.v4.widget.DrawerLayout>
-
 </layout>
 
