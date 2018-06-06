@@ -29,6 +29,8 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
                     override fun onError(throwable: Throwable) {
                         navigator?.showError(throwable.message.toString())
                         navigator?.hideProgress()
+                        isRefreshing.set(false)
+                        isRefreshing.notifyChange()
                     }
 
                     override fun onNext(places: List<PlaceOfInterest>) {

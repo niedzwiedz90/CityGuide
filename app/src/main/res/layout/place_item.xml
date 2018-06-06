@@ -7,11 +7,11 @@
         android:id="@+id/card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="6dp"
-        card_view:cardCornerRadius="2dp">
+        android:layout_marginBottom="@dimen/paddingSmaller"
+        android:layout_marginLeft="@dimen/paddingLower"
+        android:layout_marginRight="@dimen/paddingLower"
+        android:layout_marginTop="@dimen/paddingSmall"
+        card_view:cardCornerRadius="@dimen/nano_padding">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/relativeLayout"
@@ -20,9 +20,9 @@
 
             <ImageView
                 android:id="@+id/view_hex_color"
-                android:layout_width="173dp"
-                android:layout_height="120dp"
-                android:background="@android:color/holo_blue_dark"
+                android:layout_width="180dp"
+                android:layout_height="130dp"
+                android:background="@android:color/darker_gray"
                 android:scaleType="centerCrop"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
@@ -32,11 +32,11 @@
                 android:id="@+id/text_email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginBottom="@dimen/paddingSmall"
+                android:layout_marginEnd="@dimen/paddingSmall"
+                android:layout_marginStart="@dimen/paddingSmall"
+                android:layout_marginTop="@dimen/paddingSmall"
                 android:lines="1"
-                android:layout_marginTop="8dp"
                 android:textSize="@dimen/text_small_body"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toEndOf="parent"
@@ -48,17 +48,17 @@
             <TextView
                 android:id="@+id/text_name"
                 android:layout_width="0dp"
-                android:lines="1"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/paddingSmall"
+                android:layout_marginStart="@dimen/paddingSmall"
+                android:layout_marginTop="@dimen/paddingSmall"
+                android:lines="1"
                 android:textSize="@dimen/text_body"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/view_hex_color"
                 tools:ignore="MissingConstraints"
-                tools:text="Antony Ribot" />
+                tools:text="Antony " />
 
         </android.support.constraint.ConstraintLayout>
 

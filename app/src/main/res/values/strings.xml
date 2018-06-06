@@ -61,5 +61,6 @@
     <string name="goToMap">Go to map</string>
     <string name="navigateTo">Navigate to</string>
     <string name="streetView">Show google street view</string>
+    <string name="all_places">All places</string>
 
 </resources>

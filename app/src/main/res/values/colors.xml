@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#1564bf</color>
-    <color name="primary_dark">#5e91f2</color>
+    <color name="primary_dark">#3D8AAC</color>
     <color name="primary_light">#5e91f2</color>
-    <color name="accent">#FFFFFF</color>
-    <color name="gray">#ffdfdfdf</color>
-    <color name="royalBlueColor">#624CAB</color>
+    <color name="accent">#fbfbfb</color>
+    <color name="gray">#91ceff</color>
+    <color name="royalBlueColor">#fcdc74</color>
 
 
     <!-- Base colors-->
