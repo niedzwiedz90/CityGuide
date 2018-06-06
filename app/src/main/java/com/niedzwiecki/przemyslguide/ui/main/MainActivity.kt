@@ -3,6 +3,7 @@ package com.niedzwiecki.przemyslguide.ui.main
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import android.widget.TextView
@@ -80,6 +81,7 @@ class MainActivity : BaseActivity() {
     private lateinit var placesAdapter: PlacesAdapter
 
     private fun init() {
+        setSupportActionBar(viewDataBinding.toolbar)
         placesAdapter = PlacesAdapter()
         viewDataBinding.recyclerView.adapter = placesAdapter
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
@@ -104,9 +106,19 @@ class MainActivity : BaseActivity() {
 //        }
 
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+        val toggle = ActionBarDrawerToggle(
+                this,
+                viewDataBinding.drawerLayout,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        )
+
+        viewDataBinding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
         viewDataBinding.navView.setNavigationItemSelectedListener { item ->
             viewDataBinding.drawerLayout.closeDrawers()
-
             when (item.itemId) {
                 R.id.navMap -> {
                     getViewModel().filterPlaces("all")

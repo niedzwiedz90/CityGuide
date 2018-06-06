@@ -9,7 +9,6 @@ import com.niedzwiecki.przemyslguide.ui.base.Navigator
 import com.niedzwiecki.przemyslguide.util.RxUtil
 import rx.Subscriber
 import rx.Subscription
-import timber.log.Timber
 import java.util.*
 
 class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainActivity>() {
@@ -28,10 +27,12 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
                     }
 
                     override fun onError(throwable: Throwable) {
-                        Timber.e(throwable, "<---ERROR RESPONSE")
+                        navigator?.showError(throwable.message.toString())
+                        navigator?.hideProgress()
                     }
 
                     override fun onNext(places: List<PlaceOfInterest>) {
+                        navigator?.hideProgress()
                         navigator?.moveForward(Navigator.Options.SHOW_PLACES, places)
                         placesList = places
                         isRefreshing.set(false)

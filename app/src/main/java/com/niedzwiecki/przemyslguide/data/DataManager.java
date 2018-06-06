@@ -104,4 +104,8 @@ public class DataManager {
         return dataManager;
     }
 
+    public void showToast(@NonNull String message, int duration) {
+        resourcesManager.showToast(message, duration);
+    }
+
 }

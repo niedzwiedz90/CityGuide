@@ -3,10 +3,12 @@ package com.niedzwiecki.przemyslguide.util;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
 import com.niedzwiecki.przemyslguide.R;
+import com.niedzwiecki.przemyslguide.ui.base.BaseActivity;
 
 public final class DialogFactory {
 
@@ -48,6 +50,19 @@ public final class DialogFactory {
     public static ProgressDialog createProgressDialog(Context context,
                                                       @StringRes int messageResource) {
         return createProgressDialog(context, context.getString(messageResource));
+    }
+
+    public static boolean safeShowDialog(@Nullable BaseActivity activity, @Nullable Dialog dialog) {
+        if (activity == null || dialog == null) {
+            return false;
+        }
+
+        if (!activity.isFinishing()) {
+            dialog.show();
+            return true;
+        }
+
+        return false;
     }
 
 }
