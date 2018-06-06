@@ -45,10 +45,6 @@ class PlaceDetailsActivity : BaseActivity() {
         viewDataBinding.viewPager.adapter = placeAdapter
     }
 
-    fun init() {
-
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

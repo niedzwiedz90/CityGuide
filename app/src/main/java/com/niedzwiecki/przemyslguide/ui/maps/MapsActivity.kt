@@ -7,11 +7,11 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
-import android.support.v4.widget.DrawerLayout
+import android.support.v7.widget.Toolbar
+import android.view.View
 import android.widget.Toast
 import butterknife.BindView
 import com.google.android.gms.common.ConnectionResult
@@ -35,24 +35,24 @@ import com.niedzwiecki.przemyslguide.ui.main.MainActivity
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
 import java.util.*
 
-class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+open class MapsActivity : FragmentActivity(),
+        OnMapReadyCallback,
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener,
+        LocationListener {
 
     private var map: GoogleMap? = null
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mLocationRequest: LocationRequest? = null
     private var mLastLocation: Location? = null
     private var mCurrLocationMarker: Marker? = null
-
     private var placesResponse: ArrayList<PlaceOfInterest>? = null
     private var place: PlaceOfInterest? = null
 
     private var clusterManager: ClusterManager<MyItem>? = null
 
-    @BindView(R.id.navMapView)
-    internal var navigationView: NavigationView? = null
-
-    @BindView(R.id.drawerMapLayout)
-    internal var drawerLayout: DrawerLayout? = null
+    @BindView(R.id.toolbar)
+    lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,57 +62,28 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
             checkLocationPermission()
         }
 
+        fetchExtraData()
+        val mapFragment = supportFragmentManager
+                .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
+        setUpToolbar()
+    }
+
+    private fun setUpToolbar() {
+        toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        if (place != null) toolbar.setTitle(place?.name) else toolbar.setTitle(R.string.all_places)
+        toolbar.setTitleTextColor(getColor(R.color.accent))
+    }
+
+    private fun fetchExtraData() {
         if (intent.hasExtra(PLACES_LIST)) {
             placesResponse = intent.getParcelableArrayListExtra(PLACES_LIST)
         } else if (intent.hasExtra(MainActivity.INTEREST_PLACE_KEY)) {
             place = intent.extras!!.getParcelable(MainActivity.INTEREST_PLACE_KEY)
         }
-
-        val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-//        init()
     }
 
-    private fun init() {
-        navigationView!!.setNavigationItemSelectedListener { item ->
-            /*  if (item.isChecked()) {
-                            item.setChecked(false);
-                        } else {
-                            item.setChecked(true);
-                        }*/
-
-            drawerLayout!!.closeDrawers()
-
-            when (item.itemId) {
-                R.id.navMap -> {
-                    filterPlaces("all")
-                    true
-                }
-                R.id.navLogout ->
-                    //                                mainViewModel.logout();
-                    true
-                R.id.navMapWithHotels -> {
-                    filterPlaces("hotel")
-                    true
-                }
-                R.id.navMapWithCastles -> {
-                    filterPlaces("castle")
-                    true
-                }
-                R.id.navMapWithFort -> {
-                    filterPlaces("station")
-                    true
-                }
-                R.id.navMapWithBunker -> {
-                    filterPlaces("bunker")
-                    true
-                }
-                else -> true
-            }
-        }
-    }
 
     private fun filterPlaces(type: String) {
         if (placesResponse != null) {
@@ -206,23 +177,15 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
     fun checkLocationPermission(): Boolean {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            // Asking user if explanation is needed
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
-                //Prompt the user once explanation has been shown
                 ActivityCompat.requestPermissions(this,
                         arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                         MY_PERMISSIONS_REQUEST_LOCATION)
 
 
             } else {
-                // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(this,
                         arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                         MY_PERMISSIONS_REQUEST_LOCATION)
@@ -237,11 +200,8 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
                                             permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
             MY_PERMISSIONS_REQUEST_LOCATION -> {
-                // If request is cancelled, the result arrays are empty.
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    // permission was granted. Do the
-                    // contacts-related task you need to do.
                     if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
@@ -252,8 +212,6 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
                     }
 
                 } else {
-
-                    // Permission denied, Disable the functionality that depends on this permission.
                     Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
                 }
                 return

@@ -21,6 +21,7 @@ import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity
 import com.niedzwiecki.przemyslguide.ui.maps.MapsActivity.Companion.PLACES_LIST
 import com.niedzwiecki.przemyslguide.ui.placeDetails.PlaceDetailsActivity
 import com.niedzwiecki.przemyslguide.util.RecyclerItemClickListener
+import com.niedzwiecki.przemyslguide.util.Utils
 
 class MainActivity : BaseActivity() {
 
@@ -99,23 +100,13 @@ class MainActivity : BaseActivity() {
                             }
                         }))
 
-//        header = viewDataBinding.navView.getHeaderView(0).findViewById(R.id.emailInfo) as TextView
-//        header = viewDataBinding.navView.getHeaderView(0).findViewById(R.id.emailInfo) as TextView
-//        if (!Utils.isEmpty(email)) {
-//            header.setText(email)
-//        }
+        header = viewDataBinding.navView.getHeaderView(0).findViewById(R.id.emailInfo)
+        if (!Utils.isEmpty(email)) {
+            header.setText(email)
+        }
 
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
-        val toggle = ActionBarDrawerToggle(
-                this,
-                viewDataBinding.drawerLayout,
-                toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        )
-
-        viewDataBinding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        setUpToolbar()
 
         viewDataBinding.navView.setNavigationItemSelectedListener { item ->
             viewDataBinding.drawerLayout.closeDrawers()
@@ -158,6 +149,21 @@ class MainActivity : BaseActivity() {
         if (!getViewModel().isRefreshing.get()) {
             viewDataBinding.swipeToRefresh.setOnRefreshListener { viewDataBinding.viewModel?.loadPlaces() }
         }
+    }
+
+    private fun setUpToolbar() {
+        val toggle = ActionBarDrawerToggle(
+                this,
+                viewDataBinding.drawerLayout,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        )
+
+        viewDataBinding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        toolbar.setTitle(R.string.all_places)
+        toolbar.setTitleTextColor(getColor(R.color.accent))
     }
 
     private lateinit var savedListOfPlaces: ArrayList<PlaceOfInterest>

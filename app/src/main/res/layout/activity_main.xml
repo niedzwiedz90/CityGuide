@@ -8,6 +8,7 @@
         <variable
             name="viewModel"
             type="com.niedzwiecki.przemyslguide.ui.main.MainViewModel" />
+
     </data>
 
     <android.support.v4.widget.DrawerLayout
@@ -37,9 +38,12 @@
 
                     <android.support.v7.widget.Toolbar
                         android:id="@+id/toolbar"
-                        android:background="@color/accent"
+                        style="@style/ToolbarViewStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:background="@color/blue80"
+                        app:layout_scrollFlags="scroll|enterAlways"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
                 </android.support.design.widget.AppBarLayout>
 
@@ -53,7 +57,7 @@
                         android:id="@+id/recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/primary_light"
+                        android:background="@color/gray10"
                         android:clipToPadding="false"
                         android:paddingBottom="6dp"
                         android:paddingTop="6dp"
@@ -61,15 +65,6 @@
 
                 </android.support.v4.widget.SwipeRefreshLayout>
             </LinearLayout>
-
-
-            <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/addToDoItemFAB"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="bottom|end"-->
-            <!--android:layout_margin="@dimen/fab_margin"-->
-            <!--app:srcCompat="@drawable/ic_add_white_24dp" />-->
 
         </android.support.design.widget.CoordinatorLayout>
 
