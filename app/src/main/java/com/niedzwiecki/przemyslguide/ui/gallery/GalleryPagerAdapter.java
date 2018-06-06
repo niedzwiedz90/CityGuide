@@ -2,9 +2,7 @@ package com.niedzwiecki.przemyslguide.ui.gallery;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -36,7 +34,7 @@ public class GalleryPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return images.size() - 1;
+        return images.size();
     }
 
     @Override
@@ -59,13 +57,13 @@ public class GalleryPagerAdapter extends PagerAdapter {
                 .centerCrop()
                 .into(imageView);
 
-        container.addView(itemView, position);
+        container.addView(itemView);
         return itemView;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeViewAt(position);
+        container.removeView((View) object);
     }
 
     public void setItems(List<String> images) {
