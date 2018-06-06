@@ -38,7 +38,7 @@ public class ViewUtils {
         }
 
         if (fitCenterInside) {
-            load.fit().centerInside();
+            load.fit();
         }
 
         if (callback == null) {

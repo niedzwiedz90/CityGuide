@@ -66,8 +66,14 @@ open class MapsActivity : FragmentActivity(),
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
         setUpToolbar()
+    }
+
+    private fun moveCamera() {
+        if (place != null) {
+            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(place!!.lat.toDouble(),
+                    place!!.lon.toDouble()), 9f))
+        }
     }
 
     private fun setUpToolbar() {
@@ -83,7 +89,6 @@ open class MapsActivity : FragmentActivity(),
             place = intent.extras!!.getParcelable(MainActivity.INTEREST_PLACE_KEY)
         }
     }
-
 
     private fun filterPlaces(type: String) {
         if (placesResponse != null) {
@@ -113,6 +118,7 @@ open class MapsActivity : FragmentActivity(),
                 buildGoogleApiClient()
                 map!!.isMyLocationEnabled = true
                 setUpCluster()
+                gotToPoint()
             }
         } else {
             buildGoogleApiClient()
@@ -136,7 +142,11 @@ open class MapsActivity : FragmentActivity(),
         mLocationRequest!!.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this)
+            LocationServices.FusedLocationApi.requestLocationUpdates(
+                    mGoogleApiClient,
+                    mLocationRequest,
+                    this
+            )
         }
     }
 
@@ -154,9 +164,15 @@ open class MapsActivity : FragmentActivity(),
             mCurrLocationMarker!!.remove()
         }
 
-        /*if (placesResponse != null) {
-            //            setPlacesMarkers(placesResponse);
-        } else */if (place != null) {
+        gotToPoint()
+
+        if (mGoogleApiClient != null) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this)
+        }
+    }
+
+    private fun gotToPoint() {
+        if (place != null) {
             val latLng = LatLng(place!!.lat.toDouble(), place!!.lon.toDouble())
             val markerOptions = MarkerOptions()
             markerOptions.position(latLng)
@@ -166,12 +182,6 @@ open class MapsActivity : FragmentActivity(),
             val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15f)
             map!!.animateCamera(cameraUpdate)
         }
-
-        //stop location updates
-        if (mGoogleApiClient != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this)
-        }
-
     }
 
     fun checkLocationPermission(): Boolean {
@@ -196,8 +206,11 @@ open class MapsActivity : FragmentActivity(),
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<String>,
+            grantResults: IntArray
+    ) {
         when (requestCode) {
             MY_PERMISSIONS_REQUEST_LOCATION -> {
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
