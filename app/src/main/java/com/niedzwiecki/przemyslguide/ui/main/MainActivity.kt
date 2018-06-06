@@ -162,7 +162,7 @@ class MainActivity : BaseActivity() {
         viewDataBinding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         toolbar.setTitle(R.string.all_places)
-        toolbar.setTitleTextColor(getColor(R.color.accent))
+        toolbar.setTitleTextColor(dataManager.getColor(R.color.accent))
     }
 
     private lateinit var savedListOfPlaces: ArrayList<PlaceOfInterest>

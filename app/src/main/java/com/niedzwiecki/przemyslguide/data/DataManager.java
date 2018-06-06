@@ -54,19 +54,6 @@ public class DataManager {
         return observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
-/*
-    private
-    @Nullable
-    <T> T handleError(Throwable throwable) {
-        if (NetworkUtil.isHttpStatusCode(throwable, 401)) {
-            clearAllUserData();
-            resourcesManager.startLauncher();
-            return null;
-        } else {
-            throw guideService.parseException(throwable);
-        }
-    }
-*/
 
     public void storeAuthenticationHeader(String loginHeader) {
         preferencesHelper.setAuthenticationHeader(PreferencesKeys.LOGION_HEADER, loginHeader);
@@ -92,6 +79,24 @@ public class DataManager {
     public void showToast(@NonNull String message, int duration) {
         resourcesManager.showToast(message, duration);
     }
+
+    public int getColor(int color) {
+        return resourcesManager.getColor(color);
+    }
+
+    /*
+    private
+    @Nullable
+    <T> T handleError(Throwable throwable) {
+        if (NetworkUtil.isHttpStatusCode(throwable, 401)) {
+            clearAllUserData();
+            resourcesManager.startLauncher();
+            return null;
+        } else {
+            throw guideService.parseException(throwable);
+        }
+    }
+*/
 
  /*   public Observable<SuppliesModel> login(String email, String password) {
         String encoding = HttpRequest.Base64.encode(email + ":" + password);

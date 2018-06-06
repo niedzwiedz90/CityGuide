@@ -34,7 +34,7 @@ public class GalleryPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return images.size() - 1;
+        return images.size();
     }
 
     @Override
@@ -57,13 +57,13 @@ public class GalleryPagerAdapter extends PagerAdapter {
                 .centerCrop()
                 .into(imageView);
 
-        container.addView(itemView, position);
+        container.addView(itemView);
         return itemView;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeViewAt(position);
+        container.removeView((View) object);
     }
 
     public void setItems(List<String> images) {

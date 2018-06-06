@@ -83,10 +83,6 @@ public class ResourcesManager {
     public int getInteger(@IntegerRes int res) {
         return context.getResources().getInteger(res);
     }
-    /*
-    public void startLauncher() {
-        context.startActivity(EmailActivity.getLauncher(context));
-    }*/
 
     public void release() {
         instance = null;
