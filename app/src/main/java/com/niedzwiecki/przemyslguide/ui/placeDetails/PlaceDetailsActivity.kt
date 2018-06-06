@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
+import android.support.v4.view.ViewPager
 import android.view.WindowManager
 import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -34,15 +34,42 @@ class PlaceDetailsActivity : BaseActivity() {
 
     override fun afterViews() {
         super.afterViews()
+        init()
+        setStaticMap()
+        toolbar.setTitle(" ")
+        setDataToViewModel()
+    }
+
+    override fun afterViews(savedInstanceState: Bundle?) {
+        super.afterViews(savedInstanceState)
+        init()
+        setDataToViewModel()
+        if (savedInstanceState != null) {
+            restoreData(savedInstanceState)
+        }
+    }
+
+    private fun init() {
         viewDataBinding.viewModel = getViewModel()
         setScreenFlags()
         fetchExtraData()
-        setMapAndOnClick()
-        toolbar.setTitle(" ")
-        setDataToViewModel()
         placeAdapter = GalleryPagerAdapter(this)
         placeAdapter.setItems(place?.images)
         viewDataBinding.viewPager.adapter = placeAdapter
+        fixPagerScroll()
+    }
+
+    private fun fixPagerScroll() {
+        viewDataBinding.viewPager.setOnTouchListener { view, motionEvent ->
+            view.parent.requestDisallowInterceptTouchEvent(true)
+            false
+        }
+
+        viewDataBinding.viewPager.setOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                viewDataBinding.viewPager.parent.requestDisallowInterceptTouchEvent(true)
+            }
+        })
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -50,7 +77,7 @@ class PlaceDetailsActivity : BaseActivity() {
         return true
     }
 
-    private fun setMapAndOnClick() {
+    private fun setStaticMap() {
         Picasso.with(this)
                 .load("https://maps.googleapis.com/maps/api/staticmap?center=" + place?.lat +
                         "," + place?.lon +
@@ -64,17 +91,6 @@ class PlaceDetailsActivity : BaseActivity() {
     private fun fetchExtraData() {
         if (intent.hasExtra(MainActivity.INTEREST_PLACE_KEY)) {
             place = intent.extras!!.getParcelable(MainActivity.INTEREST_PLACE_KEY)
-        }
-    }
-
-    override fun afterViews(savedInstanceState: Bundle?) {
-        super.afterViews(savedInstanceState)
-        viewDataBinding.viewModel = getViewModel()
-        setScreenFlags()
-        fetchExtraData()
-        setDataToViewModel()
-        if (savedInstanceState != null) {
-            restoreData(savedInstanceState)
         }
     }
 
