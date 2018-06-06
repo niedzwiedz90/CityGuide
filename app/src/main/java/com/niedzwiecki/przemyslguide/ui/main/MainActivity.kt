@@ -84,7 +84,7 @@ class MainActivity : BaseActivity() {
     private fun init() {
         setSupportActionBar(viewDataBinding.toolbar)
         placesAdapter = PlacesAdapter()
-//        viewDataBinding.recyclerView.adapter = placesAdapter
+        viewDataBinding.recyclerView.adapter = placesAdapter
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         viewDataBinding.recyclerView.addOnItemTouchListener(
                 RecyclerItemClickListener(
