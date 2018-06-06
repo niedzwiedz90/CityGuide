@@ -28,7 +28,7 @@ public class SearchContainerFragment {
                 } else if (bundle.getInt(KEY_FRAGMENT_TYPE) == MAP_FRAGMENT_TYPE) {
                     showMap();
                 } else {
-                    throw new RuntimeException("Unsupported type fragment.");
+                    throw new RuntimeException("Unsupported ALL_TYPE fragment.");
                 }
             }
         }

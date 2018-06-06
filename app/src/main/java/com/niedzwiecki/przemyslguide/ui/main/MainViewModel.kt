@@ -1,6 +1,7 @@
 package com.niedzwiecki.przemyslguide.ui.main
 
 import android.databinding.ObservableBoolean
+import com.niedzwiecki.przemyslguide.R
 import com.niedzwiecki.przemyslguide.data.DataManager
 import com.niedzwiecki.przemyslguide.data.local.PreferencesKeys
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest
@@ -16,10 +17,11 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
     private var mSubscription: Subscription? = null
     private lateinit var placesList: List<PlaceOfInterest>
     val isRefreshing = ObservableBoolean(false)
+    val adapter = PlacesAdapter()
 
     fun loadPlaces() {
         RxUtil.unsubscribe(mSubscription)
-        navigator?.showProgress("loading")
+        navigator?.showProgress(dataManager.resourcesManager.getString(R.string.processing))
         mSubscription = dataManager.places
                 .subscribe(object : Subscriber<List<PlaceOfInterest>>() {
                     override fun onCompleted() {
@@ -29,19 +31,22 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
                     override fun onError(throwable: Throwable) {
                         navigator?.showError(throwable.message.toString())
                         navigator?.hideProgress()
-                        isRefreshing.set(false)
-                        isRefreshing.notifyChange()
+                        stopRefreshing()
                     }
 
                     override fun onNext(places: List<PlaceOfInterest>) {
                         navigator?.hideProgress()
                         navigator?.moveForward(Navigator.Options.SHOW_PLACES, places)
                         placesList = places
-                        isRefreshing.set(false)
-                        isRefreshing.notifyChange()
+                        stopRefreshing()
                     }
                 })
 
+    }
+
+    private fun stopRefreshing() {
+        isRefreshing.set(false)
+        isRefreshing.notifyChange()
     }
 
     fun logout() {
@@ -55,7 +60,7 @@ class MainViewModel(private val dataManager: DataManager) : BaseViewModel<MainAc
         for (interestPlace in placesList) {
             if (interestPlace.type == type) {
                 tempList.add(interestPlace)
-            } else if (type == "all") {
+            } else if (type == MainActivity.ALL_TYPE) {
                 tempList.add(interestPlace)
             }
         }

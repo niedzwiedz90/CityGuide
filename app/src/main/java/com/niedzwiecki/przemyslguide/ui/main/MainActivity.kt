@@ -84,7 +84,7 @@ class MainActivity : BaseActivity() {
     private fun init() {
         setSupportActionBar(viewDataBinding.toolbar)
         placesAdapter = PlacesAdapter()
-        viewDataBinding.recyclerView.adapter = placesAdapter
+//        viewDataBinding.recyclerView.adapter = placesAdapter
         viewDataBinding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         viewDataBinding.recyclerView.addOnItemTouchListener(
                 RecyclerItemClickListener(
@@ -112,34 +112,33 @@ class MainActivity : BaseActivity() {
             viewDataBinding.drawerLayout.closeDrawers()
             when (item.itemId) {
                 R.id.navMap -> {
-                    getViewModel().filterPlaces("all")
+                    getViewModel().filterPlaces(MainActivity.ALL_TYPE)
                     true
                 }
 
                 R.id.navMapWithHotels -> {
-                    getViewModel().filterPlaces("hotel")
+                    getViewModel().filterPlaces(MainActivity.HOTEL_TYPE)
                     true
                 }
 
                 R.id.navMapWithCastles -> {
-                    getViewModel().filterPlaces("castle")
+                    getViewModel().filterPlaces(MainActivity.CASTLE_TYPE)
                     true
                 }
                 R.id.navMapWithFort -> {
-                    getViewModel().filterPlaces("station")
+                    getViewModel().filterPlaces(MainActivity.STATION_TYPE)
                     true
                 }
                 R.id.navMapWithStation -> {
-                    getViewModel().filterPlaces("station")
+                    getViewModel().filterPlaces(MainActivity.STATION_TYPE)
                     true
                 }
                 R.id.navMapWithBunker -> {
-                    getViewModel().filterPlaces("bunker")
+                    getViewModel().filterPlaces(MainActivity.BUNKER_TYPE)
                     true
                 }
                 R.id.navLogout -> {
                     viewDataBinding.viewModel?.logout()
-                    viewDataBinding.viewModel.navigator?.showProgress("PROCESSING")
                     true
                 }
                 else -> true
@@ -226,6 +225,7 @@ class MainActivity : BaseActivity() {
 
     companion object {
 
+        val ALL_TYPE: String = "all"
         private val EXTRA_TRIGGER_SYNC_FLAG = "uk.co.ribot.androidboilerplate.ui.main.MainActivity.EXTRA_TRIGGER_SYNC_FLAG"
         val INTEREST_PLACE_KEY = "com.niedzwiecki.przemyslGuide.PlaceDetailActivity.key"
 
@@ -235,6 +235,12 @@ class MainActivity : BaseActivity() {
             context.startActivity(starter)
             context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+
+        val HOTEL_TYPE: String = "hotel"
+        val CASTLE_TYPE: String = "castle"
+        val STATION_TYPE: String = "station"
+        val FORT_TYPE: String = "fort"
+        val BUNKER_TYPE: String = "bunker"
     }
 
 }
