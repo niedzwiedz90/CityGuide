@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.niedzwiecki.przemyslguide.R;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
 import com.niedzwiecki.przemyslguide.util.Utils;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import timber.log.Timber;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesViewHolder> {
 
@@ -44,11 +44,27 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
             return;
         }
 
-        Picasso.with(holder.hexColorView.getContext())
-                .load(placeOfInterest.image)
-                .resize(700, 700)
-                .centerCrop()
-                .into(holder.hexColorView);
+        holder.loaderView.setVisibility(View.VISIBLE);
+        final ProgressBar progressView = holder.loaderView;
+        if (!placeOfInterest.image.isEmpty()) {
+            Picasso.with(holder.hexColorView.getContext())
+                    .load(placeOfInterest.image)
+                    .placeholder(R.drawable.photo_camera)
+                    .resize(700, 700)
+                    .centerCrop()
+                    .into(holder.hexColorView, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            progressView.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            progressView.setVisibility(View.GONE);
+                        }
+                    });
+        }
+
         holder.nameTextView.setText(String.format("%s",
                 placeOfInterest.name));
         holder.emailTextView.setText(placeOfInterest.email);
@@ -69,12 +85,14 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesView
         ImageView hexColorView;
         TextView nameTextView;
         TextView emailTextView;
+        ProgressBar loaderView;
 
         public PlacesViewHolder(View itemView) {
             super(itemView);
             hexColorView = (ImageView) itemView.findViewById(R.id.view_hex_color);
             nameTextView = (TextView) itemView.findViewById(R.id.text_name);
             emailTextView = (TextView) itemView.findViewById(R.id.text_email);
+            loaderView = (ProgressBar) itemView.findViewById(R.id.loader_view);
         }
 
         @Override

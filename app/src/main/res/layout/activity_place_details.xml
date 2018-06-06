@@ -36,8 +36,6 @@
                     android:id="@+id/coverImage"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:fitsSystemWindows="true"
-                    android:src="@drawable/ic_slowackiego"
                     app:imageUrlFit="@{viewModel.imageFieldUrl}"
                     app:layout_collapseMode="parallax" />
 
@@ -92,7 +90,7 @@
                                 android:drawableLeft="@drawable/ic_location_on_black_24dp"
                                 android:drawablePadding="@dimen/medium_padding"
                                 android:gravity="start"
-                                android:onClick="@{viewModel.onMapButtonClick}"
+                                android:onClick="@{viewModel.showOnMap}"
                                 android:padding="@dimen/medium_padding"
                                 android:text="@{viewModel.locationField}"
                                 android:textAlignment="viewStart"
@@ -205,7 +203,7 @@
                                 android:layout_alignParentLeft="true"
                                 android:background="?android:attr/selectableItemBackground"
                                 android:gravity="center"
-                                android:onClick="@{viewModel.onMapButtonClick}"
+                                android:onClick="@{viewModel.showOnMap}"
                                 android:text="@string/goToMap"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black_transparent_38" />

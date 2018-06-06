@@ -50,26 +50,11 @@ public class DataManager {
         return preferencesHelper.contains(key);
     }
 
- /*   public Observable<SuppliesModel> login(String email, String password) {
-        String encoding = HttpRequest.Base64.encode(email + ":" + password);
-        final String format = String.format("Basic %s", encoding);
-        return guideService.getSupplies(format)
-                .doOnNext(new Action1<SuppliesModel>() {
-                    @Override
-                    public void call(SuppliesModel suppliesListModel) {
-                        if (suppliesListModel != null) {
-                            storeAuthenticationHeader(format);
-                        }
-                    }
-                });
-    }*/
-
     public <T> Observable<T> decorateObservable(Observable<T> observable) {
         return observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 /*
-
     private
     @Nullable
     <T> T handleError(Throwable throwable) {
@@ -108,4 +93,17 @@ public class DataManager {
         resourcesManager.showToast(message, duration);
     }
 
+ /*   public Observable<SuppliesModel> login(String email, String password) {
+        String encoding = HttpRequest.Base64.encode(email + ":" + password);
+        final String format = String.format("Basic %s", encoding);
+        return guideService.getSupplies(format)
+                .doOnNext(new Action1<SuppliesModel>() {
+                    @Override
+                    public void call(SuppliesModel suppliesListModel) {
+                        if (suppliesListModel != null) {
+                            storeAuthenticationHeader(format);
+                        }
+                    }
+                });
+    }*/
 }

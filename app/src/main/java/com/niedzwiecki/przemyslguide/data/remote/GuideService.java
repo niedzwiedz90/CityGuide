@@ -3,7 +3,6 @@ package com.niedzwiecki.przemyslguide.data.remote;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.niedzwiecki.przemyslguide.data.model.PlaceOfInterest;
-import com.niedzwiecki.przemyslguide.data.model.SuppliesModel;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,14 +23,11 @@ public interface GuideService {
     @GET("places")
     Observable<List<PlaceOfInterest>> getPlaces();
 
-    Observable<SuppliesModel> getSupplies(String format);
-
     /******** Helper class that sets up a new services *******/
     class Creator {
 
         public static Retrofit newRibotsService() {
             Gson gson = new GsonBuilder()
-//                    .registerTypeAdapterFactory(MyGsonTypeAdapterFactory.create())
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                     .create();
 
