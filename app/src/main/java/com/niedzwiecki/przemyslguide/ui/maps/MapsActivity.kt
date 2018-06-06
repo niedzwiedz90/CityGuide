@@ -19,10 +19,7 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
@@ -48,7 +45,6 @@ open class MapsActivity : FragmentActivity(),
     private var mCurrLocationMarker: Marker? = null
     private var placesResponse: ArrayList<PlaceOfInterest>? = null
     private var place: PlaceOfInterest? = null
-
     private var clusterManager: ClusterManager<MyItem>? = null
 
     @BindView(R.id.toolbar)
@@ -67,6 +63,7 @@ open class MapsActivity : FragmentActivity(),
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         setUpToolbar()
+
     }
 
     private fun moveCamera() {
@@ -79,7 +76,7 @@ open class MapsActivity : FragmentActivity(),
     private fun setUpToolbar() {
         toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         if (place != null) toolbar.setTitle(place?.name) else toolbar.setTitle(R.string.all_places)
-        toolbar.setTitleTextColor(getColor(R.color.accent))
+        toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.accent))
     }
 
     private fun fetchExtraData() {
@@ -111,6 +108,7 @@ open class MapsActivity : FragmentActivity(),
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         map!!.mapType = GoogleMap.MAP_TYPE_NORMAL
+        map?.uiSettings?.isZoomControlsEnabled = true
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
