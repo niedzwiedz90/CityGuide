@@ -32,6 +32,11 @@ public class MyItem implements ClusterItem {
         interestPlace = new PlaceOfInterest(0, image, name, lng, lat);
     }
 
+    public MyItem(float lat, float lng, PlaceOfInterest interestPlace) {
+        this.mPosition = new LatLng(lat, lng);
+        this.interestPlace = interestPlace;
+    }
+
     @Override
     public LatLng getPosition() {
         return mPosition;
