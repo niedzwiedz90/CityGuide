@@ -126,7 +126,7 @@ class MainActivity : BaseActivity() {
                     true
                 }
                 R.id.navMapWithFort -> {
-                    getViewModel().filterPlaces(MainActivity.STATION_TYPE)
+                    getViewModel().filterPlaces(MainActivity.FORT_TYPE)
                     true
                 }
                 R.id.navMapWithStation -> {
