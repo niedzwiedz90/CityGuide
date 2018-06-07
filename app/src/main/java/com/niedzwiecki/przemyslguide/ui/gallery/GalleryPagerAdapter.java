@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.niedzwiecki.przemyslguide.R;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -51,11 +53,24 @@ public class GalleryPagerAdapter extends PagerAdapter {
         );
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.placeImage);
+        final ProgressBar progressBar = itemView.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         Picasso.with(context)
                 .load(images.get(position))
+                .placeholder(R.drawable.photo_camera)
                 .resize(convertDpToPixel(400f, context), convertDpToPixel(250f, context))
                 .centerCrop()
-                .into(imageView);
+                .into(imageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        progressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError() {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
 
         container.addView(itemView);
         return itemView;
